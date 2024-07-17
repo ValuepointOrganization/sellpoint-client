@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const MainBody = () => {
-  <BodyContainer>
-    <MainLine>숨겨진 매도 의견을\n 확인해보세요.</MainLine>
-  </BodyContainer>;
-  return;
+  return (
+    <BodyContainer>
+      <MainLine>숨겨진 매도 의견을{'\n'}확인해보세요.</MainLine>
+    </BodyContainer>
+  );
 };
 
 export default MainBody;
