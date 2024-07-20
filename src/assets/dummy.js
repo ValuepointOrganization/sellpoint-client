@@ -16,7 +16,7 @@ const DummyStock = [
   },
 ];
 
-export default DummyStock;
+export { DummyStock, DummyAnalyst };
 
 const DummyAnalyst = [
   {
