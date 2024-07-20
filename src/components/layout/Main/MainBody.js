@@ -17,36 +17,44 @@ const MainBody = () => {
   };
 
   return (
-    <BodyContainer>
-      {!isSearchActive && (
-        <>
-          <MainLine>숨겨진 매도 의견을{"\n"}확인해보세요.</MainLine>
-          <Space height="32px" />
-        </>
-      )}
+    <>
       {isSearchActive ? (
         <SearchHeader />
       ) : (
-        <SearchBar onClick={handleSearchClick} />
+        <SearchBarWrapper>
+          <SearchBar onClick={handleSearchClick} />
+        </SearchBarWrapper>
       )}
-      <Space height={isSearchActive ? "7px" : "128px"} />
-      <MainStockList />
-      <Space height="64px" />
-      <MainAnalystList />
-      <Space height="64px" />
-      <MainUserList />
-      <Space height="64px" />
-      <MainReportList />
-    </BodyContainer>
+      <BodyContainer isSearchActive={isSearchActive}>
+        {!isSearchActive && (
+          <>
+            <MainLine>숨겨진 매도 의견을{"\n"}확인해보세요.</MainLine>
+            <Space height="32px" />
+          </>
+        )}
+        <Space height={isSearchActive ? "7px" : "128px"} />
+        <MainStockList />
+        <Space height="64px" />
+        <MainAnalystList />
+        <Space height="64px" />
+        <MainUserList />
+        <Space height="64px" />
+        <MainReportList />
+      </BodyContainer>
+    </>
   );
 };
 
 export default MainBody;
 
+const SearchBarWrapper = styled.div`
+  padding: 40px 20px 0;
+`;
+
 const BodyContainer = styled.div`
   width: 100%;
   height: auto;
-  padding: 40px 20px;
+  padding: ${props => props.isSearchActive ? '0 20px' : '40px 20px'};
 `;
 
 const MainLine = styled.p`
