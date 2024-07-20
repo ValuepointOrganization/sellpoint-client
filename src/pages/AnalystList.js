@@ -47,10 +47,10 @@ const ListContainer = styled.div`
 `;
 
 const ListHeader = styled.div`
-  gap: 4px;
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   color: #565656;
   font-size: 12px;
   font-style: normal;
