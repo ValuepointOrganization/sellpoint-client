@@ -17,13 +17,18 @@ const MainStockList = () => {
         <MoreButton text="종목 더보기" width={82} height={22} />
       </ListHeader>
       <Space height="20px" />
-      <ListSquare>
-        <StockProfile>
-          <img src={NvidiaLogo} alt="Nvidia Logo" />
-          {/* <span>{DummyStock[0]["name"]}</span> */}
-        </StockProfile>
-        <StockInfo></StockInfo>
-      </ListSquare>
+      {DummyStock.map((stock, index) => (
+        <ListSquare key={index}>
+          <StockProfile>
+            <img src={NvidiaLogo} alt={`${stock.name} Logo`} />
+            <span>{stock.name}</span>
+          </StockProfile>
+          <StockInfo>
+            <span>{stock.code}</span>
+            <span>{stock.up}</span>
+          </StockInfo>
+        </ListSquare>
+      ))}
     </StockListContainer>
   );
 };

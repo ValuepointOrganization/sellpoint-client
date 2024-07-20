@@ -15,3 +15,5 @@ const DummyStock = [
     name: "Nvidia",
   },
 ];
+
+export default DummyStock;
