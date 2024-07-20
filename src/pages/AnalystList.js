@@ -68,6 +68,7 @@ const ListContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: solid 1px #f5f6f7;
 `;
 
 const ListText = styled.span`
