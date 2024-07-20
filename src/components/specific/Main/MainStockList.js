@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import MoreButton from "./MoreButton";
 import Space from "../../common/Space";
+import ListHeader from "./ListHeader";
 
 import NvidiaLogo from "../../../assets/image/nvidia.svg";
 import DummyStock from "../../../assets/dummy.js";
@@ -9,12 +9,7 @@ import DummyStock from "../../../assets/dummy.js";
 const MainStockList = () => {
   return (
     <StockListContainer>
-      <ListHeader>
-        <p style={{ fontSize: "16px", fontWeight: 600, lineHeight: "160%" }}>
-          인기 종목
-        </p>
-        <MoreButton text="종목 더보기" width={82} height={22} />
-      </ListHeader>
+      <ListHeader title="인기 종목" buttonText="종목 더보기" buttonWidth={82} buttonHeight={22} />
       <Space height="20px" />
       {DummyStock.map((stock, index) => (
         <ListSquare key={index}>
@@ -36,13 +31,6 @@ export default MainStockList;
 
 const StockListContainer = styled.div`
   width: 100%;
-`;
-
-const ListHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
 `;
 
 const ListSquare = styled.div`
