@@ -12,9 +12,11 @@ const AnalystList = () => {
       <ListContainer>
         <ListHeader>
           <span style={{ width: "131px" }}>랭킹</span>
-          <span style={{ width: "70px" }}>오차</span>
-          <span style={{ width: "70px" }}>적중기간</span>
-          <span style={{ width: "70px" }}>리포트 수</span>
+          <StatHeaderArea>
+            <span style={{ width: "70px" }}>오차</span>
+            <span style={{ width: "70px" }}>적중기간</span>
+            <span style={{ width: "70px" }}>리포트 수</span>
+          </StatHeaderArea>
         </ListHeader>
         {DummyAnalystProfile.map((analyst, index) => {
           return (
@@ -50,7 +52,6 @@ const ListHeader = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   color: #565656;
   font-size: 12px;
   font-style: normal;
@@ -119,4 +120,8 @@ const RankArea = styled.div`
 
 const StatArea = styled.div`
   display: flex;
+`;
+
+const StatHeaderArea = styled(StatArea)`
+  margin-left: auto;
 `;
