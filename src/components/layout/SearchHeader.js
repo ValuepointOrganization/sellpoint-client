@@ -10,9 +10,7 @@ const SearchHeader = () => {
 
   return (
     <SearchHeaderContainer>
-      <IconButton
-        onClick={() => navigate(-1)}
-      >
+      <IconButton onClick={() => navigate("/")}>
         <img src={ChevronBack} alt="BackBtn" />
       </IconButton>
       <SearchBar width="275px" height="50px" placeholder="애널리스트" />

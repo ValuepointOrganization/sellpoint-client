@@ -29,7 +29,6 @@ const MainBody = () => {
         {!isSearchActive && (
           <>
             <MainLine>숨겨진 매도 의견을{"\n"}확인해보세요.</MainLine>
-            <Space height="32px" />
           </>
         )}
         <Space height={isSearchActive ? "7px" : "128px"} />
@@ -54,7 +53,7 @@ const SearchBarWrapper = styled.div`
 const BodyContainer = styled.div`
   width: 100%;
   height: auto;
-  padding: ${props => props.isSearchActive ? '0 20px' : '40px 20px'};
+  padding: ${(props) => (props.isSearchActive ? "0 20px" : "40px 20px")};
 `;
 
 const MainLine = styled.p`
