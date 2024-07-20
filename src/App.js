@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/analyst-list" element={<AnalystList />} />
-          <Route path="/analyst/:i" element={<AnalystDetail />} />
+          <Route path="/analyst/:analystId" element={<AnalystDetail />} />
           {/* Add more routes here as needed */}
         </Routes>
       </div>
