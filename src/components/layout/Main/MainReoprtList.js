@@ -6,6 +6,22 @@ import Space from "../../common/Space";
 import NvidiaLogo from "../../../assets/image/NvidiaBig.svg";
 import { DummyReport } from "../../../assets/dummy";
 
+const ReportItem = ({ report }) => {
+  return (
+    <ReportArea>
+      <ReportImage src={NvidiaLogo} alt={`${report.companyName} Logo`} />
+      <ReportProfile>
+        <AnalystInfo>
+          {report.analystName} | {report.firmName}
+        </AnalystInfo>
+        <ReportTitle>{report.reportTitle}</ReportTitle>
+        <CompanyName>{report.companyName}</CompanyName>
+      </ReportProfile>
+      <ReportOpinion>{report.opinion}</ReportOpinion>
+    </ReportArea>
+  );
+};
+
 const MainReportList = () => {
   return (
     <ReportListContainer>
@@ -16,50 +32,7 @@ const MainReportList = () => {
         buttonHeight={22}
       />
       <Space height="20px" />
-      <ReportArea>
-        <ReportImage
-          src={NvidiaLogo}
-          alt={`${DummyReport[0].companyName} Logo`}
-        />
-        <ReportProfile>
-          <span
-            style={{
-              color: "#83838A",
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: "600",
-              lineHeight: "normal",
-            }}
-          >
-            {DummyReport[0].analystName}
-            {" | "}
-            {DummyReport[0].firmName}
-          </span>
-          <span
-            style={{
-              color: "#2C2C2C",
-              fontSize: "14px",
-              fontStyle: "normal",
-              fontWeight: "600",
-              lineHeight: "normal",
-            }}
-          >
-            {DummyReport[0].reportTitle}
-          </span>
-          <span
-            style={{
-              color: "#BABABF",
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: "500",
-              lineHeight: "normal",
-            }}
-          >
-            {DummyReport[0].companyName}
-          </span>
-        </ReportProfile>
-        <ReportOpinion>{DummyReport[0].opinion}</ReportOpinion>
-      </ReportArea>
+      <ReportItem report={DummyReport[0]} />
     </ReportListContainer>
   );
 };
@@ -73,15 +46,42 @@ const ReportListContainer = styled.div`
 const ReportArea = styled.div`
   padding: 12px;
   display: flex;
-  aligh-itmes: center;
+  align-items: center;
 `;
 
-const ReportImage = styled.img``;
+const ReportImage = styled.img`
+  margin-right: 12px;
+`;
 
 const ReportProfile = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex-grow: 1;
+`;
+
+const AnalystInfo = styled.span`
+  color: #83838A;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+
+const ReportTitle = styled.span`
+  color: #2C2C2C;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+
+const CompanyName = styled.span`
+  color: #BABABF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
 
 const ReportOpinion = styled.div`
