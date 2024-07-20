@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../specific/SearchBar";
 import ChevronBack from "../../assets/image/ChevronBack.svg";
 import FilterIcon from "../../assets/image/FilterIcon.svg";
 
 const SearchHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <SearchHeaderContainer>
       <IconButton
-        onClick={() => {
-          /* Add your back functionality here */
-        }}
+        onClick={() => navigate(-1)}
       >
         <img src={ChevronBack} alt="BackBtn" />
       </IconButton>
