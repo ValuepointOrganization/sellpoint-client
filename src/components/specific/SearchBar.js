@@ -7,9 +7,10 @@ const SearchBar = ({
   width = "100%",
   height = "50px",
   placeholder = "종목 또는 애널리스트를 검색하세요.",
+  onClick,
 }) => {
   return (
-    <SearchBarContainer width={width} height={height}>
+    <SearchBarContainer width={width} height={height} onClick={onClick}>
       <SearchIcon src={SearchIconSvg} alt="Search" />
       <SearchInput placeholder={placeholder} />
       <ClearIcon src={CloseIconSvg} alt="Clear" />

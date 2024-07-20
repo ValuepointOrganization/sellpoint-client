@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SearchBar from "../../specific/SearchBar";
+import SearchHeader from "../SearchHeader";
 import MainStockList from "./MainStockList";
 import MainAnalystList from "./MainAnalystList";
 import MainUserList from "./MainUserList";
@@ -9,12 +10,26 @@ import MainReportList from "./MainReportList";
 import Space from "../../common/Space";
 
 const MainBody = () => {
+  const [isSearchActive, setIsSearchActive] = useState(false);
+
+  const handleSearchClick = () => {
+    setIsSearchActive(true);
+  };
+
   return (
     <BodyContainer>
-      <MainLine>숨겨진 매도 의견을{"\n"}확인해보세요.</MainLine>
-      <Space height="32px" />
-      <SearchBar />
-      <Space height="128px" />
+      {!isSearchActive && (
+        <>
+          <MainLine>숨겨진 매도 의견을{"\n"}확인해보세요.</MainLine>
+          <Space height="32px" />
+        </>
+      )}
+      {isSearchActive ? (
+        <SearchHeader />
+      ) : (
+        <SearchBar onClick={handleSearchClick} />
+      )}
+      <Space height={isSearchActive ? "7px" : "128px"} />
       <MainStockList />
       <Space height="64px" />
       <MainAnalystList />
