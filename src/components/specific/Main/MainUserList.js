@@ -4,23 +4,23 @@ import Space from "../../common/Space";
 import ListHeader from "./ListContainerHeader";
 import ScrollContainer from "./ScrollContainer";
 
-import { DummyAnalyst } from "../../../assets/dummy";
+import { DummyUser } from "../../../assets/dummy";
 
-const MainAnalystList = () => {
+const MainUserList = () => {
   return (
     <AnalystListContainer>
       <ListHeader
-        title="인기 애널리스트"
-        buttonText="애널리스트 더보기"
-        buttonWidth={119}
+        title="인기 유저"
+        buttonText="유저 더보기"
+        buttonWidth={82}
         buttonHeight={22}
       />
       <Space height="20px" />
       <ScrollContainer>
-        {DummyAnalyst.map((analyst, index) => (
+        {DummyUser.map((analyst, index) => (
           <ListSquare key={index}>
             <AnalystName>{analyst.name}</AnalystName>
-            <AnalystFirm>{analyst.firm}</AnalystFirm>
+            <AnalystFirm>{analyst.performance}</AnalystFirm>
           </ListSquare>
         ))}
       </ScrollContainer>
@@ -28,14 +28,14 @@ const MainAnalystList = () => {
   );
 };
 
-export default MainAnalystList;
+export default MainUserList;
 
 const AnalystListContainer = styled.div`
   width: 100%;
 `;
 
 const ListSquare = styled.div`
-  min-width: 74px;
+  min-width: 93px;
   display: flex;
   padding: 16px;
   flex-direction: column;

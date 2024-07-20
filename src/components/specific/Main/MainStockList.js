@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import Space from "../../common/Space";
-import ListHeader from "./ListHeader";
+import ListHeader from "./ListContainerHeader.js";
 
 import NvidiaLogo from "../../../assets/image/nvidia.svg";
-import DummyStock from "../../../assets/dummy.js";
+import { DummyStock } from "../../../assets/dummy.js";
 
 const MainStockList = () => {
   return (
     <StockListContainer>
-      <ListHeader title="인기 종목" buttonText="종목 더보기" buttonWidth={82} buttonHeight={22} />
+      <ListHeader
+        title="인기 종목"
+        buttonText="종목 더보기"
+        buttonWidth={82}
+        buttonHeight={22}
+      />
       <Space height="20px" />
       {DummyStock.map((stock, index) => (
         <ListSquare key={index}>
