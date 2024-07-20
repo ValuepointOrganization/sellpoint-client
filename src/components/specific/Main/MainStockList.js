@@ -7,13 +7,12 @@ import NvidiaLogo from "../../../assets/image/nvidia.svg";
 import DummyStock from "../../../assets/dummy.js";
 
 const MainStockList = () => {
-  console.log(DummyStock);
   return (
     <StockListContainer>
       <ListHeader>
-        <span style={{ fontSize: "16px", fontWeight: 600, lineHeight: "160%" }}>
+        <p style={{ fontSize: "16px", fontWeight: 600, lineHeight: "160%" }}>
           인기 종목
-        </span>
+        </p>
         <MoreButton text="종목 더보기" width={82} height={22} />
       </ListHeader>
       <Space height="20px" />
@@ -48,14 +47,18 @@ const ListHeader = styled.div`
 
 const ListSquare = styled.div`
   padding: 12px;
+  width: 100%;
   border-radius: 8px;
   background: #f5f6f7;
+  display: flex;
+  flex-direction: row;
 `;
 
 const StockProfile = styled.div`
   display: flex;
   align-items: center;
-  gpa-12px;
+  width: auto;
+  gap: 12px;
 `;
 
 const StockInfo = styled.div`
