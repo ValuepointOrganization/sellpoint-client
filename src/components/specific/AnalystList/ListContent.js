@@ -77,9 +77,16 @@ const NameText = styled.div`
   line-height: 140%;
   letter-spacing: 0.32px;
   display: inline-block;
+  position: relative;
   
-  &:hover {
-    border-bottom: 1px solid #000;
+  &:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: #000;
   }
 `;
 
