@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import SearchBar from "../../specific/SearchBar";
 import SearchHeader from "../SearchHeader";
@@ -16,10 +16,14 @@ const MainBody = () => {
     setIsSearchActive(true);
   };
 
+  const handleBackClick = useCallback(() => {
+    setIsSearchActive(false);
+  }, []);
+
   return (
     <>
       {isSearchActive ? (
-        <SearchHeader />
+        <SearchHeader onBackClick={handleBackClick} />
       ) : (
         <SearchBarWrapper>
           <SearchBar onClick={handleSearchClick} />
