@@ -24,7 +24,7 @@ const MainStockList = () => {
           </StockProfile>
           <StockInfo>
             <span>{stock.code}</span>
-            <span>{stock.up}</span>
+            <span style={{ color: "#FF3B30" }}>{stock.up}</span>
           </StockInfo>
         </ListSquare>
       ))}
@@ -60,6 +60,7 @@ const StockProfile = styled.div`
   align-items: center;
   width: auto;
   gap: 12px;
+  font-size: 14px;
 `;
 
 const StockInfo = styled.div`
@@ -68,4 +69,5 @@ const StockInfo = styled.div`
   justify-content: center;
   align-items: flex-end;
   gap: 4px;
+  font-size: 12px;
 `;
