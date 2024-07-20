@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Space from "../../common/Space";
-import ListHeader from "./ListContainerHeader";
+import ListContainerHeader from "./ListContainerHeader";
 import ScrollContainer from "./ScrollContainer";
 
 import { DummyAnalyst } from "../../../assets/dummy";
@@ -9,7 +9,7 @@ import { DummyAnalyst } from "../../../assets/dummy";
 const MainAnalystList = () => {
   return (
     <AnalystListContainer>
-      <ListHeader
+      <ListContainerHeader
         title="인기 애널리스트"
         buttonText="애널리스트 더보기"
         buttonWidth={119}

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Space from "../../common/Space";
-import ListHeader from "./ListContainerHeader.js";
+import ListContainerHeader from "./ListContainerHeader.js";
 
 import NvidiaLogo from "../../../assets/image/nvidia.svg";
 import { DummyStock } from "../../../assets/dummy.js";
@@ -9,7 +9,7 @@ import { DummyStock } from "../../../assets/dummy.js";
 const MainStockList = () => {
   return (
     <StockListContainer>
-      <ListHeader
+      <ListContainerHeader
         title="인기 종목"
         buttonText="종목 더보기"
         buttonWidth={82}
