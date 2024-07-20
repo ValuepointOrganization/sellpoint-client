@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Space from "../../common/Space";
 import ListHeader from "./ListHeader";
+import ScrollContainer from "./ScrollContainer";
 
 import { DummyAnalyst } from "../../../assets/dummy";
 
@@ -33,17 +34,6 @@ const AnalystListContainer = styled.div`
   width: 100%;
 `;
 
-const ScrollContainer = styled.div`
-  display: flex;
-  overflow-x: auto;
-  gap: 12px;
-  padding-bottom: 8px;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-`;
 
 const ListSquare = styled.div`
   min-width: 74px;
