@@ -76,6 +76,11 @@ const NameText = styled.div`
   font-weight: 600;
   line-height: 140%;
   letter-spacing: 0.32px;
+  display: inline-block;
+  
+  &:hover {
+    border-bottom: 1px solid #000;
+  }
 `;
 
 const RankArea = styled.div`
