@@ -65,7 +65,7 @@ const AnalystName = styled.span`
 `;
 
 const AnalystFirm = styled.span`
-  color: #BABABF;
+  color: #bababf;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
