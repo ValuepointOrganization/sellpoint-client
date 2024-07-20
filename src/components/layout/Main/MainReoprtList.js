@@ -50,18 +50,19 @@ const ReportArea = styled.div`
 `;
 
 const ReportImage = styled.img`
-  margin-right: 12px;
+  margin-right: 20px;
 `;
 
 const ReportProfile = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  margin-right: 16px;
   flex-grow: 1;
 `;
 
 const AnalystInfo = styled.span`
-  color: #83838A;
+  color: #83838a;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -69,7 +70,7 @@ const AnalystInfo = styled.span`
 `;
 
 const ReportTitle = styled.span`
-  color: #2C2C2C;
+  color: #2c2c2c;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -77,7 +78,7 @@ const ReportTitle = styled.span`
 `;
 
 const CompanyName = styled.span`
-  color: #BABABF;
+  color: #bababf;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
