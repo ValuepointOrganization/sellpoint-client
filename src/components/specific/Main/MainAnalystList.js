@@ -15,30 +15,14 @@ const MainAnalystList = () => {
         buttonHeight={22}
       />
       <Space height="20px" />
-      <ListSquare>
-        <span
-          style={{
-            color: "#000",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: "600",
-            lineHeight: "160%",
-          }}
-        >
-          {DummyAnalyst[0].name}
-        </span>
-        <span
-          style={{
-            color: "#BABABF",
-            fontSize: "12px",
-            fontSyle: "normal",
-            fontWeight: "600",
-            lineHeight: "160%",
-          }}
-        >
-          {DummyAnalyst[0].firm}
-        </span>
-      </ListSquare>
+      <ScrollContainer>
+        {DummyAnalyst.map((analyst, index) => (
+          <ListSquare key={index}>
+            <AnalystName>{analyst.name}</AnalystName>
+            <AnalystFirm>{analyst.firm}</AnalystFirm>
+          </ListSquare>
+        ))}
+      </ScrollContainer>
     </AnalystListContainer>
   );
 };
@@ -49,8 +33,20 @@ const AnalystListContainer = styled.div`
   width: 100%;
 `;
 
+const ScrollContainer = styled.div`
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 8px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`;
+
 const ListSquare = styled.div`
-  width: 74px;
+  min-width: 74px;
   display: flex;
   padding: 16px;
   flex-direction: column;
@@ -58,4 +54,20 @@ const ListSquare = styled.div`
   gap: 8px;
   border-radius: 8px;
   background: #f5f6f7;
+`;
+
+const AnalystName = styled.span`
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
+`;
+
+const AnalystFirm = styled.span`
+  color: #BABABF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%;
 `;
