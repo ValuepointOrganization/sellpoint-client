@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Space from "../components/common/Space";
 import SearchHeader from "../components/layout/SearchHeader";
-import ListContent from "../components/specific/AnalystList/ListContent";
+import ListContent, { StatArea } from "../components/specific/AnalystList/ListContent";
 
 import { DummyAnalystProfile } from "../assets/dummy";
 const AnalystList = () => {
@@ -48,6 +48,7 @@ const ListHeader = styled.div`
 `;
 
 
-const StatHeaderArea = styled(StatArea)`
+const StatHeaderArea = styled.div`
+  display: flex;
   margin-left: auto;
 `;
