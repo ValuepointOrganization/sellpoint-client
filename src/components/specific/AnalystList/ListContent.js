@@ -4,11 +4,11 @@ import Space from "../../common/Space";
 
 const ListContent = ({ analyst, index, onClick }) => {
   return (
-    <ListContentWrapper onClick={() => onClick(index)}>
+    <ListContentWrapper>
       <RankArea>
         <RankNum>{index}</RankNum>
         <Space width="12px" />
-        <NameFirm>
+        <NameFirm onClick={() => onClick(index)}>
           <NameText>{analyst.name}</NameText>
           <FirmText>{analyst.firm}</FirmText>
         </NameFirm>
@@ -25,7 +25,6 @@ const ListContent = ({ analyst, index, onClick }) => {
 export default ListContent;
 
 const ListContentWrapper = styled.div`
-  cursor: pointer;
   padding: 22px 0px;
   width: 100%;
   display: flex;
@@ -59,6 +58,7 @@ const NameFirm = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  cursor: pointer;
 `;
 
 const FirmText = styled.div`
