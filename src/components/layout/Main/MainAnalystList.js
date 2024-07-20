@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import Space from "../../common/Space";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader";
 import ScrollContainer from "../../specific/Main/ScrollContainer";
@@ -8,6 +9,12 @@ import ListSquare from "../../specific/Main/ListSquare";
 import { DummyAnalyst } from "../../../assets/dummy";
 
 const MainAnalystList = () => {
+  const navigate = useNavigate();
+
+  const handleMoreButtonClick = () => {
+    navigate("/analyst-list");
+  };
+
   return (
     <AnalystListContainer>
       <ListContainerHeader
@@ -15,6 +22,7 @@ const MainAnalystList = () => {
         buttonText="애널리스트 더보기"
         buttonWidth={119}
         buttonHeight={22}
+        onButtonClick={handleMoreButtonClick}
       />
       <Space height="20px" />
       <ScrollContainer>

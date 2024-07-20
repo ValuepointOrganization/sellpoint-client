@@ -7,13 +7,19 @@ const ListContainerHeader = ({
   buttonText,
   buttonWidth,
   buttonHeight,
+  onButtonClick,
 }) => {
   return (
     <ListHeaderContainer>
       <p style={{ fontSize: "16px", fontWeight: 600, lineHeight: "160%" }}>
         {title}
       </p>
-      <MoreButton text={buttonText} width={buttonWidth} height={buttonHeight} />
+      <MoreButton
+        text={buttonText}
+        width={buttonWidth}
+        height={buttonHeight}
+        onClick={onButtonClick}
+      />
     </ListHeaderContainer>
   );
 };
