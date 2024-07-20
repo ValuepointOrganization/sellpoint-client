@@ -52,6 +52,7 @@ const ListSquare = styled.div`
   background: #f5f6f7;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 const StockProfile = styled.div`
@@ -63,7 +64,6 @@ const StockProfile = styled.div`
 
 const StockInfo = styled.div`
   display: flex;
-  width: 33px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
