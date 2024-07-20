@@ -7,11 +7,19 @@ import FilterIcon from "../../assets/image/FilterIcon.svg";
 const SearchHeader = () => {
   return (
     <SearchHeaderContainer>
-      <IconButton onClick={() => {/* Add your back functionality here */}}>
+      <IconButton
+        onClick={() => {
+          /* Add your back functionality here */
+        }}
+      >
         <img src={ChevronBack} alt="BackBtn" />
       </IconButton>
       <SearchBar width="275px" height="50px" placeholder="애널리스트" />
-      <IconButton onClick={() => {/* Add your filter functionality here */}}>
+      <IconButton
+        onClick={() => {
+          /* Add your filter functionality here */
+        }}
+      >
         <img src={FilterIcon} alt="FilterBtn" />
       </IconButton>
     </SearchHeaderContainer>
@@ -25,6 +33,7 @@ const SearchHeaderContainer = styled.div`
   display: flex;
   width: 100%;
   gap: 16px;
+  padding: 0px 24px;
 `;
 
 const IconButton = styled.button`
