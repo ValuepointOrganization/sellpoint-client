@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Space from "../../common/Space";
 import ListContainerHeader from "./ListContainerHeader";
 import ScrollContainer from "./ScrollContainer";
+import ListSquare from "./ListSquare";
 
 import { DummyAnalyst } from "../../../assets/dummy";
 
@@ -18,7 +19,7 @@ const MainAnalystList = () => {
       <Space height="20px" />
       <ScrollContainer>
         {DummyAnalyst.map((analyst, index) => (
-          <ListSquare key={index}>
+          <ListSquare key={index} type="analyst">
             <AnalystName>{analyst.name}</AnalystName>
             <AnalystFirm>{analyst.firm}</AnalystFirm>
           </ListSquare>
@@ -32,17 +33,6 @@ export default MainAnalystList;
 
 const AnalystListContainer = styled.div`
   width: 100%;
-`;
-
-const ListSquare = styled.div`
-  min-width: 74px;
-  display: flex;
-  padding: 16px;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-  background: #f5f6f7;
 `;
 
 const AnalystName = styled.span`

@@ -3,12 +3,13 @@ import styled from "styled-components";
 import Space from "../../common/Space";
 import ListContainerHeader from "./ListContainerHeader";
 import ScrollContainer from "./ScrollContainer";
+import ListSquare from "./ListSquare";
 
 import { DummyUser } from "../../../assets/dummy";
 
 const MainUserList = () => {
   return (
-    <AnalystListContainer>
+    <UserListContainer>
       <ListContainerHeader
         title="인기 유저"
         buttonText="유저 더보기"
@@ -17,35 +18,24 @@ const MainUserList = () => {
       />
       <Space height="20px" />
       <ScrollContainer>
-        {DummyUser.map((analyst, index) => (
-          <ListSquare key={index}>
-            <AnalystName>{analyst.name}</AnalystName>
-            <AnalystFirm>{analyst.performance}</AnalystFirm>
+        {DummyUser.map((user, index) => (
+          <ListSquare key={index} type="user">
+            <UserName>{user.name}</UserName>
+            <UserPerformance>{user.performance}</UserPerformance>
           </ListSquare>
         ))}
       </ScrollContainer>
-    </AnalystListContainer>
+    </UserListContainer>
   );
 };
 
 export default MainUserList;
 
-const AnalystListContainer = styled.div`
+const UserListContainer = styled.div`
   width: 100%;
 `;
 
-const ListSquare = styled.div`
-  min-width: 93px;
-  display: flex;
-  padding: 16px;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-  background: #f5f6f7;
-`;
-
-const AnalystName = styled.span`
+const UserName = styled.span`
   color: #000;
   font-size: 14px;
   font-style: normal;
