@@ -23,7 +23,6 @@ const ListContent = ({ analyst, index }) => {
 };
 
 export default ListContent;
-export { StatArea };
 
 const ListContentWrapper = styled.div`
   padding: 22px 0px;

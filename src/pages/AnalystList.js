@@ -2,13 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import Space from "../components/common/Space";
 import SearchHeader from "../components/layout/SearchHeader";
-import ListContent, { StatArea } from "../components/specific/AnalystList/ListContent";
+import ListContent from "../components/specific/AnalystList/ListContent";
 
 import { DummyAnalystProfile } from "../assets/dummy";
+import { useNavigate } from "react-router-dom";
 const AnalystList = () => {
+  const navigate = useNavigate();
+  const handleBackClick = () => {
+    navigate("/");
+  };
+
   return (
     <>
-      <SearchHeader />
+      <SearchHeader onBackClick={handleBackClick} />
       <Space height="20px" />
       <ListContainer>
         <ListHeader>
@@ -46,7 +52,6 @@ const ListHeader = styled.div`
   padding-bottom: 10px;
   border-bottom: solid 1px #dadbdc;
 `;
-
 
 const StatHeaderArea = styled.div`
   display: flex;
