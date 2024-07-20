@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Space from "../../common/Space";
 
-const ListContent = ({ analyst, index }) => {
+const ListContent = ({ analyst, index, onClick }) => {
   return (
-    <ListContentWrapper>
+    <ListContentWrapper onClick={() => onClick(index)}>
       <RankArea>
         <RankNum>{index}</RankNum>
         <Space width="12px" />
@@ -25,6 +25,7 @@ const ListContent = ({ analyst, index }) => {
 export default ListContent;
 
 const ListContentWrapper = styled.div`
+  cursor: pointer;
   padding: 22px 0px;
   width: 100%;
   display: flex;
