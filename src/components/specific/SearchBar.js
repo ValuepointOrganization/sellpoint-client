@@ -3,7 +3,11 @@ import styled from "styled-components";
 import SearchIconSvg from "../../assets/image/search.svg";
 import CloseIconSvg from "../../assets/image/close.svg";
 
-const SearchBar = ({ width = '100%', height = '50px', placeholder = "종목 또는 애널리스트를 검색하세요." }) => {
+const SearchBar = ({
+  width = "100%",
+  height = "50px",
+  placeholder = "종목 또는 애널리스트를 검색하세요.",
+}) => {
   return (
     <SearchBarContainer width={width} height={height}>
       <SearchIcon src={SearchIconSvg} alt="Search" />
@@ -19,8 +23,8 @@ const SearchBarContainer = styled.div`
   display: flex;
   padding: 12px;
   justify-content: space-between;
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   align-items: center;
   align-self: stretch;
   border-radius: 24px;
