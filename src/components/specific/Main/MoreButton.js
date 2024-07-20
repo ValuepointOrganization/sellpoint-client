@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import forwardIcon from "../../../assets/image/chevrom-forward.svg";
+import React from "react";
+import styled from "styled-components";
+import forwardIcon from "../../../assets/image/chevron-forward.svg";
 
 const StyledButton = styled.button`
   display: flex;
@@ -10,14 +10,14 @@ const StyledButton = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
-  width: ${props => props.width || 'auto'};
-  height: ${props => props.height || 'auto'};
+  width: ${(props) => props.width || "auto"};
+  height: ${(props) => props.height || "auto"};
 `;
 
 const ButtonText = styled.span`
-  color: #BABABF;
-  font-size: ${props => props.fontSize || '14px'};
-  margin-right: 8px;
+  color: #bababf;
+  font-size: ${(props) => props.fontSize || "14px"};
+  margin-right: 4px;
 `;
 
 const IconWrapper = styled.img`

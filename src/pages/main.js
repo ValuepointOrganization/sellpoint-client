@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../components/layout/Header";
-
-const MainPage = () => {
+import MainBody from "../components/layout/MainBody";
+const Main = () => {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Header />
+      <MainBody />
     </div>
   );
 };
 
-export default MainPage;
+export default Main;
