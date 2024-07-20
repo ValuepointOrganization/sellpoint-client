@@ -2,6 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import forwardIcon from "../../../assets/image/chevron-forward.svg";
 
+const MoreButton = ({ text, width, height, fontSize, onClick }) => {
+  return (
+    <StyledButton width={width} height={height} onClick={onClick}>
+      <ButtonText fontSize={fontSize}>{text}</ButtonText>
+      <IconWrapper src={forwardIcon} alt="Forward" />
+    </StyledButton>
+  );
+};
+
+export default MoreButton;
+
 const StyledButton = styled.button`
   display: flex;
   align-items: center;
@@ -24,14 +35,3 @@ const IconWrapper = styled.img`
   width: 16px;
   height: 16px;
 `;
-
-const MoreButton = ({ text, width, height, fontSize, onClick }) => {
-  return (
-    <StyledButton width={width} height={height} onClick={onClick}>
-      <ButtonText fontSize={fontSize}>{text}</ButtonText>
-      <IconWrapper src={forwardIcon} alt="Forward" />
-    </StyledButton>
-  );
-};
-
-export default MoreButton;
