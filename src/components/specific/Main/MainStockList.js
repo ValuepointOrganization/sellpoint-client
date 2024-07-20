@@ -53,6 +53,9 @@ const ListSquare = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
 `;
 
 const StockProfile = styled.div`
