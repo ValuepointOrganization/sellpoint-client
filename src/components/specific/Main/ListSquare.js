@@ -22,15 +22,15 @@ const StyledListSquare = styled.div`
 
   ${({ type }) => {
     switch (type) {
-      case 'analyst':
+      case "analyst":
         return `
           min-width: 74px;
         `;
-      case 'user':
+      case "user":
         return `
           min-width: 93px;
         `;
-      case 'stock':
+      case "stock":
         return `
           width: 100%;
           padding: 12px;
@@ -40,8 +40,11 @@ const StyledListSquare = styled.div`
             margin-bottom: 12px;
           }
         `;
+      case "report":
+        return `
+        `;
       default:
-        return '';
+        return "";
     }
   }}
 `;
