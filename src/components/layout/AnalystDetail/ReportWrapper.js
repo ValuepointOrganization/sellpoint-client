@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 
 import ReportSearchBar from "../../specific/AnalystDetail/ReportSearchBar";
-import ReportBox from "../../specific/AnalystDetail/ReportBox";
+import ScrollableReportList from "../../specific/AnalystDetail/ScrollableReportList";
 
 import { DummyReport } from "../../../assets/dummy";
 import Space from "../../common/Space";
@@ -14,9 +14,7 @@ const ReportWrapper = () => {
       <Space height="20px" />
       <ReportSearchBar />
       <Space height="12px" />
-      {DummyReport.map((report, index) => {
-        return <ReportBox key={index} report={report} />;
-      })}
+      <ScrollableReportList reports={DummyReport} />
     </AreaContainer>
   );
 };
