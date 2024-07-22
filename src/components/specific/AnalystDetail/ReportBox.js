@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
 import Space from "../../common/Space";
+import ReportOpinion from "../ReportOpinion";
 const ReportBox = ({ report }) => {
   console.log(report);
   return (
     <ReportOutside>
-      <ReportOpinion>{report.opinion}</ReportOpinion>
+      <ReportOpinion text={report.opinion} isBuy={report.opinion === "Buy"} />
       <ReportContent>
         <NameSection>
           <Logo src={NvidiaLogo} alt={`NvidiaLogo`} />
@@ -49,21 +50,6 @@ const ReportContent = styled.div`
   flex: 1 0 0;
 `;
 
-const ReportOpinion = styled.div`
-  display: flex;
-  width: 40px;
-  padding: 4px 6px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 8px;
-  background: rgba(49, 130, 246, 0.1);
-  color: #3182f6;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-`;
 
 const NameSection = styled.div`
   display: flex;
