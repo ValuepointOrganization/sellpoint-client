@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const ReportOpinion = ({ children, isBuy }) => {
+const ReportOpinion = ({ children }) => {
+  const isBuy = children.toLowerCase() === 'buy';
   return <OpinionBox isBuy={isBuy}>{children}</OpinionBox>;
 };
 
