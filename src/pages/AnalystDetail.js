@@ -12,6 +12,10 @@ const AnalystDetail = () => {
 
   console.log(DummyAnalystProfile[0]);
 
+  if (!analystProfile) {
+    return <div>Analyst not found</div>;
+  }
+
   return (
     <>
       <Header />
