@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const ReportOpinion = ({ text, isBuy }) => {
-  return <OpinionBox isBuy={isBuy}>{text}</OpinionBox>;
+const ReportOpinion = ({ children, isBuy }) => {
+  return <OpinionBox isBuy={isBuy}>{children}</OpinionBox>;
 };
 
 export default ReportOpinion;
