@@ -6,12 +6,11 @@ import Space from "../components/common/Space.js";
 import { DummyAnalystProfile } from "../assets/dummy";
 
 const AnalystDetail = () => {
-  const { anaystID } = useParams();
-  const analystProfile = DummyAnalystProfile.find(analyst => analyst.id === parseInt(anaystID));
+  const { analystID } = useParams();
 
-  if (!analystProfile) {
-    return <div>Analyst not found</div>;
-  }
+  const analystProfile = DummyAnalystProfile[analystID - 1];
+
+  console.log(DummyAnalystProfile[0]);
 
   return (
     <>
