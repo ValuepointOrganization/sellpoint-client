@@ -1,0 +1,22 @@
+import React from "react";
+import styled from "styled-components";
+import StatBox from "./StatBox";
+const StatArea = (analystProfile) => {
+  console.log(analystProfile.firm);
+  return (
+    <StatContainer>
+      <StatBox category={`오차(RMSE)`} detail={analystProfile.RMSE} />
+      <StatBox category={`첫 예측 적중 기간`} detail={analystProfile.hitRate} />
+      <StatBox category={`리포트 수`} detail={analystProfile.reportNum} />
+    </StatContainer>
+  );
+};
+
+export default StatArea;
+
+const StatContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+`;
