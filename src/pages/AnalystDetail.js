@@ -6,20 +6,31 @@ import Space from "../components/common/Space.js";
 import { DummyAnalystProfile } from "../assets/dummy";
 
 const AnalystDetail = () => {
-  const { analystID } = useParams();
+  const analystID = useParams();
+  const [analystProfile, setAnalystProfile] = React.useState(null);
 
-  const analystProfile = DummyAnalystProfile[analystID - 1];
-
-  console.log(DummyAnalystProfile[0]);
-
-  if (!analystProfile) {
-    return <div>Analyst not found</div>;
-  }
+  React.useEffect(() => {
+    const fetchAnalystProfile = async () => {
+      try {
+        // Replace this with your actual fetch call
+        // const response = await fetch(`/api/analyst/${analystID}`);
+        // const data = await response.json();
+        const data = DummyAnalystProfile; // Using dummy data for now
+        console.log(data[analystID]);
+        console.log(analystID);
+        setAnalystProfile(data[analystID - 1]);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    fetchAnalystProfile();
+  }, [analystID]);
 
   return (
     <>
       <Header />
-      <AnalystDetailProfile analystProfile={analystProfile} />
+      {/* <AnalystDetailProfile analystProfile={analystProfile} /> */}
+      <p>현재 parameter는 {analystProfile} 입니다.</p>
       <Space height="32px" />
     </>
   );
