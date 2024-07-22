@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import StatBox from "./StatBox";
-const StatArea = (analystProfile) => {
-  console.log(analystProfile.firm);
+
+const StatArea = ({ analystProfile }) => {
   return (
     <StatContainer>
       <StatBox category={`오차(RMSE)`} detail={analystProfile.RMSE} />
