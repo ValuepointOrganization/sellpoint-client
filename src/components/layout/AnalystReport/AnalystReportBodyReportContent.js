@@ -5,6 +5,7 @@ import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
 
 import ShareBtn from "../../specific/ShareBtn";
 import ReportOpinion from "../../specific/ReportOpinion";
+import Divider from "../../specific/Divider";
 
 const AnalystReportBodyReportContent = () => {
   return (
@@ -87,8 +88,3 @@ const OtherText = styled.span`
   line-height: normal;
 `;
 
-const Divider = styled.div`
-  width: 353px;
-  height: 1px;
-  background: #e1e3e5;
-`;
