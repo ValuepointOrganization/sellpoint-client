@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const TargetPriceSection = () => {
-  return <TargetPriceWrapper></TargetPriceWrapper>;
+  return (
+    <TargetPriceWrapper>
+      <PriceBar backgroundColor="#FF304A" textColor="#FFF">
+        Sample Price Bar
+      </PriceBar>
+    </TargetPriceWrapper>
+  );
 };
 
 const TargetPriceWrapper = styled.div`
@@ -21,9 +27,9 @@ const PriceBar = styled.div`
   gap: 10px;
   align-self: stretch;
   border-radius: 12px;
-  background: #ff304a;
+  background: ${props => props.backgroundColor || '#FF304A'};
   padding: 8px 12px;
-  color: #fff;
+  color: ${props => props.textColor || '#FFF'};
   text-align: center;
   font-size: 14px;
   font-style: normal;
