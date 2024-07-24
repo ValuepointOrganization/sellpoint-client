@@ -12,25 +12,28 @@ const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
   ).toFixed(2);
   const differencePrice = (maxPrice - minPrice).toFixed(2);
 
-  let targetBarColor = "#FF304A";
-  if (targetPrice <= nowPrice) targetBarColor = "#3182F6";
+  const isTargetLower = targetPrice <= nowPrice;
+  const targetBarColor = isTargetLower ? "#3182F6" : "#FF304A";
+  const compareTextColor = isTargetLower ? "#3182F6" : "#FF3B30";
 
   return (
     <TargetPriceWrapper>
-      <CompareText>
-        {differencePercentage}% 저평가(-${differencePrice})
+      <CompareText color={compareTextColor}>
+        {Math.abs(differencePercentage)}% {isTargetLower ? "고평가" : "저평가"}(${differencePrice})
       </CompareText>
       <PriceBar
         backgroundColor={targetBarColor}
         textColor="#FFF"
-        width={`${targetPricePercentage}%`}
+        width="100%"
+        isLower={isTargetLower}
       >
         목표가 (${targetPrice.toFixed(2)})
       </PriceBar>
       <PriceBar
         backgroundColor="#E9E9E9"
         textColor="#8C8C8C"
-        width={`${nowPricePercentage}%`}
+        width="100%"
+        isLower={!isTargetLower}
       >
         현재가 (${nowPrice.toFixed(2)})
       </PriceBar>
@@ -49,7 +52,7 @@ const TargetPriceWrapper = styled.div`
 `;
 
 const CompareText = styled.span`
-  color: #ff3b30;
+  color: ${(props) => props.color || "#FF3B30"};
   text-align: end;
   font-family: Pretendard;
   font-size: 16px;
