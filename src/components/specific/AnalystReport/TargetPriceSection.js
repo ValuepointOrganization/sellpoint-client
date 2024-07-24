@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const TargetPriceSection = () => {
+const TargetPriceSection = ({ targetPrice, nowPrice }) => {
+  let barColor = "#FF304A";
+
+  if (targetPrice <= nowPrice) barColor = "#3182F6";
   return (
     <TargetPriceWrapper>
-      <PriceBar backgroundColor="#FF304A" textColor="#FFF">
-        Sample Price Bar
+      <PriceBar backgroundColor={barColor} textColor="#FFF">
+        목표가 (${targetPrice})
+      </PriceBar>
+      <PriceBar backgroundColor="#E9E9E9" textColor="#8C8C8C">
+        현재가 (${nowPrice})
       </PriceBar>
     </TargetPriceWrapper>
   );
@@ -27,9 +33,9 @@ const PriceBar = styled.div`
   gap: 10px;
   align-self: stretch;
   border-radius: 12px;
-  background: ${props => props.backgroundColor || '#FF304A'};
+  background: ${(props) => props.backgroundColor || "#FF304A"};
   padding: 8px 12px;
-  color: ${props => props.textColor || '#FFF'};
+  color: ${(props) => props.textColor || "#FFF"};
   text-align: center;
   font-size: 14px;
   font-style: normal;
