@@ -7,10 +7,8 @@ const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
   const minPrice = Math.min(targetPrice, nowPrice);
   const targetPricePercentage = (targetPrice / maxPrice) * 100;
   const nowPricePercentage = (nowPrice / maxPrice) * 100;
-  const differencePercentage = Math.round(
-    targetPricePercentage - nowPricePercentage
-  );
-  const differencePrice = maxPrice - minPrice;
+  const differencePercentage = (targetPricePercentage - nowPricePercentage).toFixed(2);
+  const differencePrice = (maxPrice - minPrice).toFixed(2);
 
   let targetBarColor = "#FF304A";
   if (targetPrice <= nowPrice) targetBarColor = "#3182F6";
@@ -25,14 +23,14 @@ const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
         textColor="#FFF"
         width={`${targetPricePercentage}%`}
       >
-        목표가 (${targetPrice})
+        목표가 (${targetPrice.toFixed(2)})
       </PriceBar>
       <PriceBar
         backgroundColor="#E9E9E9"
         textColor="#8C8C8C"
         width={`${nowPricePercentage}%`}
       >
-        현재가 (${nowPrice})
+        현재가 (${nowPrice.toFixed(2)})
       </PriceBar>
     </TargetPriceWrapper>
   );
