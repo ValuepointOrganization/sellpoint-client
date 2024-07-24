@@ -7,7 +7,9 @@ const PriceBarContainer = styled.div`
   width: 100%;
   height: 35px;
   border-radius: 12px;
-  background: ${(props) => props.backgroundColor || "#FF304A"};
+  background: ${(props) => props.backgroundColor || "rgba(49, 130, 246, 0.1)"};
+  position: relative;
+  overflow: hidden;
 `;
 
 const PriceBarContent = styled.div`
@@ -21,22 +23,28 @@ const PriceBarContent = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 140%; /* 19.6px */
-  width: ${(props) => props.width || "100%"};
+  width: 100%;
   height: 100%;
-  border-radius: 12px;
-  background: ${(props) => props.backgroundColor || "#FF304A"};
-  opacity: ${(props) => (props.isLower ? 0.1 : 1)};
+  position: relative;
+  z-index: 2;
 `;
 
-const PriceBar = ({ backgroundColor, textColor, width, children, isLower }) => {
+const PriceBarFill = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: ${(props) => props.width || "100%"};
+  background: ${(props) => props.fillColor || "rgba(49, 130, 246, 1)"};
+  border-radius: 12px;
+  z-index: 1;
+`;
+
+const PriceBar = ({ backgroundColor, textColor, fillWidth, fillColor, children }) => {
   return (
     <PriceBarContainer backgroundColor={backgroundColor}>
-      <PriceBarContent
-        backgroundColor={backgroundColor}
-        textColor={textColor}
-        width={width}
-        isLower={isLower}
-      >
+      <PriceBarFill width={fillWidth} fillColor={fillColor} />
+      <PriceBarContent textColor={textColor}>
         {children}
       </PriceBarContent>
     </PriceBarContainer>

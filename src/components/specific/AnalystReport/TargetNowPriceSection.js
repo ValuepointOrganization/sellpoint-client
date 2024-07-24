@@ -5,35 +5,31 @@ import PriceBar from "./PriceBar";
 const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
   const maxPrice = Math.max(targetPrice, nowPrice);
   const minPrice = Math.min(targetPrice, nowPrice);
-  const targetPricePercentage = (targetPrice / maxPrice) * 100;
-  const nowPricePercentage = (nowPrice / maxPrice) * 100;
-  const differencePercentage = (
-    targetPricePercentage - nowPricePercentage
-  ).toFixed(2);
-  const differencePrice = (maxPrice - minPrice).toFixed(2);
+  const targetPricePercentage = (targetPrice / nowPrice) * 100;
+  const differencePercentage = ((targetPrice - nowPrice) / nowPrice * 100).toFixed(2);
+  const differencePrice = (targetPrice - nowPrice).toFixed(2);
 
-  const isTargetLower = targetPrice <= nowPrice;
-  const targetBarColor = isTargetLower ? "#3182F6" : "#FF304A";
-  const compareTextColor = isTargetLower ? "#3182F6" : "#FF3B30";
+  const isTargetHigher = targetPrice > nowPrice;
+  const compareTextColor = isTargetHigher ? "#3182F6" : "#FF3B30";
 
   return (
     <TargetPriceWrapper>
       <CompareText color={compareTextColor}>
-        {Math.abs(differencePercentage)}% {isTargetLower ? "고평가" : "저평가"}(${differencePrice})
+        {Math.abs(differencePercentage)}% {isTargetHigher ? "저평가" : "고평가"}(${Math.abs(differencePrice)})
       </CompareText>
       <PriceBar
-        backgroundColor={targetBarColor}
+        backgroundColor="rgba(49, 130, 246, 0.1)"
+        fillColor="rgba(49, 130, 246, 1)"
         textColor="#FFF"
-        width="100%"
-        isLower={isTargetLower}
+        fillWidth={`${isTargetHigher ? 100 : targetPricePercentage}%`}
       >
         목표가 (${targetPrice.toFixed(2)})
       </PriceBar>
       <PriceBar
         backgroundColor="#E9E9E9"
+        fillColor="#E9E9E9"
         textColor="#8C8C8C"
-        width="100%"
-        isLower={!isTargetLower}
+        fillWidth="100%"
       >
         현재가 (${nowPrice.toFixed(2)})
       </PriceBar>
