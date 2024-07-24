@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
 
+import TargetNowPriceSection from "../../specific/AnalystReport/TargetNowPriceSection";
 import ShareBtn from "../../specific/ShareBtn";
 import ReportOpinion from "../../specific/ReportOpinion";
 import Divider from "../../specific/Divider";
@@ -22,6 +23,8 @@ const AnalystReportBodyReportContent = () => {
         <TitleText>혁신의 선두주자, AI와 게이밍 시장을 장악하다</TitleText>
         <OtherText>한유진 | 한국증권</OtherText>
       </ReportProfile>
+      <Divider />
+      <TargetNowPriceSection targetPrice={200} nowPrice={389} />
       <Divider />
     </ContentWrapper>
   );
@@ -88,3 +91,9 @@ const OtherText = styled.span`
   line-height: normal;
 `;
 
+const TargetPriceDifferenceSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+`;
