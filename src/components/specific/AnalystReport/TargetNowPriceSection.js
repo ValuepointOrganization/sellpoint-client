@@ -7,7 +7,9 @@ const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
   const minPrice = Math.min(targetPrice, nowPrice);
   const targetPricePercentage = (targetPrice / maxPrice) * 100;
   const nowPricePercentage = (nowPrice / maxPrice) * 100;
-  const differencePercentage = (targetPricePercentage - nowPricePercentage).toFixed(2);
+  const differencePercentage = (
+    targetPricePercentage - nowPricePercentage
+  ).toFixed(2);
   const differencePrice = (maxPrice - minPrice).toFixed(2);
 
   let targetBarColor = "#FF304A";
