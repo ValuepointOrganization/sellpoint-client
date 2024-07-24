@@ -4,14 +4,22 @@ import PriceBar from "./PriceBar";
 
 const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
   const maxPrice = Math.max(targetPrice, nowPrice);
+  const minPrice = Math.min(targetPrice, nowPrice);
   const targetPricePercentage = (targetPrice / maxPrice) * 100;
   const nowPricePercentage = (nowPrice / maxPrice) * 100;
+  const differencePercentage = Math.round(
+    targetPricePercentage - nowPricePercentage
+  );
+  const differencePrice = maxPrice - minPrice;
 
   let targetBarColor = "#FF304A";
   if (targetPrice <= nowPrice) targetBarColor = "#3182F6";
 
   return (
     <TargetPriceWrapper>
+      <CompareText>
+        {differencePercentage}% 저평가(-${differencePrice})
+      </CompareText>
       <PriceBar
         backgroundColor={targetBarColor}
         textColor="#FFF"
@@ -40,4 +48,14 @@ const TargetPriceWrapper = styled.div`
   align-self: stretch;
 `;
 
+const CompareText = styled.span`
+  color: #ff3b30;
+  text-align: end;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  width: 100%;
+`;
 export default TargetNowPriceSection;
