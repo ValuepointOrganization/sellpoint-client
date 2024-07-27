@@ -1,7 +1,7 @@
 import React from "react";
 import ReportHeader from "../components/layout/AnalystReport/AnalystReportHeader";
 import AnalystReportBodyWrapper from "../components/layout/AnalystReport/AnalystReportBodyWrapper";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 const AnalystReport = () => {
   return (
