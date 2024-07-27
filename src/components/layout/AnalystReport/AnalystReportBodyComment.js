@@ -48,8 +48,12 @@ const AnalystReportBodyComment = () => {
           24
         </Text>
       </Flex>
-      <Comment {...dummy} />
-      <Divider />
+      {dummy.map((comment, index) => (
+        <React.Fragment key={index}>
+          <Comment {...comment} />
+          {index < dummy.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </Flex>
   );
 };
