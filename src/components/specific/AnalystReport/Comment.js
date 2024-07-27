@@ -10,7 +10,9 @@ const Comment = ({ userName, content, dateTime }) => {
   return (
     <Flex direction="column" justify="center" align="flex-start" gap="12px">
       <Flex align="center" gap="8px">
-        <StyledSVG width="20" height="21" viewBox="0 0 20 21" as={PersonIcon} />
+        <StyledSVG width="20" height="21" viewBox="0 0 20 21" fill="#DEDEDF">
+          <PersonIcon />
+        </StyledSVG>
       </Flex>
     </Flex>
   );
