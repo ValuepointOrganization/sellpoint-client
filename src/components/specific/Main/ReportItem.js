@@ -48,13 +48,17 @@ const ReportItem = ({ report }) => {
           </Text>
         </Flex>
         <Flex
-          justify="center"
-          align="center"
-          width="40px"
-          height="22px"
-          padding="4px 6px"
-          borderRadius="8px"
-          background="rgba(255, 59, 48, 0.1)"
+          style={{
+            display: "flex",
+            width: "40px",
+            padding: "4px 6px",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "10px",
+            flexShrink: 0,
+            borderRadius: "8px",
+            background: "rgba(255, 59, 48, 0.10)",
+          }}
         >
           <Text color="#FF3B30" fontSize="12px" fontWeight={600}>
             {report.opinion}
