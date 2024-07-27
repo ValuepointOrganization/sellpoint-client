@@ -3,7 +3,7 @@ import { Flex, Image, Text } from "../../common/Index";
 
 const AgreeDisAgreeButton = ({ image, children, number }) => {
   return (
-    <Flex flexDirection="column" alignItems="center" gap="8px">
+    <Flex direction="column" alignItems="center" gap="8px">
       <Image src={image} alt={children} width="18px" height="18px" />
       <Text
         fontSize="12px"
