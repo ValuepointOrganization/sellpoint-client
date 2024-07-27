@@ -5,7 +5,17 @@ import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.s
 
 const ReportItem = ({ report }) => {
   return (
-    <Flex align="center" justify="cetner" padding="12px">
+    <Flex
+      style={{
+        display: "flex",
+        padding: "12px",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "16px",
+        alignSelf: "stretch",
+      }}
+    >
       <StyledSVG
         width="50"
         height="34"
