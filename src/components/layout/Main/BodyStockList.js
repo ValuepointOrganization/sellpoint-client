@@ -21,9 +21,11 @@ const BodyStockList = () => {
       {DummyStock.map((stock, index) => (
         <ListSquare key={index} type="stock">
           <StockProfile>
-            <StyledSVG width="30" height="30" viewBox="0 0 30 30">
-              <NvidiaLogo />
-            </StyledSVG>
+            <LogoContainer>
+              <StyledSVG width="26" height="18" viewBox="0 0 26 18">
+                <NvidiaLogo />
+              </StyledSVG>
+            </LogoContainer>
             <span>{stock.name}</span>
           </StockProfile>
           <StockInfo>
@@ -57,4 +59,14 @@ const StockInfo = styled.div`
   align-items: flex-end;
   gap: 4px;
   font-size: 12px;
+`;
+
+const LogoContainer = styled.div`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #76B900;
+  border-radius: 50%;
 `;
