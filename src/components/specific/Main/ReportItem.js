@@ -48,13 +48,11 @@ const ReportItem = ({ report }) => {
           </Text>
         </Flex>
         <Flex
+          justifyContent="center"
+          align="center"
           style={{
-            display: "flex",
             width: "40px",
             padding: "4px 6px",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10px",
             flexShrink: 0,
             borderRadius: "8px",
             background: "rgba(255, 59, 48, 0.10)",

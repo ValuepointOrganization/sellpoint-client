@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import forwardIcon from "../../../assets/image/chevron-forward.svg";
+import forwardIcon from "../../../assets/image/ChevronForward.svg";
 
 const MoreButton = ({ text, width, height, fontSize, onClick }) => {
   return (

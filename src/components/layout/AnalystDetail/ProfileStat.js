@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import StatBox from "./StatBox";
+import StatBox from "../../specific/AnalystDetail/StatBox";
 
-const StatArea = ({ analystProfile }) => {
+const ProfileStat = ({ analystProfile }) => {
   return (
     <StatContainer>
       <StatBox category={`오차(RMSE)`} detail={analystProfile.RMSE} />
@@ -12,7 +12,7 @@ const StatArea = ({ analystProfile }) => {
   );
 };
 
-export default StatArea;
+export default ProfileStat;
 
 const StatContainer = styled.div`
   display: flex;

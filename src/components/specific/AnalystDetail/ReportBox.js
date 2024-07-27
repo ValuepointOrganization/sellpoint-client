@@ -4,11 +4,14 @@ import styled from "styled-components";
 import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
 import Space from "../../common/Space";
 import ReportOpinion from "../ReportOpinion";
+
 const ReportBox = ({ report }) => {
   console.log(report);
   return (
     <ReportOutside>
-      <ReportOpinion text={report.opinion} isBuy={report.opinion === "Buy"} />
+      <ReportOpinion isBuy={report.opinion === "Buy"}>
+        {report.opinion}
+      </ReportOpinion>
       <ReportContent>
         <NameSection>
           <Logo src={NvidiaLogo} alt={`NvidiaLogo`} />
@@ -49,7 +52,6 @@ const ReportContent = styled.div`
   align-items: flex-start;
   flex: 1 0 0;
 `;
-
 
 const NameSection = styled.div`
   display: flex;

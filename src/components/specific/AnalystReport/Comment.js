@@ -1,8 +1,6 @@
 import { React } from "react";
-import { styled } from "styled-components";
 
 import { Flex, Text } from "../../common/Index";
-import StyledSVG from "../../common/StyledSVG";
 
 import { ReactComponent as PersonIcon } from "../../../assets/image/PersonIcon.svg";
 
@@ -15,6 +13,12 @@ const Comment = ({ userName, content, dateTime }) => {
           {userName}
         </Text>
       </Flex>
+      <Text fontSize="12px" fontWeight="400" lineHeight="160%">
+        {content}
+      </Text>
+      <Text color="#8c8c8c" fontSize="10px" fontWeight="400" lineHeight="160%">
+        {dateTime}
+      </Text>
     </Flex>
   );
 };

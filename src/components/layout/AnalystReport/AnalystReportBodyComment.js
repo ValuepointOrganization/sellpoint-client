@@ -1,5 +1,4 @@
-import { React } from "react";
-import { styled } from "styled-components";
+import React from "react";
 
 import { Flex, Text } from "../../common/Index";
 import Comment from "../../specific/AnalystReport/Comment";

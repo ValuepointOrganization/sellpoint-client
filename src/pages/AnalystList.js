@@ -12,10 +12,9 @@ const AnalystList = () => {
     navigate("/");
   };
 
-  const handleAnalystClick = (analyst) => {
-    navigate(`/analyst/${analyst.id}`);
+  const handleAnalystClick = (index) => {
+    navigate(`/analyst/${index}`);
   };
-
   return (
     <>
       <SearchHeader onBackClick={handleBackClick} />
@@ -30,11 +29,11 @@ const AnalystList = () => {
           </StatHeaderArea>
         </ListHeader>
         {DummyAnalystProfile.map((analyst, index) => (
-          <ListContent 
-            key={analyst.id} 
-            analyst={analyst} 
-            index={index + 1} 
-            onClick={() => handleAnalystClick(analyst)}
+          <ListContent
+            key={index}
+            analyst={analyst}
+            index={index + 1}
+            onClick={() => handleAnalystClick(index + 1)}
           />
         ))}
       </ListContainer>

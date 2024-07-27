@@ -3,19 +3,21 @@ import styled from "styled-components";
 import PriceBar from "./PriceBar";
 
 const TargetNowPriceSection = ({ targetPrice, nowPrice }) => {
-  const maxPrice = Math.max(targetPrice, nowPrice);
-  const minPrice = Math.min(targetPrice, nowPrice);
   const targetPricePercentage = (targetPrice / nowPrice) * 100;
-  const differencePercentage = ((targetPrice - nowPrice) / nowPrice * 100).toFixed(2);
+  const differencePercentage = (
+    ((targetPrice - nowPrice) / nowPrice) *
+    100
+  ).toFixed(2);
   const differencePrice = (targetPrice - nowPrice).toFixed(2);
 
   const isTargetHigher = targetPrice > nowPrice;
-  const compareTextColor = isTargetHigher ? "#3182F6" : "#FF3B30";
+  const compareTextColor = isTargetHigher ? "#FF3B30" : "#3182F6";
 
   return (
     <TargetPriceWrapper>
       <CompareText color={compareTextColor}>
-        {Math.abs(differencePercentage)}% {isTargetHigher ? "저평가" : "고평가"}(${Math.abs(differencePrice)})
+        {Math.abs(differencePercentage)}% {isTargetHigher ? "저평가" : "고평가"}
+        (${Math.abs(differencePrice)})
       </CompareText>
       <PriceBar
         backgroundColor="rgba(49, 130, 246, 0.1)"

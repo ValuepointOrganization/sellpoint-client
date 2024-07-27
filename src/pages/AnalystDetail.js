@@ -1,8 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import Header from "../components/layout/Header";
-import AnalystDetailProfile from "../components/layout/AnalystDetail/AnalystDetailProfile";
-import Space from "../components/common/Space.js";
+import ProfileWrapper from "../components/layout/AnalystDetail/ProfileWrapper";
+import ReportWrapper from "../components/layout/AnalystDetail/ReportWrapper";
+import Space from "../components/common/Space";
 import { DummyAnalystProfile } from "../assets/dummy";
 
 const AnalystDetail = () => {
@@ -13,9 +15,6 @@ const AnalystDetail = () => {
   React.useEffect(() => {
     const fetchAnalystProfile = async () => {
       try {
-        // Replace this with your actual fetch call
-        // const response = await fetch(`/api/analyst/${analystID}`);
-        // const data = await response.json();
         const data = DummyAnalystProfile; // Using dummy data for now
         const profile = data[parseInt(analystID) - 1];
         if (profile) {
@@ -24,7 +23,6 @@ const AnalystDetail = () => {
           setError("Analyst not found");
         }
       } catch (err) {
-        console.error(err.message);
         setError("An error occurred while fetching the analyst profile");
       }
     };
@@ -42,10 +40,17 @@ const AnalystDetail = () => {
   return (
     <>
       <Header />
-      <AnalystDetailProfile analystProfile={analystProfile} />
-      <Space height="32px" />
+      <BodyWrapper>
+        <ProfileWrapper analystProfile={analystProfile} />
+        <Space height="80px" />
+        <ReportWrapper />
+      </BodyWrapper>
     </>
   );
 };
 
 export default AnalystDetail;
+
+const BodyWrapper = styled.div`
+  padding: 20px;
+`;

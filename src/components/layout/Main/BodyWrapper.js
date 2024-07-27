@@ -2,14 +2,14 @@ import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import SearchBar from "../../specific/SearchBar";
 import SearchHeader from "../SearchHeader";
-import MainStockList from "./MainStockList";
-import MainAnalystList from "./MainAnalystList";
-import MainUserList from "./MainUserList";
-import MainReportList from "./MainReportList";
+import BodyStockList from "./BodyStockList";
+import BodyAnalystList from "./BodyAnalystList";
+import BodyUserList from "./BodyUserList";
+import BodyReportList from "./BodyReportList";
 
 import Space from "../../common/Space";
 
-const MainBody = () => {
+const BodyWrapper = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
 
   const handleSearchClick = () => {
@@ -36,19 +36,19 @@ const MainBody = () => {
           </>
         )}
         <Space height={isSearchActive ? "7px" : "128px"} />
-        <MainStockList />
+        <BodyStockList />
         <Space height="64px" />
-        <MainAnalystList />
+        <BodyAnalystList />
         <Space height="64px" />
-        <MainUserList />
+        <BodyUserList />
         <Space height="64px" />
-        <MainReportList />
+        <BodyReportList />
       </BodyContainer>
     </>
   );
 };
 
-export default MainBody;
+export default BodyWrapper;
 
 const SearchBarWrapper = styled.div`
   padding: 40px 20px 0;

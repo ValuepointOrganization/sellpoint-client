@@ -8,8 +8,8 @@ const ListContent = ({ analyst, index, onClick }) => {
       <RankArea>
         <RankNum>{index}</RankNum>
         <Space width="12px" />
-        <NameFirm onClick={() => onClick(index)}>
-          <NameText>{analyst.name}</NameText>
+        <NameFirm>
+          <NameText onClick={() => onClick(index)}>{analyst.name}</NameText>
           <FirmText>{analyst.firm}</FirmText>
         </NameFirm>
       </RankArea>
@@ -78,9 +78,9 @@ const NameText = styled.div`
   letter-spacing: 0.32px;
   display: inline-block;
   position: relative;
-  
+
   &:hover::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     right: 0;

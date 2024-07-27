@@ -1,18 +1,50 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { ListSquareContainer } from "./ListSquareStyles";
+import styled from "styled-components";
 
 const ListSquare = ({ type, children, ...props }) => {
   return (
-    <ListSquareContainer type={type} {...props}>
+    <StyledListSquare type={type} {...props}>
       {children}
-    </ListSquareContainer>
+    </StyledListSquare>
   );
 };
 
-ListSquare.propTypes = {
-  type: PropTypes.oneOf(["analyst", "user", "stock", "report"]).isRequired,
-  children: PropTypes.node.isRequired,
-};
-
 export default ListSquare;
+
+const StyledListSquare = styled.div`
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #f5f6f7;
+
+  ${({ type }) => {
+    switch (type) {
+      case "analyst":
+        return `
+          min-width: 74px;
+        `;
+      case "user":
+        return `
+          min-width: 93px;
+        `;
+      case "stock":
+        return `
+          width: 100%;
+          padding: 12px;
+          flex-direction: row;
+          justify-content: space-between;
+          &:not(:last-child) {
+            margin-bottom: 12px;
+          }
+        `;
+      case "report":
+        return `
+        `;
+      default:
+        return "";
+    }
+  }}
+`;

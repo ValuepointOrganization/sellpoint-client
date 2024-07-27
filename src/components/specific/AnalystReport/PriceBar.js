@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Flex } from "../../common/Index";
 const PriceBar = ({
   backgroundColor,
   textColor,
@@ -9,14 +9,41 @@ const PriceBar = ({
   children,
 }) => {
   return (
-    <Flex align="center" style={{ width: "100%", height: "35px", borderRadius: "12px", background: backgroundColor || "rgba(49, 130, 246, 0.1)", position: "relative", overflow: "hidden" }}>
+    <Flex
+      align="center"
+      style={{
+        width: "100%",
+        height: "35px",
+        borderRadius: "12px",
+        background: backgroundColor || "rgba(49, 130, 246, 0.1)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <PriceBarFill width={fillWidth} fillColor={fillColor} />
-      <Flex align="center" gap="10px" padding="8px 12px" style={{ color: textColor || "#FFF", textAlign: "center", fontSize: "14px", fontStyle: "normal", fontWeight: "500", lineHeight: "140%", width: "100%", height: "100%", position: "relative", zIndex: "2" }}>{children}</Flex>
-    </PriceBarContainer>
+      <Flex
+        align="center"
+        gap="10px"
+        padding="8px 12px"
+        style={{
+          color: textColor || "#FFF",
+          textAlign: "center",
+          fontSize: "14px",
+          fontStyle: "normal",
+          fontWeight: "500",
+          lineHeight: "140%",
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          zIndex: "2",
+          padding: "8px 12px",
+        }}
+      >
+        {children}
+      </Flex>
+    </Flex>
   );
 };
-
-
 
 const PriceBarFill = styled.div`
   position: absolute;
@@ -28,4 +55,5 @@ const PriceBarFill = styled.div`
   border-radius: 12px;
   z-index: 1;
 `;
+
 export default PriceBar;

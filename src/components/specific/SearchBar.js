@@ -12,7 +12,7 @@ const SearchBar = ({
 }) => {
   return (
     <SearchBarContainer width={width} height={height} onClick={onClick}>
-      <Flex align="center" gap="12px">
+      <Flex align="center" gap="12px" style={{ height: "100%" }}>
         <SearchIconSvg width="18" height="18" />
         <SearchInput placeholder={placeholder} />
         <CloseIconSvg width="18" height="18" style={{ cursor: "pointer" }} />

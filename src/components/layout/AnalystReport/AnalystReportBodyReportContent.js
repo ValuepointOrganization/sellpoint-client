@@ -6,6 +6,9 @@ import ShareBtn from "../../specific/ShareBtn";
 import ReportOpinion from "../../specific/ReportOpinion";
 import Divider from "../../specific/Divider";
 import ReportProfile from "../../specific/AnalystReport/ReportProfile";
+import TargetPriceChange from "../../specific/AnalystReport/TargetPriceChangeSection";
+import TargetHitSection from "../../specific/AnalystReport/TargetHitSection";
+import ReportSummarySection from "../../specific/AnalystReport/ReportSummarySection";
 
 const AnalystReportBodyReportContent = () => {
   return (
@@ -18,6 +21,11 @@ const AnalystReportBodyReportContent = () => {
       <Divider />
       <TargetNowPriceSection targetPrice={200} nowPrice={389} />
       <Divider />
+      <TargetPriceChange />
+      <Divider />
+      <TargetHitSection />
+      <Divider />
+      <ReportSummarySection />
     </ContentWrapper>
   );
 };
@@ -39,11 +47,4 @@ const ContentHeader = styled.div`
   width: 100%;
   align-items: center;
   height: 30px;
-`;
-
-const TargetPriceDifferenceSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
 `;

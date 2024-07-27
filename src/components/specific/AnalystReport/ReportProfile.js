@@ -1,23 +1,28 @@
 import React from "react";
 import { styled } from "styled-components";
 import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
+import { Flex, Text } from "../../common/Index";
 
 const ReportProfile = () => {
   return (
-    <Flex direction="column" justify="center" align="flex-start" gap="12px" style={{ alignSelf: "stretch" }}>
+    <Flex
+      direction="column"
+      justify="center"
+      align="flex-start"
+      gap="12px"
+      style={{ alignSelf: "stretch" }}
+    >
       <Flex>
         <Logo src={NvidiaLogo} alt={`NvidiaLogo`} />
         <CompanyText>Nvidia</CompanyText>
-      </NameSection>
+      </Flex>
       <TitleText>혁신의 선두주자, AI와 게이밍 시장을 장악하다</TitleText>
       <OtherText>한유진 | 한국증권</OtherText>
-    </ReportProfileWrapper>
+    </Flex>
   );
 };
 
 export default ReportProfile;
-
-
 
 const Logo = styled.img`
   margin-right: 8px;

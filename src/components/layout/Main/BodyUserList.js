@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Space from "../../common/Space";
-import ListContainerHeader from "./ListContainerHeader";
-import ScrollContainer from "./ScrollContainer";
-import ListSquare from "./ListSquare";
+import ListContainerHeader from "../../specific/Main/ListContainerHeader";
+import ScrollContainer from "../../specific/Main/ScrollContainer";
+import ListSquare from "../../specific/Main/ListSquare";
 
 import { DummyUser } from "../../../assets/dummy";
 
-const MainUserList = () => {
+const BodyUserList = () => {
   return (
     <UserListContainer>
       <ListContainerHeader
@@ -29,7 +29,7 @@ const MainUserList = () => {
   );
 };
 
-export default MainUserList;
+export default BodyUserList;
 
 const UserListContainer = styled.div`
   width: 100%;
@@ -43,7 +43,7 @@ const UserName = styled.span`
   line-height: 160%;
 `;
 
-const AnalystFirm = styled.span`
+const UserPerformance = styled.span`
   color: #bababf;
   font-size: 12px;
   font-style: normal;

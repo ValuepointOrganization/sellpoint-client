@@ -29,16 +29,16 @@ const AnalystReportBodyAgree = () => {
       <AgreeDisAgreeButton
         icon={thumbsUpIcon}
         number={91}
-        isActive={activeButton === 'agree'}
-        onClick={() => handleButtonClick('agree')}
+        isActive={activeButton === "agree"}
+        onClick={() => handleButtonClick("agree")}
       >
         동의해요
       </AgreeDisAgreeButton>
       <AgreeDisAgreeButton
         icon={thumbsDownIcon}
         number={4}
-        isActive={activeButton === 'disagree'}
-        onClick={() => handleButtonClick('disagree')}
+        isActive={activeButton === "disagree"}
+        onClick={() => handleButtonClick("disagree")}
       >
         반대해요
       </AgreeDisAgreeButton>

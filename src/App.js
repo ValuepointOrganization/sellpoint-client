@@ -4,6 +4,8 @@ import GlobalStyle from "./assets/styles/globalStyle";
 import Main from "./pages/Main";
 import AnalystList from "./pages/AnalystList";
 import AnalystDetail from "./pages/AnalystDetail";
+import AnalystReport from "./pages/AnalystReport";
+
 function App() {
   return (
     <Router>
@@ -12,8 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/analyst-list" element={<AnalystList />} />
-          <Route path="/analyst/:analystId" element={<AnalystDetail />} />
-          {/* Add more routes here as needed */}
+          <Route path="/analyst/:analystID" element={<AnalystDetail />} />
+          <Route path="/analyst-report" element={<AnalystReport />} />
         </Routes>
       </div>
     </Router>

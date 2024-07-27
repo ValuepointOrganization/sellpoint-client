@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledImage = styled.img`
-  max-width: 100%;
-  height: auto;
+  width: ${(props) => props.width || "18px"}
+  height: ${(props) => props.height || "18px"};
   display: block;
 `;
 

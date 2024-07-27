@@ -5,7 +5,7 @@ import Space from "../../common/Space";
 import ReportItem from "../../specific/Main/ReportItem";
 import { DummyReport } from "../../../assets/dummy";
 
-const MainReportList = () => {
+const BodyReportList = () => {
   return (
     <ReportListContainer>
       <ListContainerHeader
@@ -15,12 +15,14 @@ const MainReportList = () => {
         buttonHeight={22}
       />
       <Space height="20px" />
-      <ReportItem report={DummyReport[0]} />
+      {DummyReport.map((report, index) => {
+        return <ReportItem report={report} key={index} />;
+      })}
     </ReportListContainer>
   );
 };
 
-export default MainReportList;
+export default BodyReportList;
 
 const ReportListContainer = styled.div`
   width: 100%;

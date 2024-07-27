@@ -59,4 +59,3 @@ const FirmText = styled.span`
   line-height: 22px; /* 137.5% */
   letter-spacing: -0.408px;
 `;
-

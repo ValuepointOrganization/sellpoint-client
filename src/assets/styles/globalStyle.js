@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -14,9 +14,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    max-width: 480px;
+    max-width: 400px;
     margin: 0 auto;
-    padding: 0 20px;
     height: 100%;
   }
 
