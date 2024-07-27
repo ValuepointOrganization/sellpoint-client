@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Space from "../../common/Space.js";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader.js";
 import ListSquare from "../../specific/Main/ListSquare.js";
+import StyledSVG from "../../common/StyledSVG.js";
 
-import NvidiaLogo from "../../../assets/image/NvidiaSmall.svg";
+import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
 import { DummyStock } from "../../../assets/dummy.js";
 
 const BodyStockList = () => {
@@ -20,7 +21,9 @@ const BodyStockList = () => {
       {DummyStock.map((stock, index) => (
         <ListSquare key={index} type="stock">
           <StockProfile>
-            <img src={NvidiaLogo} alt={`${stock.name} Logo`} />
+            <StyledSVG width="30" height="30" viewBox="0 0 30 30" fill="#76B900">
+              <NvidiaLogo />
+            </StyledSVG>
             <span>{stock.name}</span>
           </StockProfile>
           <StockInfo>
