@@ -33,7 +33,7 @@ const AnalystReportBodyComment = () => {
           24
         </Text>
       </Flex>
-      <Comment props={dummy} />
+      <Comment {...dummy} />
     </Flex>
   );
 };
