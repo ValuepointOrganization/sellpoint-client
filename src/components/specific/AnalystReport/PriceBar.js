@@ -1,6 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
+const PriceBar = ({
+  backgroundColor,
+  textColor,
+  fillWidth,
+  fillColor,
+  children,
+}) => {
+  return (
+    <PriceBarContainer backgroundColor={backgroundColor}>
+      <PriceBarFill width={fillWidth} fillColor={fillColor} />
+      <PriceBarContent textColor={textColor}>{children}</PriceBarContent>
+    </PriceBarContainer>
+  );
+};
+
 const PriceBarContainer = styled.div`
   display: flex;
   align-items: center;
@@ -39,16 +54,4 @@ const PriceBarFill = styled.div`
   border-radius: 12px;
   z-index: 1;
 `;
-
-const PriceBar = ({ backgroundColor, textColor, fillWidth, fillColor, children }) => {
-  return (
-    <PriceBarContainer backgroundColor={backgroundColor}>
-      <PriceBarFill width={fillWidth} fillColor={fillColor} />
-      <PriceBarContent textColor={textColor}>
-        {children}
-      </PriceBarContent>
-    </PriceBarContainer>
-  );
-};
-
 export default PriceBar;
