@@ -4,8 +4,8 @@ import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
 
 const ReportProfile = () => {
   return (
-    <ReportProfileWrapper>
-      <NameSection>
+    <Flex direction="column" justify="center" align="flex-start" gap="12px" style={{ alignSelf: "stretch" }}>
+      <Flex>
         <Logo src={NvidiaLogo} alt={`NvidiaLogo`} />
         <CompanyText>Nvidia</CompanyText>
       </NameSection>
@@ -17,18 +17,7 @@ const ReportProfile = () => {
 
 export default ReportProfile;
 
-const ReportProfileWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-  align-self: stretch;
-`;
 
-const NameSection = styled.div`
-  display: flex;
-`;
 
 const Logo = styled.img`
   margin-right: 8px;
