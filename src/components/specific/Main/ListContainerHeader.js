@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import Flex from "../../common/Flex";
+import Text from "../../common/Text";
 import MoreButton from "./MoreButton";
 
 const ListContainerHeader = ({
@@ -10,25 +11,18 @@ const ListContainerHeader = ({
   onButtonClick,
 }) => {
   return (
-    <ListHeaderContainer>
-      <p style={{ fontSize: "16px", fontWeight: 600, lineHeight: "160%" }}>
+    <Flex justify="space-between" align="center" style={{ alignSelf: "stretch" }}>
+      <Text fontSize="16px" fontWeight={600} lineHeight="160%">
         {title}
-      </p>
+      </Text>
       <MoreButton
         text={buttonText}
         width={buttonWidth}
         height={buttonHeight}
         onClick={onButtonClick}
       />
-    </ListHeaderContainer>
+    </Flex>
   );
 };
 
 export default ListContainerHeader;
-
-const ListHeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-`;
