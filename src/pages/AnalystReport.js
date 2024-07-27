@@ -5,11 +5,18 @@ import AnalystReportBodyWrapper from "../components/layout/AnalystReport/Analyst
 
 const AnalystReport = () => {
   return (
-    <>
+    <PageWrapper>
       <ReportHeader />
       <AnalystReportBodyWrapper />
-    </>
+    </PageWrapper>
   );
 };
+
+const PageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+`;
 
 export default AnalystReport;

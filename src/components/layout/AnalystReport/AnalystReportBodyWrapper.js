@@ -22,19 +22,19 @@ const AnalystReportBodyWrapper = () => {
 
 const StyledWrapper = styled.div`
   position: relative;
-  width: 393px;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 56px - 74px); // Subtracting header height and comment input height
   overflow: hidden;
 `;
 
 const ScrollableContent = styled(Flex)`
-  height: calc(100% - 100px);
+  height: 100%;
   overflow-y: auto;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 60px;
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 74px 20px; // Added bottom padding to account for comment input
 `;
 
 export default AnalystReportBodyWrapper;
