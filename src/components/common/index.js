@@ -1,7 +1,4 @@
-import Space from './Space';
-import Text from './Text';
+import Space from "./Space";
+import Text from "./Text";
 
-export {
-  Space,
-  Text
-};
+export { Space, Text };
