@@ -23,7 +23,7 @@ const ReportItem = ({ report }) => {
         <Text color="#83838A" fontSize="12px" fontWeight={600}>
           {report.analystName} | {report.firmName}
         </Text>
-        <Text color="#2C2C2C" fontSize="14px" fontWeight={600}>
+        <Text color="#2C2C2C" fontSize="14px" fontWeight={600} style={{ alignSelf: 'flex-start', width: '100%' }}>
           {report.reportTitle}
         </Text>
         <Text color="#BABABF" fontSize="12px" fontWeight={500}>
