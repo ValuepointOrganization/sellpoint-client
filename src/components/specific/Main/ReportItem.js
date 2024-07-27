@@ -9,10 +9,10 @@ const ReportItem = ({ report }) => {
       <StyledSVG
         width="50"
         height="34"
-        viewBox="0 0 50 34"
+        viewBox="0 0 26 18"
         style={{ marginRight: "20px" }}
       >
-        <NvidiaLogo />
+        <NvidiaLogo width="26" height="18" />
       </StyledSVG>
       <Flex
         direction="column"
