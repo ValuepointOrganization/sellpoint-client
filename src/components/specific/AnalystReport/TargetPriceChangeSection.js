@@ -5,14 +5,14 @@ import BarChart from "../../../assets/image/BarChart.svg";
 import InformationCircle from "../../../assets/image/InformationCircle.svg";
 
 import CategoryName from "./CategoryName";
-import { Text, Image, Space } from "../../common/Index";
+import { Text, Image } from "../../common/index";
 
 const TargetPriceChange = () => {
   return (
     <TargetPriceChangeWrapper>
       <CategoryLogoNameWrapper>
         <Image height="18px" width="18px" src={BarChart} alt={`${BarChart}`} />
-        <Text color="#8c8c8c" fontWeight="600" marginLeft="12px">
+        <Text color="#8c8c8c" fontWeight="600" marginLeft="12px" fontSize="14px">
           목표가 상향
         </Text>
         <Image
