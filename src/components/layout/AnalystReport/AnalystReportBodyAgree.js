@@ -15,8 +15,12 @@ const AnalystReportBodyAgree = () => {
       gap="32px"
       style={{ alignSelf: "stretch", width: "100%" }}
     >
-      <AgreeDisAgreeButton image={ThumbsUpImg} text="동의해요" number={91} />
-      <AgreeDisAgreeButton image={ThumbsDownImg} text="반대해요" number={4} />
+      <AgreeDisAgreeButton image={ThumbsUpImg} number={91}>
+        동의해요
+      </AgreeDisAgreeButton>
+      <AgreeDisAgreeButton image={ThumbsDownImg} number={4}>
+        반대해요
+      </AgreeDisAgreeButton>
     </Flex>
   );
 };
