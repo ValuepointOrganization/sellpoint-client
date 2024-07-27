@@ -14,13 +14,13 @@ const AnalystReportCommentInput = () => {
 };
 
 const StyledFlex = styled(Flex)`
-  width: 100%;
+  width: 400px;
   align-items: center;
   gap: 20px;
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 12px 20px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0px -10px 40px 0px rgba(0, 0, 0, 0.1);
