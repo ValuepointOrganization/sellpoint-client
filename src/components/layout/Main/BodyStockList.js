@@ -67,6 +67,4 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #76B900;
-  border-radius: 50%;
 `;
