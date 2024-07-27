@@ -16,7 +16,7 @@ const AnalystReportBodyWrapper = () => {
       gap="60px"
       style={{
         width: "393px",
-        padding: "20px 20px 100px 20px",
+        padding: "20px 20px 120px 20px", // Increased bottom padding
       }}
     >
       <AnalystReportBodyReportContent />
