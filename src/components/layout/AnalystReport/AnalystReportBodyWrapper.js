@@ -24,7 +24,7 @@ const StyledWrapper = styled(Flex)`
   align-items: flex-start;
   gap: 60px;
   padding: 20px 20px 94px 20px;
-  height: calc(100vh - 56px);
+  height: 100%;
   overflow-y: auto;
 `;
 
