@@ -22,14 +22,7 @@ const TargetPriceChange = () => {
           alt={`${InformationCircle}`}
         />
       </CategoryLogoNameWrapper>
-      <PriceChangewrapper>
-        <Text color="#262626" fontWeight="600">
-          120,000원
-        </Text>
-        <Text color="#36C78E" fontWeight="600">
-          +20,000원 (+20%)
-        </Text>
-      </PriceChangewrapper>
+      <PriceChangewrapper></PriceChangewrapper>
     </TargetPriceChangeWrapper>
   );
 };
@@ -42,15 +35,12 @@ const TargetPriceChangeWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
-  padding: 16px 0;
-  border-bottom: 1px solid #f0f0f0;
 `;
 
 // 이 섹션의 이름 및 로고 Wrapper
 const CategoryLogoNameWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
 `;
 
 // 가격 변화 부분 Wrapper
