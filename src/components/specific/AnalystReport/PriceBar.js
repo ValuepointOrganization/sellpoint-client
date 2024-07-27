@@ -9,40 +9,14 @@ const PriceBar = ({
   children,
 }) => {
   return (
-    <PriceBarContainer backgroundColor={backgroundColor}>
+    <Flex align="center" style={{ width: "100%", height: "35px", borderRadius: "12px", background: backgroundColor || "rgba(49, 130, 246, 0.1)", position: "relative", overflow: "hidden" }}>
       <PriceBarFill width={fillWidth} fillColor={fillColor} />
-      <PriceBarContent textColor={textColor}>{children}</PriceBarContent>
+      <Flex align="center" gap="10px" padding="8px 12px" style={{ color: textColor || "#FFF", textAlign: "center", fontSize: "14px", fontStyle: "normal", fontWeight: "500", lineHeight: "140%", width: "100%", height: "100%", position: "relative", zIndex: "2" }}>{children}</Flex>
     </PriceBarContainer>
   );
 };
 
-const PriceBarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 35px;
-  border-radius: 12px;
-  background: ${(props) => props.backgroundColor || "rgba(49, 130, 246, 0.1)"};
-  position: relative;
-  overflow: hidden;
-`;
 
-const PriceBarContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  color: ${(props) => props.textColor || "#FFF"};
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 140%; /* 19.6px */
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 2;
-`;
 
 const PriceBarFill = styled.div`
   position: absolute;
