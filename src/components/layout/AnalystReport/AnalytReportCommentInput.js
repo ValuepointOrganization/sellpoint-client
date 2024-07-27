@@ -1,5 +1,5 @@
 import React from "react";
-
+import styled from "styled-components";
 import { Flex } from "../../common/Index";
 import { ReactComponent as SendIcon } from "../../../assets/image/SendIcon.svg";
 
@@ -22,8 +22,8 @@ const StyledFlex = styled(Flex)`
   left: 0;
   right: 0;
   padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.70);
-  box-shadow: 0px -10px 40px 0px rgba(0,0,0,0.10);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px -10px 40px 0px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(16px);
   height: 74px;
 `;
