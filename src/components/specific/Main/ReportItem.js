@@ -12,7 +12,7 @@ const ReportItem = ({ report }) => {
         viewBox="0 0 26 18"
         style={{ marginRight: "20px" }}
       >
-        <NvidiaLogo width="26" height="18" />
+        <NvidiaLogo />
       </StyledSVG>
       <Flex
         direction="column"
