@@ -11,7 +11,7 @@ const AnalystReportCommentInput = () => {
       align="center"
       gap="20px"
       style={{
-        position: "absolute",
+        position: "fixed",
         bottom: "0px",
         padding: "12px 20px",
         background: "rgba(255, 255, 255, 0.70)",
