@@ -5,8 +5,12 @@ import { ReactComponent as SendIcon } from "../../../assets/image/SendIcon.svg";
 
 import CommentInputBar from "../../specific/AnalystReport/CommentInputBar";
 const AnalystReportCommentInput = () => {
+  const handleWheel = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <StyledFlex>
+    <StyledFlex onWheel={handleWheel}>
       <CommentInputBar width="calc(100% - 58px)" />
       <SendIcon width="18px" height="18px" />
     </StyledFlex>
