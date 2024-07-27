@@ -28,7 +28,9 @@ const StyledWrapper = styled.div`
 `;
 
 const ScrollableContent = styled(Flex)`
-  height: calc(100% - 60px); // Adjust this value based on the height of your CommentInput
+  height: calc(
+    100% - 60px
+  ); // Adjust this value based on the height of your CommentInput
   overflow-y: auto;
   flex-direction: column;
   justify-content: flex-start;
