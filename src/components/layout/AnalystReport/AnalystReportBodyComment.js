@@ -3,13 +3,28 @@ import { styled } from "styled-components";
 
 import { Flex, Text } from "../../common/Index";
 import Comment from "../../specific/AnalystReport/Comment";
+import Divider from "../../specific/Divider";
 
-const dummy = {
-  userName: "Jake",
-  content:
-    "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
-  dateTime: "04/28/2024 20:27",
-};
+const dummy = [
+  {
+    userName: "Jake",
+    content:
+      "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
+    dateTime: "04/28/2024 20:27",
+  },
+  {
+    userName: "Jake",
+    content:
+      "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
+    dateTime: "04/28/2024 20:27",
+  },
+  {
+    userName: "Jake",
+    content:
+      "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
+    dateTime: "04/28/2024 20:27",
+  },
+];
 
 const AnalystReportBodyComment = () => {
   return (
@@ -34,6 +49,7 @@ const AnalystReportBodyComment = () => {
         </Text>
       </Flex>
       <Comment {...dummy} />
+      <Divider />
     </Flex>
   );
 };
