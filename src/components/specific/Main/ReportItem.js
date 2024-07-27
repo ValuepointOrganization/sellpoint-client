@@ -17,6 +17,7 @@ const ReportItem = ({ report }) => {
       <Flex
         direction="column"
         gap="6px"
+        align="flex-start"
         style={{ marginRight: "16px", flexGrow: 1 }}
       >
         <Text color="#83838A" fontSize="12px" fontWeight={600}>
