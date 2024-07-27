@@ -10,16 +10,14 @@ const dummySummary = [
 const ReportSummarySection = () => {
   return (
     <Flex>
-      <ul style={{ listStylePosition: "inside", paddingLeft: "1em" }}>
+      <ul style={{ listStylePosition: "inside" }}>
         {dummySummary.map((report, index) => {
           return (
             <>
-              <li key={`Summary ${index}`}>
-                <Flex align="flex-start" style={{ maxWidth: "100%" }}>
-                  <Text fontSize="14px" fontWeight="400" fontStyle="normal">
-                    {report}
-                  </Text>
-                </Flex>
+              <li key={`Summary ${index}`} sytle={{}}>
+                <Text fontSize="14px" fontWeight="400" fontStyle="normal">
+                  {report}
+                </Text>
               </li>
               <Space height="14px" />
             </>
