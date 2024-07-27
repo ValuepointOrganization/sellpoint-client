@@ -6,10 +6,19 @@ import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.s
 const ReportItem = ({ report }) => {
   return (
     <Flex align="center" padding="12px">
-      <StyledSVG width="26" height="18" viewBox="0 0 26 18" style={{ marginRight: "20px" }}>
+      <StyledSVG
+        width="50"
+        height="34"
+        viewBox="0 0 50 34"
+        style={{ marginRight: "20px" }}
+      >
         <NvidiaLogo />
       </StyledSVG>
-      <Flex direction="column" gap="6px" style={{ marginRight: "16px", flexGrow: 1 }}>
+      <Flex
+        direction="column"
+        gap="6px"
+        style={{ marginRight: "16px", flexGrow: 1 }}
+      >
         <Text color="#83838A" fontSize="12px" fontWeight={600}>
           {report.analystName} | {report.firmName}
         </Text>
