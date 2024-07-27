@@ -15,12 +15,15 @@ const AnalystReportCommentInput = () => {
 };
 
 const StyledFlex = styled(Flex)`
-  position: absolute;
-  bottom: 0px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 12px 20px;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0px -10px 40px 0px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(16px);
+  z-index: 1000;
 `;
 
 const StyledSendIcon = styled(SendIcon)`

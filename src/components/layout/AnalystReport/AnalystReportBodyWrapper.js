@@ -1,5 +1,5 @@
 import React from "react";
-
+import styled from "styled-components";
 import { Flex } from "../../common/Index";
 
 import AnalystReportBodyReportContent from "./AnalystReportBodyReportContent";
@@ -9,22 +9,32 @@ import AnalystReportCommentInput from "./AnalytReportCommentInput";
 
 const AnalystReportBodyWrapper = () => {
   return (
-    <Flex
-      direction="column"
-      justify="center"
-      align="flex-start"
-      gap="60px"
-      style={{
-        width: "393px",
-        padding: "20px 20px 120px 20px", // Increased bottom padding
-      }}
-    >
-      <AnalystReportBodyReportContent />
-      <AnalystReportBodyAgree />
-      <AnalystReportBodyComment />
+    <StyledWrapper>
+      <ScrollableContent>
+        <AnalystReportBodyReportContent />
+        <AnalystReportBodyAgree />
+        <AnalystReportBodyComment />
+      </ScrollableContent>
       <AnalystReportCommentInput />
-    </Flex>
+    </StyledWrapper>
   );
 };
+
+const StyledWrapper = styled.div`
+  position: relative;
+  width: 393px;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const ScrollableContent = styled(Flex)`
+  height: calc(100% - 60px); // Adjust this value based on the height of your CommentInput
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 20px 20px 0 20px;
+`;
 
 export default AnalystReportBodyWrapper;
