@@ -12,7 +12,7 @@ const AnalystReportCommentInput = () => {
       align="center"
       gap="20px"
     >
-      <CommentInputBar width="315px" />
+      <CommentInputBar width="calc(100% - 38px)" />
       <StyledSendIcon width="18px" height="18px" />
     </StyledFlex>
   );
@@ -23,7 +23,7 @@ const StyledFlex = styled(Flex)`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 20px;
+  padding: 12px 16px;
   background: rgba(255, 255, 255, 0.70);
   box-shadow: 0px -10px 40px 0px rgba(0,0,0,0.10);
   backdrop-filter: blur(16px);
