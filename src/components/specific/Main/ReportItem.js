@@ -1,80 +1,40 @@
 import React from "react";
-import styled from "styled-components";
-import NvidiaLogo from "../../../assets/image/NvidiaBig.svg";
+import { Flex, Text } from "../../common/Index";
+import StyledSVG from "../../common/StyledSVG";
+import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
 
 const ReportItem = ({ report }) => {
   return (
-    <ReportArea>
-      <ReportImage src={NvidiaLogo} alt={`${report.companyName} Logo`} />
-      <ReportProfile>
-        <AnalystInfo>
+    <Flex align="center" padding="12px">
+      <StyledSVG width="26" height="18" viewBox="0 0 26 18" style={{ marginRight: "20px" }}>
+        <NvidiaLogo />
+      </StyledSVG>
+      <Flex direction="column" gap="6px" style={{ marginRight: "16px", flexGrow: 1 }}>
+        <Text color="#83838A" fontSize="12px" fontWeight={600}>
           {report.analystName} | {report.firmName}
-        </AnalystInfo>
-        <ReportTitle>{report.reportTitle}</ReportTitle>
-        <CompanyName>{report.companyName}</CompanyName>
-      </ReportProfile>
-      <ReportOpinion>{report.opinion}</ReportOpinion>
-    </ReportArea>
+        </Text>
+        <Text color="#2C2C2C" fontSize="14px" fontWeight={600}>
+          {report.reportTitle}
+        </Text>
+        <Text color="#BABABF" fontSize="12px" fontWeight={500}>
+          {report.companyName}
+        </Text>
+      </Flex>
+      <Flex
+        justify="center"
+        align="center"
+        width="40px"
+        height="22px"
+        padding="4px 6px"
+        borderRadius="8px"
+        background="rgba(255, 59, 48, 0.1)"
+      >
+        <Text color="#FF3B30" fontSize="12px" fontWeight={600}>
+          {report.opinion}
+        </Text>
+      </Flex>
+    </Flex>
   );
 };
 
 export default ReportItem;
-
-const ReportArea = styled.div`
-  padding: 12px;
-  display: flex;
-  align-items: center;
-`;
-
-const ReportImage = styled.img`
-  margin-right: 20px;
-`;
-
-const ReportProfile = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-right: 16px;
-  flex-grow: 1;
-`;
-
-const AnalystInfo = styled.span`
-  color: #83838a;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-`;
-
-const ReportTitle = styled.span`
-  color: #2c2c2c;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-`;
-
-const CompanyName = styled.span`
-  color: #bababf;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-`;
-
-const ReportOpinion = styled.div`
-  display: flex;
-  width: 40px;
-  height: 22px;
-  padding: 4px 6px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: rgba(255, 59, 48, 0.1);
-  color: #ff3b30;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-`;
