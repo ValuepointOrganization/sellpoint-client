@@ -1,6 +1,7 @@
 import React from "react";
 import Flex from "../../common/Flex.js";
 import Space from "../../common/Space.js";
+import Text from "../../common/Text.js";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader.js";
 import ListSquare from "../../specific/Main/ListSquare.js";
 import StyledSVG from "../../common/StyledSVG.js";
@@ -26,11 +27,11 @@ const BodyStockList = () => {
                 <NvidiaLogo />
               </StyledSVG>
             </Flex>
-            <span>{stock.name}</span>
+            <Text fontSize="14px">{stock.name}</Text>
           </Flex>
-          <Flex direction="column" justify="center" align="flex-end" gap="4px" style={{ fontSize: "12px" }}>
-            <span>{stock.code}</span>
-            <span style={{ color: "#FF3B30" }}>{stock.up}</span>
+          <Flex direction="column" justify="center" align="flex-end" gap="4px">
+            <Text fontSize="12px">{stock.code}</Text>
+            <Text fontSize="12px" color="#FF3B30">{stock.up}</Text>
           </Flex>
         </ListSquare>
       ))}
