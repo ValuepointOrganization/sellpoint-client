@@ -23,7 +23,7 @@ const AnalystReportBodyWrapper = () => {
 const StyledWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: calc(100vh - 56px - 74px); // Subtracting header height and comment input height
+  height: calc(100vh - 56px - 74px);
   overflow: hidden;
 `;
 
