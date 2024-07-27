@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Flex, Text } from "../../common/Index";
-import styled from "styled-components";
+import StyledSVG from "../../common/StyledSVG";
 
-const StyledSVG = styled.svg`
-  fill: ${props => props.isActive ? "#717FFE" : "#D5D5D5"};
-`;
-
-const AgreeDisAgreeButton = ({ icon, children, number, isActive, onClick }) => {
+const AgreeDisAgreeButton = ({ icon, children, number }) => {
+  const [isActive, setIsActive] = useState(false);
   const activeColor = "#717FFE";
   const inactiveColor = "#D5D5D5";
 
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
+
   return (
-    <Flex direction="column" alignItems="center" gap="8px" onClick={onClick} style={{ cursor: 'pointer' }}>
+    <Flex direction="column" alignItems="center" gap="8px" onClick={handleClick} style={{ cursor: 'pointer' }}>
       <StyledSVG
         width="18"
         height="18"
         viewBox="0 0 18 18"
-        xmlns="http://www.w3.org/2000/svg"
-        isActive={isActive}
+        fill={isActive ? activeColor : inactiveColor}
       >
         {icon}
       </StyledSVG>
