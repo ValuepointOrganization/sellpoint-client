@@ -10,7 +10,7 @@ const dummySummary = [
 const ReportSummarySection = () => {
   return (
     <Flex>
-      <ul style={{ listStylePosition: "inside" }}>
+      <ul style={{ listStylePosition: "inside", paddingLeft: "1em" }}>
         {dummySummary.map((report, index) => {
           return (
             <>
