@@ -1,25 +1,24 @@
 import React from "react";
-import { styled } from "styled-components";
+import Flex from "../../common/Flex";
 import AnalystReportBodyReportContent from "./AnalystReportBodyReportContent";
 import AnalystReportBodyAgree from "./AnalystReportBodyAgree";
 
 const AnalystReportBodyWrapper = () => {
   return (
-    <Wrapper>
+    <Flex
+      direction="column"
+      justify="center"
+      align="flex-start"
+      gap="60px"
+      style={{
+        width: "393px",
+        padding: "20px 20px 100px 20px",
+      }}
+    >
       <AnalystReportBodyReportContent />
       <AnalystReportBodyAgree />
-    </Wrapper>
+    </Flex>
   );
 };
 
 export default AnalystReportBodyWrapper;
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 393px;
-  padding: 20px 20px 100px 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 60px;
-`;
