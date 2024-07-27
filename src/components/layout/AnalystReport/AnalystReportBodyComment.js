@@ -12,12 +12,14 @@ const AnalystReportBodyComment = () => {
       gap="24px"
       style={{ alignSelf: "stretch" }}
     >
-      <Text fontSize="16px" lineHeight="22px">
-        이 리포트에 대한 댓글
-      </Text>
-      <Text color="#8c8c8c" fontSize="16px" lineHeight="22px">
-        24
-      </Text>
+      <Flex direction="row" justify="space-between" align="center" style={{ width: "100%" }}>
+        <Text fontSize="16px" lineHeight="22px">
+          이 리포트에 대한 댓글
+        </Text>
+        <Text color="#8c8c8c" fontSize="16px" lineHeight="22px">
+          24
+        </Text>
+      </Flex>
     </Flex>
   );
 };
