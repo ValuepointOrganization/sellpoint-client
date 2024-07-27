@@ -1,6 +1,8 @@
 import React from "react";
 import ReportHeader from "../components/layout/AnalystReport/AnalystReportHeader";
 import AnalystReportBodyWrapper from "../components/layout/AnalystReport/AnalystReportBodyWrapper";
+import AnalystReportCommentInput from "../components/layout/AnalystReport/AnalytReportCommentInput";
+
 import styled from "styled-components";
 
 const AnalystReport = () => {

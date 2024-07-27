@@ -5,7 +5,6 @@ import { Flex } from "../../common/Index";
 import AnalystReportBodyReportContent from "./AnalystReportBodyReportContent";
 import AnalystReportBodyAgree from "./AnalystReportBodyAgree";
 import AnalystReportBodyComment from "./AnalystReportBodyComment";
-import AnalystReportCommentInput from "./AnalytReportCommentInput";
 
 const AnalystReportBodyWrapper = () => {
   return (
