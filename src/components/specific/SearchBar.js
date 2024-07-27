@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as SearchIconSvg } from "../../assets/image/search.svg";
 import { ReactComponent as CloseIconSvg } from "../../assets/image/close.svg";
-import { Flex } from "../common/Flex";
+import { Flex } from "../common/Index";
 
 const SearchBar = ({
   width = "100%",
