@@ -5,6 +5,7 @@ import { Flex } from "../../common/Index";
 import AnalystReportBodyReportContent from "./AnalystReportBodyReportContent";
 import AnalystReportBodyAgree from "./AnalystReportBodyAgree";
 import AnalystReportBodyComment from "./AnalystReportBodyComment";
+import AnalystReportCommentInput from "./AnalytReportCommentInput";
 
 const AnalystReportBodyWrapper = () => {
   return (
@@ -12,6 +13,7 @@ const AnalystReportBodyWrapper = () => {
       <AnalystReportBodyReportContent />
       <AnalystReportBodyAgree />
       <AnalystReportBodyComment />
+      <AnalystReportCommentInput />
     </StyledWrapper>
   );
 };
@@ -21,8 +23,8 @@ const StyledWrapper = styled(Flex)`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 60px;
-  padding: 20px 20px 94px 20px; // Increased bottom padding to account for comment input
-  height: calc(100vh - 56px); // Subtract header height
+  padding: 20px 20px 94px 20px;
+  height: calc(100vh - 56px);
   overflow-y: auto;
 `;
 
