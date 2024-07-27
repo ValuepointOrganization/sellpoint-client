@@ -10,31 +10,21 @@ import AnalystReportCommentInput from "./AnalytReportCommentInput";
 const AnalystReportBodyWrapper = () => {
   return (
     <StyledWrapper>
-      <ScrollableContent>
-        <AnalystReportBodyReportContent />
-        <AnalystReportBodyAgree />
-        <AnalystReportBodyComment />
-      </ScrollableContent>
-      <AnalystReportCommentInput />
+      <AnalystReportBodyReportContent />
+      <AnalystReportBodyAgree />
+      <AnalystReportBodyComment />
     </StyledWrapper>
   );
 };
 
-const StyledWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 56px - 74px);
-  overflow: hidden;
-`;
-
-const ScrollableContent = styled(Flex)`
-  height: 100%;
-  overflow-y: auto;
+const StyledWrapper = styled(Flex)`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 60px;
-  padding: 20px 20px 74px 20px; // Added bottom padding to account for comment input
+  padding: 20px 20px 94px 20px; // Increased bottom padding to account for comment input
+  height: calc(100vh - 56px); // Subtract header height
+  overflow-y: auto;
 `;
 
 export default AnalystReportBodyWrapper;

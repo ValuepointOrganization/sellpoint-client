@@ -8,6 +8,7 @@ const AnalystReport = () => {
     <PageWrapper>
       <ReportHeader />
       <AnalystReportBodyWrapper />
+      <AnalystReportCommentInput />
     </PageWrapper>
   );
 };
