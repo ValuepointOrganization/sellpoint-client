@@ -13,9 +13,11 @@ const ReportSummarySection = () => {
       {dummySummary.map((report, index) => {
         return (
           <li key={`Summary ${index}`}>
-            <Text fontSize="14px" fontWeight="400" fontStyle="normal">
-              {report}
-            </Text>
+            <Flex align="flex-start" style={{ maxWidth: "100%" }}>
+              <Text fontSize="14px" fontWeight="400" fontStyle="normal">
+                {report}
+              </Text>
+            </Flex>
           </li>
         );
       })}
