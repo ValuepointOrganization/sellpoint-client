@@ -7,12 +7,11 @@ import { Text, Image, Flex, Space } from "../../common/Index";
 
 const TargetPriceChange = () => {
   return (
-    <Box padding="1rem" background="#f9f9f9" borderRadius="8px">
-      <Flex
-        justify="space-between"
-        align="center"
-        style={{ alignSelf: "stretch" }}
-      >
+    <Flex
+      justify="space-between"
+      align="center"
+      style={{ alignSelf: "stretch" }}
+    >
       <Flex align="center">
         <Image height="18px" width="18px" src={BarChart} alt="BarChart" />
         <Space width="12px" />
@@ -32,8 +31,7 @@ const TargetPriceChange = () => {
         <Image width="50px" src={RightArrow} alt="RightArrow" />
         <Text>$900</Text>
       </Flex>
-      </Flex>
-    </Box>
+    </Flex>
   );
 };
 
