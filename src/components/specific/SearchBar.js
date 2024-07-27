@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import SearchIconSvg from "../../assets/image/search.svg";
 import CloseIconSvg from "../../assets/image/close.svg";
-import Flex from "../common/Flex";
 
 const SearchBar = ({
   width = "100%",
@@ -12,11 +11,9 @@ const SearchBar = ({
 }) => {
   return (
     <SearchBarContainer width={width} height={height} onClick={onClick}>
-      <Flex alignItems="center" gap="12px">
-        <SearchIcon src={SearchIconSvg} alt="Search" />
-        <SearchInput placeholder={placeholder} />
-        <ClearIcon src={CloseIconSvg} alt="Clear" />
-      </Flex>
+      <SearchIcon src={SearchIconSvg} alt="Search" />
+      <SearchInput placeholder={placeholder} />
+      <ClearIcon src={CloseIconSvg} alt="Clear" />
     </SearchBarContainer>
   );
 };
@@ -24,9 +21,13 @@ const SearchBar = ({
 export default SearchBar;
 
 const SearchBarContainer = styled.div`
+  display: flex;
   padding: 12px;
+  justify-content: space-between;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  align-items: center;
+  align-self: stretch;
   border-radius: 24px;
   background: #f5f6f7;
   backdrop-filter: blur(50px);
@@ -41,11 +42,13 @@ const SearchInput = styled.input`
 `;
 
 const SearchIcon = styled.img`
+  margin-right: 12px;
   width: 18px;
   height: 18px;
 `;
 
 const ClearIcon = styled.img`
+  margin-left: 12px;
   width: 18px;
   height: 18px;
   cursor: pointer;
