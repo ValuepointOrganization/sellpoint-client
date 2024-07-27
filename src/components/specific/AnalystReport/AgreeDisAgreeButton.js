@@ -12,7 +12,13 @@ const AgreeDisAgreeButton = ({ icon, children, number }) => {
   };
 
   return (
-    <Flex direction="column" alignItems="center" gap="8px" onClick={handleClick} style={{ cursor: 'pointer' }}>
+    <Flex
+      direction="column"
+      alignItems="center"
+      gap="8px"
+      onClick={handleClick}
+      style={{ cursor: "pointer" }}
+    >
       <StyledSVG
         width="18"
         height="18"
