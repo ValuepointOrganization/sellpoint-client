@@ -13,7 +13,6 @@ const AnalystReportBodyWrapper = () => {
       <AnalystReportBodyReportContent />
       <AnalystReportBodyAgree />
       <AnalystReportBodyComment />
-      <AnalystReportCommentInput />
     </StyledWrapper>
   );
 };
@@ -23,7 +22,7 @@ const StyledWrapper = styled(Flex)`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 60px;
-  padding: 20px 20px 94px 20px;
+  padding: 70px 20px 100px 20px;
   height: 100%;
   overflow-y: auto;
 `;

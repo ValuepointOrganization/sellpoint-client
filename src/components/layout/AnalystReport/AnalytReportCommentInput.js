@@ -14,7 +14,7 @@ const AnalystReportCommentInput = () => {
 };
 
 const StyledFlex = styled(Flex)`
-  width: 400px;
+  width: 393px;
   align-items: center;
   gap: 20px;
   position: fixed;

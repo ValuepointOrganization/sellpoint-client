@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import AnalystList from "./pages/AnalystList";
 import AnalystDetail from "./pages/AnalystDetail";
 import AnalystReport from "./pages/AnalystReport";
+import StockDetail from "./pages/StockDetail";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/analyst-list" element={<AnalystList />} />
           <Route path="/analyst/:analystID" element={<AnalystDetail />} />
           <Route path="/analyst-report" element={<AnalystReport />} />
+          <Route path="/stock" element={<StockDetail />} />
         </Routes>
       </div>
     </Router>

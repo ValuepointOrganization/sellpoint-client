@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 16px;
   height: 50px;
+  position: fixed;
 `;
 
 const IconButton = styled.button`
