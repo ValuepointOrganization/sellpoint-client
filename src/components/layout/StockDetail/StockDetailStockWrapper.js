@@ -11,7 +11,7 @@ const StockDetailStockWrapper = () => {
       direction="column"
       align="flex-start"
       gap="32px"
-      style={{ alignSelf: "stretch", padding: "0px 20px" }}
+      style={{ width: "100%", padding: "0px 20px" }}
     >
       <StockDetailStockHeader />
     </Flex>

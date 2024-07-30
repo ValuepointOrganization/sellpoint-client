@@ -7,29 +7,30 @@ import { ReactComponent as MicrosoftLogo } from "../../../assets/image/Microsoft
 import ShareBtn from "../ShareBtn";
 const StockDetailStockHeader = () => {
   return (
-    <Flex gap="16px" align="center" style={{ height: "40px" }}>
-      <MicrosoftLogo width="30" height="30" />
-      <Flex
-        direction="column"
-        align="flex-start"
-        gap="5px"
-        style={{ width: "216px" }}
-      >
-        <Text
-          color="#2e3032"
-          lineHeight="20px"
-          style={{ letterSpacing: "-0.084px" }}
+    <Flex justify="space-between" align="center" style={{ width: "100%", height: "40px" }}>
+      <Flex gap="16px" align="center">
+        <MicrosoftLogo width="30" height="30" />
+        <Flex
+          direction="column"
+          align="flex-start"
+          gap="5px"
         >
-          Microsoft
-        </Text>
-        <Text
-          color="#AEAEAE"
-          fontSize="12px"
-          fontWeight="400"
-          lineHeight="16px"
-        >
-          MSFT
-        </Text>
+          <Text
+            color="#2e3032"
+            lineHeight="20px"
+            style={{ letterSpacing: "-0.084px" }}
+          >
+            Microsoft
+          </Text>
+          <Text
+            color="#AEAEAE"
+            fontSize="12px"
+            fontWeight="400"
+            lineHeight="16px"
+          >
+            MSFT
+          </Text>
+        </Flex>
       </Flex>
       <ShareBtn />
     </Flex>
