@@ -23,7 +23,6 @@ const StockDetailStockChart = () => {
       {
         name: "AAPL",
         data: [
-          /* This is where you'd typically load your data */
           [1167609600000, 12.5],
           [1167696000000, 12.61],
           [1167782400000, 12.69],
@@ -34,7 +33,6 @@ const StockDetailStockChart = () => {
           [1168387200000, 13.1],
           [1168473600000, 13.5],
           [1168560000000, 13.87],
-          /* ... more data points ... */
         ],
         tooltip: {
           valueDecimals: 2,
