@@ -5,6 +5,8 @@ import { Flex } from "../../common/Index";
 
 import StockDetailStockHeader from "../../specific/StockDetail/StockDetailStockHeader";
 import StockDetailStockPrice from "../../specific/StockDetail/StockDetailStockPrice";
+import StockDetailStockChart from '../../specific/StockDetail/StockDetailStockChart';
+
 const StockDetailStockWrapper = () => {
   return (
     <Flex
@@ -15,6 +17,7 @@ const StockDetailStockWrapper = () => {
     >
       <StockDetailStockHeader />
       <StockDetailStockPrice />
+      <StockDetailStockChart />
     </Flex>
   );
 };
