@@ -1,9 +1,18 @@
 import React from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
+import styled from "styled-components";
+
+const ChartContainer = styled.div`
+  width: 100%;
+  height: 400px;
+`;
 
 const StockDetailStockChart = () => {
   const options = {
+    chart: {
+      height: 400,
+    },
     rangeSelector: {
       selected: 1,
     },
@@ -35,11 +44,13 @@ const StockDetailStockChart = () => {
   };
 
   return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      constructorType={"stockChart"}
-      options={options}
-    />
+    <ChartContainer>
+      <HighchartsReact
+        highcharts={Highcharts}
+        constructorType={"stockChart"}
+        options={options}
+      />
+    </ChartContainer>
   );
 };
 
