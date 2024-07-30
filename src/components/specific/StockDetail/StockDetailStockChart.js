@@ -33,12 +33,23 @@ const StockDetailStockChart = () => {
   const options = {
     chart: {
       height: 400,
+      marginBottom: 0, // Remove bottom margin
     },
     rangeSelector: {
-      selected: 1,
+      enabled: false, // Disable range selector
+    },
+    navigator: {
+      enabled: false, // Disable navigator
+    },
+    scrollbar: {
+      enabled: false, // Disable scrollbar
     },
     title: {
       text: "",
+    },
+    xAxis: {
+      minPadding: 0,
+      maxPadding: 0,
     },
     series: [
       {
