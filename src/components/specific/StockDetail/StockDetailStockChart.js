@@ -16,19 +16,26 @@ const dateToTimestamp = (dateString) => {
   return Date.UTC(year, month - 1, day);
 };
 
+const generateDummyData = () => {
+  const startDate = new Date(2020, 0, 1);
+  const endDate = new Date(2022, 11, 31);
+  const data = [];
+  let currentDate = new Date(startDate);
+  let price = 100; // Starting price
+
+  while (currentDate <= endDate) {
+    const dateString = currentDate.toISOString().slice(0, 10).replace(/-/g, '');
+    price += (Math.random() - 0.5) * 5; // Random price change
+    price = Math.max(0, price); // Ensure price doesn't go negative
+    data.push([dateString, parseFloat(price.toFixed(2))]);
+    currentDate.setDate(currentDate.getDate() + 7); // Move to next week
+  }
+
+  return data;
+};
+
 const StockDetailStockChart = () => {
-  const stockData = [
-    ["20070101", 12.5],
-    ["20070102", 12.61],
-    ["20070103", 12.69],
-    ["20070104", 12.88],
-    ["20070105", 12.79],
-    ["20070108", 12.3],
-    ["20070109", 12.8],
-    ["20070110", 13.1],
-    ["20070111", 13.5],
-    ["20070112", 13.87],
-  ];
+  const stockData = generateDummyData();
 
   const options = {
     chart: {
