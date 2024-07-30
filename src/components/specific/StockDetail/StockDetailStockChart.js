@@ -36,13 +36,13 @@ const StockDetailStockChart = () => {
       marginBottom: 0, // Remove bottom margin
     },
     rangeSelector: {
-      enabled: false, // Disable range selector
+      enabled: true, // Disable range selector
     },
     navigator: {
       enabled: false, // Disable navigator
     },
     scrollbar: {
-      enabled: false, // Disable scrollbar
+      enabled: true, // Disable scrollbar
     },
     title: {
       text: "",
