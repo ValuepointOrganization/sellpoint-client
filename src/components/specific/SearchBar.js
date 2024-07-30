@@ -10,8 +10,20 @@ const SearchBar = ({
   placeholder = "종목 또는 애널리스트를 검색하세요.",
   onClick,
 }) => {
+  React.useEffect(() => {
+    console.log("SearchBar mounted");
+    return () => console.log("SearchBar unmounted");
+  }, []);
+
+  const handleClick = (e) => {
+    console.log("SearchBar clicked");
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
   return (
-    <SearchBarContainer width={width} height={height} onClick={onClick}>
+    <SearchBarContainer width={width} height={height} onClick={handleClick}>
       <Flex align="center" gap="12px" style={{ height: "100%" }}>
         <SearchIconSvg width="18" height="18" />
         <SearchInput placeholder={placeholder} />
