@@ -8,7 +8,28 @@ const ChartContainer = styled.div`
   height: 400px;
 `;
 
+// Helper function to convert YYYYMMDD to timestamp
+const dateToTimestamp = (dateString) => {
+  const year = dateString.substring(0, 4);
+  const month = dateString.substring(4, 6);
+  const day = dateString.substring(6, 8);
+  return Date.UTC(year, month - 1, day);
+};
+
 const StockDetailStockChart = () => {
+  const stockData = [
+    ["20070101", 12.5],
+    ["20070102", 12.61],
+    ["20070103", 12.69],
+    ["20070104", 12.88],
+    ["20070105", 12.79],
+    ["20070108", 12.3],
+    ["20070109", 12.8],
+    ["20070110", 13.1],
+    ["20070111", 13.5],
+    ["20070112", 13.87],
+  ];
+
   const options = {
     chart: {
       height: 400,
@@ -22,18 +43,7 @@ const StockDetailStockChart = () => {
     series: [
       {
         name: "AAPL",
-        data: [
-          [1167609600000, 12.5], // January 1, 2007
-          [1167696000000, 12.61], // January 2, 2007
-          [1167782400000, 12.69], // January 3, 2007
-          [1167868800000, 12.88], // January 4, 2007
-          [1167955200000, 12.79], // January 5, 2007
-          [1168214400000, 12.3], // January 8, 2007
-          [1168300800000, 12.8], // January 9, 2007
-          [1168387200000, 13.1], // January 10, 2007
-          [1168473600000, 13.5], // January 11, 2007
-          [1168560000000, 13.87], // January 12, 2007
-        ],
+        data: stockData.map(([date, price]) => [dateToTimestamp(date), price]),
         tooltip: {
           valueDecimals: 2,
         },
