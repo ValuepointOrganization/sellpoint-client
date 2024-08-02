@@ -1,6 +1,7 @@
 import React from "react";
-
 import { Flex } from "../../common/Index";
+
+import StockDetailReportSelect from "../../specific/StockDetail/StockDetailReportSelect";
 
 const StockDetailReportWrpper = () => {
   return (
@@ -9,7 +10,9 @@ const StockDetailReportWrpper = () => {
       gap="20px"
       direction="column"
       style={{ padding: "20px 20px 100px 20px" }}
-    ></Flex>
+    >
+      <StockDetailReportSelect />
+    </Flex>
   );
 };
 
