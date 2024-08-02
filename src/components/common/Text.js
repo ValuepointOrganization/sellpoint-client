@@ -7,6 +7,11 @@ const StyledText = styled.span`
   font-style: ${(props) => props.fontStyle || "normal"};
   font-weight: ${(props) => props.fontWeight || "600"};
   line-height: ${(props) => props.lineHeight || "140%"};
+  ${(props) =>
+    props.style &&
+    Object.entries(props.style)
+      .map(([key, value]) => `${key}: ${value};`)
+      .join("")}
 `;
 
 const Text = ({ children, ...props }) => {

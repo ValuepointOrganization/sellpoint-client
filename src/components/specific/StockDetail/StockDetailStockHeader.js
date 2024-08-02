@@ -5,7 +5,11 @@ import ShareBtn from "../ShareBtn";
 
 const StockDetailStockHeader = () => {
   return (
-    <Flex justify="space-between" align="center" style={{ width: "100%", height: "40px" }}>
+    <Flex
+      justify="space-between"
+      align="center"
+      style={{ width: "100%", height: "40px" }}
+    >
       <StockInfo />
       <ShareBtn />
     </Flex>
@@ -28,12 +32,7 @@ const StockText = () => (
     >
       Microsoft
     </Text>
-    <Text
-      color="#AEAEAE"
-      fontSize="12px"
-      fontWeight="400"
-      lineHeight="16px"
-    >
+    <Text color="#AEAEAE" fontSize="12px" fontWeight="400" lineHeight="16px">
       MSFT
     </Text>
   </Flex>

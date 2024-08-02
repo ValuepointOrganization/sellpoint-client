@@ -24,7 +24,7 @@ const generateDummyData = () => {
   let price = 100; // Starting price
 
   while (currentDate <= endDate) {
-    const dateString = currentDate.toISOString().slice(0, 10).replace(/-/g, '');
+    const dateString = currentDate.toISOString().slice(0, 10).replace(/-/g, "");
     price += (Math.random() - 0.5) * 5; // Random price change
     price = Math.max(0, price); // Ensure price doesn't go negative
     data.push([dateString, parseFloat(price.toFixed(2))]);
@@ -40,13 +40,13 @@ const StockDetailStockChart = () => {
   const options = {
     chart: {
       height: 400,
-      marginBottom: 0, // Remove bottom margin
+      marginBottom: 10, // Remove bottom margin
     },
     rangeSelector: {
       enabled: true, // Disable range selector
     },
     navigator: {
-      enabled: false, // Disable navigator
+      enabled: true, // Disable navigator
     },
     scrollbar: {
       enabled: true, // Disable scrollbar
