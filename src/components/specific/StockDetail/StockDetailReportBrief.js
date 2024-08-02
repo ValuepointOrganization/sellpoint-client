@@ -29,17 +29,19 @@ const ReportItem = ({ opinion, price }) => (
   </Flex>
 );
 
-const StockDetailReportBrief = () => {
+const StockDetailReportBrief = ({ reportType }) => {
   const reportItems = [
     { opinion: "최저", price: "380.50" },
     { opinion: "평균", price: "380.50" },
     { opinion: "최고", price: "380.50" },
   ];
 
+  const reportTitle = reportType === "analyst" ? "애널리스트 리포트" : "유저 리포트";
+
   return (
     <StyledWrapper gap="10px" direction="column" justifyContent="center" alignItems="flex-start">
       <Text fontSize="16px" lineHeight="160%">
-        애널리스트 리포트 (160)
+        {reportTitle} (160)
       </Text>
       <StyledReportContainer gap="10px" alignItems="center">
         {reportItems.map((item, index) => (

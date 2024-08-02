@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Flex, Text } from "../../common/Index";
 import styled from "styled-components";
 
@@ -7,11 +7,9 @@ const Button = styled(Flex)`
   border-bottom: ${props => props.active ? "1px solid #000" : "none"};
 `;
 
-const StockDetailReportSelect = () => {
-  const [activeButton, setActiveButton] = useState("analyst");
-
+const StockDetailReportSelect = ({ reportType, setReportType }) => {
   const handleButtonClick = (buttonType) => {
-    setActiveButton(buttonType);
+    setReportType(buttonType);
   };
 
   return (
@@ -22,7 +20,7 @@ const StockDetailReportSelect = () => {
         alignItems="center"
         gap="10px"
         style={{ flex: "1 0 0" }}
-        active={activeButton === "analyst"}
+        active={reportType === "analyst"}
         onClick={() => handleButtonClick("analyst")}
       >
         <Text fontSize="16px" lineHeight="160%">
@@ -35,7 +33,7 @@ const StockDetailReportSelect = () => {
         alignItems="center"
         gap="10px"
         style={{ flex: "1 0 0" }}
-        active={activeButton === "user"}
+        active={reportType === "user"}
         onClick={() => handleButtonClick("user")}
       >
         <Text fontSize="16px" lineHeight="160%">

@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Flex } from "../../common/Index";
 
 import StockDetailReportSelect from "../../specific/StockDetail/StockDetailReportSelect";
 import StockDetailReportBrief from "../../specific/StockDetail/StockDetailReportBrief";
-const StockDetailReportWrpper = () => {
+
+const StockDetailReportWrapper = () => {
+  const [reportType, setReportType] = useState("analyst");
+
   return (
     <Flex
-      align="felx-start"
+      align="flex-start"
       gap="20px"
       direction="column"
       style={{ padding: "0px 20px 100px 20px" }}
     >
-      <StockDetailReportSelect />
-      <StockDetailReportBrief />
+      <StockDetailReportSelect reportType={reportType} setReportType={setReportType} />
+      <StockDetailReportBrief reportType={reportType} />
     </Flex>
   );
 };
 
-export default StockDetailReportWrpper;
+export default StockDetailReportWrapper;
