@@ -9,7 +9,7 @@ const StockDetailReportWrpper = () => {
       align="felx-start"
       gap="20px"
       direction="column"
-      style={{ padding: "20px 20px 100px 20px" }}
+      style={{ padding: "0px 20px 100px 20px" }}
     >
       <StockDetailReportSelect />
     </Flex>
