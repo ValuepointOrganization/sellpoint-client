@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Flex } from "../../common";
+import { Flex } from "../../common/Index";
 import SearchBar from "../SearchBar";
 import { ReactComponent as FilterIcon } from "../../../assets/image/FilterIcon.svg";
 
