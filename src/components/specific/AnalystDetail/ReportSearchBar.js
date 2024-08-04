@@ -4,10 +4,10 @@ import { Flex } from "../../common/Index";
 import SearchBar from "../SearchBar";
 import { ReactComponent as FilterIcon } from "../../../assets/image/FilterIcon.svg";
 
-const ReportSearchBar = () => {
+const ReportSearchBar = ({ placeholder = "종목을 검색하세요." }) => {
   return (
     <Flex gap="20px" alignItems="center">
-      <SearchBar width="313px" placeholder="종목을 검색하세요." />
+      <SearchBar width="313px" placeholder={placeholder} />
       <IconButton>
         <FilterIcon />
       </IconButton>
