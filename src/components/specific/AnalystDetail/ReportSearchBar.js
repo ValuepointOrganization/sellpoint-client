@@ -1,27 +1,21 @@
-import { React } from "react";
-import { styled } from "styled-components";
-
+import React from "react";
+import styled from "styled-components";
+import { Flex } from "../../common";
 import SearchBar from "../SearchBar";
-import FilterIcon from "../../../assets/image/FilterIcon.svg";
+import { ReactComponent as FilterIcon } from "../../../assets/image/FilterIcon.svg";
 
 const ReportSearchBar = () => {
   return (
-    <Wrapper>
+    <Flex gap="20px" alignItems="center">
       <SearchBar width="313px" placeholder="종목을 검색하세요." />
       <IconButton>
-        <img src={FilterIcon} alt="FilterBtn" />
+        <FilterIcon />
       </IconButton>
-    </Wrapper>
+    </Flex>
   );
 };
 
 export default ReportSearchBar;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
 
 const IconButton = styled.button`
   background: none;
