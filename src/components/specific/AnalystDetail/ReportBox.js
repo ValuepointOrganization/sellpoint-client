@@ -1,9 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-
 import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
+import Flex from "../../common/Flex";
+import Text from "../../common/Text";
 import Space from "../../common/Space";
 import ReportOpinion from "../ReportOpinion";
+import { ReportOutside, NameSection, Logo } from "./ReportBoxStyles";
 
 const ReportBox = ({ report }) => {
   return (
@@ -11,76 +12,32 @@ const ReportBox = ({ report }) => {
       <ReportOpinion isBuy={report.opinion === "Buy"}>
         {report.opinion}
       </ReportOpinion>
-      <ReportContent>
+      <Flex direction="column" flex="1 0 0">
         <NameSection>
-          <Logo src={NvidiaLogo} alt={`NvidiaLogo`} />
-          <CompanyText>Nvidia</CompanyText>
+          <Logo src={NvidiaLogo} alt="NvidiaLogo" />
+          <Text color="#99a0a3" fontSize="12px" fontWeight="600">
+            Nvidia
+          </Text>
         </NameSection>
         <Space height="6px" />
-        <TitleText>{report.reportTitle}</TitleText>
+        <Text color="#2c2c2c" fontSize="14px" fontWeight="600" lineHeight="140%">
+          {report.reportTitle}
+        </Text>
         <Space height="16px" />
-        <ContentText>
+        <Text color="#83838a" fontSize="12px" fontWeight="500">
           {report.analystName} | {report.firmName}
-        </ContentText>
+        </Text>
         <Space height="6px" />
-        <ContentText>
+        <Text color="#83838a" fontSize="12px" fontWeight="500">
           6개월 후 가격: {report.halfYear} ・ 1년 후 가격: {report.oneYear}
-        </ContentText>
+        </Text>
         <Space height="6px" />
-        <ContentText>발행 날짜: {report.writtenDate}</ContentText>
-      </ReportContent>
+        <Text color="#83838a" fontSize="12px" fontWeight="500">
+          발행 날짜: {report.writtenDate}
+        </Text>
+      </Flex>
     </ReportOutside>
   );
 };
 
 export default ReportBox;
-
-const ReportOutside = styled.div`
-  display: flex;
-  padding: 20px 12px 20px 12px;
-  align-items: flex-start;
-  gap: 20px;
-  align-self: stretch;
-  border-bottom: solid 1px #f5f6f7;
-`;
-
-const ReportContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1 0 0;
-`;
-
-const NameSection = styled.div`
-  display: flex;
-`;
-
-const Logo = styled.img`
-  margin-right: 6px;
-`;
-
-const CompanyText = styled.p`
-  color: #99a0a3;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-`;
-
-const TitleText = styled.span`
-  color: #2c2c2c;
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 140%; /* 19.6px */
-`;
-
-const ContentText = styled.span`
-  color: #83838a;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-`;
