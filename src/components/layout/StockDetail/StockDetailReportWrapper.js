@@ -17,7 +17,7 @@ const StockDetailReportWrapper = () => {
     firmName: "Tech Insights",
     halfYear: "$400",
     oneYear: "$450",
-    writtenDate: "2023-08-05"
+    writtenDate: "2023-08-05",
   };
 
   return (
