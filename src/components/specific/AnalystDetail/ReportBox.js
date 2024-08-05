@@ -6,7 +6,6 @@ import Space from "../../common/Space";
 import ReportOpinion from "../ReportOpinion";
 
 const ReportBox = ({ report }) => {
-  console.log(report);
   return (
     <ReportOutside>
       <ReportOpinion isBuy={report.opinion === "Buy"}>
