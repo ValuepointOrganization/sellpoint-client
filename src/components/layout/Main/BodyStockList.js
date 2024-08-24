@@ -82,7 +82,7 @@ const BodyStockList = () => {
             </Text>
             <Text
               fontSize="12px"
-              color="#FF3B30"
+              color={parseFloat(stock.FLUC_RATE) < 0 ? "#3182F6" : "#FF3B30"}
               fontWeight="500"
               lineHeight="normal"
             >
