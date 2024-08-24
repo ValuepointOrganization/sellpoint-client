@@ -15,7 +15,7 @@ const StockDetailStockPrice = ({ stockPrice, flucPrice, flucRate, market }) => {
         ₩ {stockPrice}
       </Text>
       <Text
-        color="#ff3b30"
+        color={parseFloat(flucRate) < 0 ? "#3182F6" : "#ff3b30"}
         fontSize="16px"
         fontWeight="500"
         lineHeight="24px"
