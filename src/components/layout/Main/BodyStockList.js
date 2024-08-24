@@ -9,6 +9,7 @@ import StyledSVG from "../../common/StyledSVG.js";
 import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
 import { DummyStock } from "../../../assets/dummy.js";
 
+const baseUrl = process.env.BASE_URL;
 const BodyStockList = () => {
   return (
     <Flex direction="column" style={{ width: "100%" }}>
