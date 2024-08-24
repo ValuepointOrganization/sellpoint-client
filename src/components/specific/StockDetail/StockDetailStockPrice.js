@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Flex, Text } from "../../common/Index";
 
-const StockDetailStockPrice = () => {
+const StockDetailStockPrice = ({ stockPrice, flucPrice, flucRate, market }) => {
   return (
     <Flex direction="column" gap="5px" align="flex-start">
       <Text
@@ -12,7 +12,7 @@ const StockDetailStockPrice = () => {
         lineHeight="44px"
         style={{ letterSpacing: "-0.792px" }}
       >
-        $ 411.42
+        ₩ {stockPrice}
       </Text>
       <Text
         color="#ff3b30"
@@ -21,7 +21,7 @@ const StockDetailStockPrice = () => {
         lineHeight="24px"
         style={{ letterSpacing: "-0.176px" }}
       >
-        +1.68 (0.41%)
+        {flucPrice} ({flucRate}%)
       </Text>
     </Flex>
   );
