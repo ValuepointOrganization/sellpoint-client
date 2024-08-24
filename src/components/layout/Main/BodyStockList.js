@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Flex from "../../common/Flex.js";
 import Space from "../../common/Space.js";
 import Text from "../../common/Text.js";
@@ -7,10 +8,32 @@ import ListSquare from "../../specific/Main/ListSquare.js";
 import StyledSVG from "../../common/StyledSVG.js";
 
 import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
-import { DummyStock } from "../../../assets/dummy.js";
 
 const baseUrl = process.env.BASE_URL;
+
 const BodyStockList = () => {
+  const [stocks, setStocks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchStocks = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/stock/profile`);
+        setStocks(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to fetch stock data");
+        setLoading(false);
+      }
+    };
+
+    fetchStocks();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+
   return (
     <Flex direction="column" style={{ width: "100%" }}>
       <ListContainerHeader
@@ -20,7 +43,7 @@ const BodyStockList = () => {
         buttonHeight={22}
       />
       <Space height="20px" />
-      {DummyStock.map((stock, index) => (
+      {stocks.map((stock, index) => (
         <ListSquare key={index} type="stock">
           <Flex
             align="center"
