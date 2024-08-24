@@ -19,7 +19,9 @@ const BodyStockList = () => {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/stock/profile`);
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile`
+        );
         setStocks(response.data);
         setLoading(false);
       } catch (err) {
@@ -30,6 +32,7 @@ const BodyStockList = () => {
 
     fetchStocks();
   }, []);
+  console.log(stocks);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -65,7 +68,7 @@ const BodyStockList = () => {
               lineHeight="normal"
               color="#2c2c2c"
             >
-              {stock.name}
+              {stock.STOCK_NAME}
             </Text>
           </Flex>
           <Flex direction="column" justify="center" align="flex-end" gap="4px">
@@ -75,7 +78,7 @@ const BodyStockList = () => {
               lineHeight="normal"
               color="#2c2c2c"
             >
-              {stock.code}
+              {stock.CODE}
             </Text>
             <Text
               fontSize="12px"
@@ -83,7 +86,7 @@ const BodyStockList = () => {
               fontWeight="500"
               lineHeight="normal"
             >
-              {stock.up}
+              {stock.FLUC_RATE}
             </Text>
           </Flex>
         </ListSquare>
