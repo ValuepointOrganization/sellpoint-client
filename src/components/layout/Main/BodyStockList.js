@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Flex from "../../common/Flex.js";
 import Space from "../../common/Space.js";
 import Text from "../../common/Text.js";
@@ -15,6 +16,11 @@ const BodyStockList = () => {
   const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleStockClick = (stockId) => {
+    navigate(`/stock/${stockId}`);
+  };
 
   useEffect(() => {
     const fetchStocks = async () => {
@@ -47,7 +53,11 @@ const BodyStockList = () => {
       />
       <Space height="20px" />
       {stocks.map((stock, index) => (
-        <ListSquare key={index} type="stock">
+        <ListSquare 
+          key={index} 
+          type="stock" 
+          onClick={() => handleStockClick(stock.STOCK_ID)}
+        >
           <Flex
             align="center"
             gap="12px"
