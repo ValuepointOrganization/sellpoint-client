@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 
-import ReportSearchBar from "../../specific/AnalystDetail/ReportSearchBar";
+import ReportSearchBar from "../../specific/ReportSearchBar";
 import ScrollableReportList from "../../specific/AnalystDetail/ScrollableReportList";
 
 import { DummyReport } from "../../../assets/dummy";

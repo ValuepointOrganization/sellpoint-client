@@ -53,9 +53,9 @@ const BodyStockList = () => {
       />
       <Space height="20px" />
       {stocks.map((stock, index) => (
-        <ListSquare 
-          key={index} 
-          type="stock" 
+        <ListSquare
+          key={index}
+          type="stock"
           onClick={() => handleStockClick(stock.STOCK_ID)}
         >
           <Flex

@@ -20,7 +20,12 @@ const ReportBox = ({ report }) => {
           </Text>
         </NameSection>
         <Space height="6px" />
-        <Text color="#2c2c2c" fontSize="14px" fontWeight="600" lineHeight="140%">
+        <Text
+          color="#2c2c2c"
+          fontSize="14px"
+          fontWeight="600"
+          lineHeight="140%"
+        >
           {report.reportTitle}
         </Text>
         <Space height="16px" />

@@ -13,13 +13,15 @@ const StockDetailStockWrapper = () => {
   const [stockData, setStockData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const baseUrl = process.env.REACT_APP_BASE_URL;
+  console.log(stockId);
+  const baseUrl = process.env.BASE_URL;
 
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/stock/profile/${stockId}`);
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/${stockId}`
+        );
         setStockData(response.data);
         setLoading(false);
       } catch (err) {
@@ -27,9 +29,9 @@ const StockDetailStockWrapper = () => {
         setLoading(false);
       }
     };
-
     fetchStockData();
-  }, [stockId, baseUrl]);
+    console.log(stockData);
+  }, []);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -41,8 +43,16 @@ const StockDetailStockWrapper = () => {
       gap="32px"
       style={{ width: "100%", padding: "0px 20px", marginBottom: "48px" }}
     >
-      <StockDetailStockHeader stockData={stockData} />
-      <StockDetailStockPrice stockData={stockData} />
+      <StockDetailStockHeader
+        stockName={stockData.STOCK_NAME}
+        stockCode={stockData.CODE}
+      />
+      <StockDetailStockPrice
+        stockPrice={stockData.PRICE}
+        flucPrice={stockData.FLUC_PRICE}
+        flucRate={stockData.FLUC_RATE}
+        country={stockData.COUNTRY}
+      />
       <StockDetailStockChart stockId={stockId} />
     </Flex>
   );

@@ -17,7 +17,7 @@ function App() {
           <Route path="/analyst-list" element={<AnalystList />} />
           <Route path="/analyst/:analystID" element={<AnalystDetail />} />
           <Route path="/analyst-report" element={<AnalystReport />} />
-          <Route path="/stock" element={<StockDetail />} />
+          <Route path="/stock/:stockId" element={<StockDetail />} />
         </Routes>
       </div>
     </Router>

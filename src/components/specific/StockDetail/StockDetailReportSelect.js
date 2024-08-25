@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const Button = styled(Flex)`
   cursor: pointer;
-  border-bottom: ${props => props.active ? "1px solid #000" : "none"};
+  border-bottom: ${(props) => (props.active ? "1px solid #000" : "none")};
+  padding: 14px 0px;
 `;
 
 const StockDetailReportSelect = ({ reportType, setReportType }) => {
@@ -13,9 +14,12 @@ const StockDetailReportSelect = ({ reportType, setReportType }) => {
   };
 
   return (
-    <Flex justify="space-between" alignItems="flex-start">
+    <Flex
+      justify="space-between"
+      alignItems="flex-start"
+      style={{ width: "100%" }}
+    >
       <Button
-        padding="14px 0px"
         justifyContent="center"
         alignItems="center"
         gap="10px"
@@ -28,7 +32,6 @@ const StockDetailReportSelect = ({ reportType, setReportType }) => {
         </Text>
       </Button>
       <Button
-        padding="14px 0px"
         justifyContent="center"
         alignItems="center"
         gap="10px"
