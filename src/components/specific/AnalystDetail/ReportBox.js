@@ -23,6 +23,15 @@ const ReportBox = ({ report, analystCompany, analystName }) => {
     }
     console.log(stockProfile);
   }, [report]);
+  if (!stockProfile) {
+    return (
+      <ReportOutside>
+        <Text color="#83838a" fontSize="12px" fontWeight="500">
+          Loading stock profile...
+        </Text>
+      </ReportOutside>
+    );
+  }
 
   return (
     <ReportOutside>
