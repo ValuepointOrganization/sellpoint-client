@@ -17,6 +17,11 @@ const BodyAnalystList = () => {
   const handleMoreButtonClick = () => {
     navigate("/analyst-list");
   };
+
+  const handleAnalystClick = (analystId) => {
+    navigate(`/analyst/${analystId}`);
+  };
+
   const baseUrl = process.env.BASE_URL;
 
   React.useEffect(() => {
@@ -47,7 +52,11 @@ const BodyAnalystList = () => {
       <Space height="20px" />
       <ScrollContainer>
         {analysts.map((analyst, index) => (
-          <ListSquare key={index} type="analyst">
+          <ListSquare
+            key={index}
+            type="analyst"
+            onClick={() => handleAnalystClick(analyst.ANALYST_ID)}
+          >
             <AnalystName>{analyst.ANALYST_NAME}</AnalystName>
             <AnalystFirm>{analyst.ANALYST_COMPANY}</AnalystFirm>
           </ListSquare>
@@ -65,7 +74,7 @@ const AnalystListContainer = styled.div`
 
 const AnalystName = styled.div`
   color: #000;
-  font-size: ${props => props.children.length > 6 ? '10px' : '14px'};
+  font-size: ${(props) => (props.children.length > 6 ? "10px" : "14px")};
   font-style: normal;
   font-weight: 600;
   line-height: 160%;
@@ -75,7 +84,7 @@ const AnalystName = styled.div`
 
 const AnalystFirm = styled.div`
   color: #bababf;
-  font-size: ${props => props.children.length > 6 ? '10px' : '12px'};
+  font-size: ${(props) => (props.children.length > 4 ? "8px" : "12px")};
   font-style: normal;
   font-weight: 600;
   line-height: 160%;

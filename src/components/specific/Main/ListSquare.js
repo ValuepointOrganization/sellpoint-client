@@ -60,8 +60,7 @@ export const TruncatedText = styled.div`
   text-align: center;
   font-size: 14px; // 기본 폰트 크기 설정
   line-height: 1.2; // 줄 간격 설정
-  word-wrap: break-word; // 긴 단어의 경우 줄바꿈
-  
+
   @media (max-width: 768px) {
     font-size: 12px; // 작은 화면에서 폰트 크기 줄임
   }

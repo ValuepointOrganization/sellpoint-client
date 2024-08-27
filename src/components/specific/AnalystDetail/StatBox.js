@@ -5,7 +5,7 @@ const StatSquare = ({ category, detail }) => {
   return (
     <StatBox>
       <CategoryText>{category}</CategoryText>
-      <DetailText>{detail}</DetailText>
+      <DetailText>{detail === null ? "-" : detail}</DetailText>
     </StatBox>
   );
 };

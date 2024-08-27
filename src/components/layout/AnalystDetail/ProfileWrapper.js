@@ -5,18 +5,23 @@ import ProfileStat from "./ProfileStat";
 import ShareBtn from "../../specific/ShareBtn";
 
 const ProfileWrapper = ({ analystProfile }) => {
+  console.log(analystProfile);
   return (
     <>
       <ProfileContainer>
         <ProfileHeader>
           <NameFirm>
-            <NameText>{analystProfile.name}</NameText>
-            <FirmText>{analystProfile.firm}</FirmText>
+            <NameText>{analystProfile.ANALYST_NAME}</NameText>
+            <FirmText>{analystProfile.ANALYST_COMPANY}</FirmText>
           </NameFirm>
           <ShareBtn />
         </ProfileHeader>
         <Space height="32px" />
-        <ProfileStat analystProfile={analystProfile} />
+        <ProfileStat
+          RMSE={analystProfile.ANALYST_RMSE}
+          reportNum={analystProfile.ANALYST_REPORT_NUM}
+          firstHitDays={analystProfile.ANALYST_FIRST_HIT_DAYS}
+        />
       </ProfileContainer>
     </>
   );

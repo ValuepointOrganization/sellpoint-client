@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import StatBox from "../../specific/AnalystDetail/StatBox";
 
-const ProfileStat = ({ analystProfile }) => {
+const ProfileStat = ({ RMSE, reportNum, firstHitDays }) => {
   return (
     <StatContainer>
-      <StatBox category={`오차(RMSE)`} detail={analystProfile.RMSE} />
-      <StatBox category={`첫 예측 적중 기간`} detail={analystProfile.hitRate} />
-      <StatBox category={`리포트 수`} detail={analystProfile.reportNum} />
+      <StatBox category={`오차(RMSE)`} detail={RMSE} />
+      <StatBox category={`첫 예측 적중 기간`} detail={firstHitDays} />
+      <StatBox category={`리포트 수`} detail={reportNum} />
     </StatContainer>
   );
 };

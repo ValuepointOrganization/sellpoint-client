@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import Header from "../components/layout/Header";
 import ProfileWrapper from "../components/layout/AnalystDetail/ProfileWrapper";
@@ -8,27 +9,25 @@ import Space from "../components/common/Space";
 import { DummyAnalystProfile } from "../assets/dummy";
 
 const AnalystDetail = () => {
-  const { analystID } = useParams();
+  const { analystId } = useParams();
   const [analystProfile, setAnalystProfile] = React.useState(null);
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     const fetchAnalystProfile = async () => {
       try {
-        const data = DummyAnalystProfile; // Using dummy data for now
-        const profile = data[parseInt(analystID) - 1];
-        if (profile) {
-          setAnalystProfile(profile);
-        } else {
-          setError("Analyst not found");
-        }
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/analyst/${analystId}`
+        );
+        setAnalystProfile(response.data);
       } catch (err) {
-        setError("An error occurred while fetching the analyst profile");
+        setError("Failed to fetch analyst data");
       }
     };
     fetchAnalystProfile();
-  }, [analystID]);
+  }, [analystId]);
 
+  console.log(analystId);
   if (error) {
     return <div>{error}</div>;
   }
