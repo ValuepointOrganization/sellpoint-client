@@ -8,8 +8,6 @@ import ListContainerHeader from "../../specific/Main/ListContainerHeader";
 import ScrollContainer from "../../specific/Main/ScrollContainer";
 import ListSquare, { TruncatedText } from "../../specific/Main/ListSquare";
 
-import { DummyAnalyst } from "../../../assets/dummy";
-
 const BodyAnalystList = () => {
   const [analysts, setAnalysts] = React.useState([]);
   const [error, setError] = React.useState(null);
@@ -50,8 +48,10 @@ const BodyAnalystList = () => {
       <ScrollContainer>
         {analysts.map((analyst, index) => (
           <ListSquare key={index} type="analyst">
-            <TruncatedText as={AnalystName}>{analyst.ANALYST_NAME}</TruncatedText>
-            <TruncatedText as={AnalystFirm}>{analyst.ANALYST_COMPANY}</TruncatedText>
+            <AnalystName as={AnalystName}>{analyst.ANALYST_NAME}</AnalystName>
+            <AnalystFirm as={AnalystFirm}>
+              {analyst.ANALYST_COMPANY}
+            </AnalystFirm>
           </ListSquare>
         ))}
       </ScrollContainer>
