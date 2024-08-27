@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
 import Space from "../../common/Space";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader";
@@ -9,12 +11,32 @@ import ListSquare from "../../specific/Main/ListSquare";
 import { DummyAnalyst } from "../../../assets/dummy";
 
 const BodyAnalystList = () => {
+  const [analysts, setAnalysts] = React.useState([]);
+  const [error, setError] = React.useState(null);
+
   const navigate = useNavigate();
 
   const handleMoreButtonClick = () => {
     navigate("/analyst-list");
   };
+  const baseUrl = process.env.BASE_URL;
 
+  React.useEffect(() => {
+    const fetchAnalysts = async () => {
+      try {
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/analyst`
+        );
+        setAnalysts(response.data);
+      } catch (err) {
+        setError("Failed to fetch analyst data");
+      }
+    };
+
+    fetchAnalysts();
+  }, [baseUrl]);
+
+  console.log(analysts);
   return (
     <AnalystListContainer>
       <ListContainerHeader
@@ -26,10 +48,10 @@ const BodyAnalystList = () => {
       />
       <Space height="20px" />
       <ScrollContainer>
-        {DummyAnalyst.map((analyst, index) => (
+        {analysts.map((analyst, index) => (
           <ListSquare key={index} type="analyst">
-            <AnalystName>{analyst.name}</AnalystName>
-            <AnalystFirm>{analyst.firm}</AnalystFirm>
+            <AnalystName>{analyst.ANALYST_NAME}</AnalystName>
+            <AnalystFirm>{analyst.ANALYST_COMPANY}</AnalystFirm>
           </ListSquare>
         ))}
       </ScrollContainer>
