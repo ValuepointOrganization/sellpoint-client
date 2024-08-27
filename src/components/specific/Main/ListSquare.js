@@ -25,6 +25,9 @@ const StyledListSquare = styled.div`
       case "analyst":
         return `
           min-width: 74px;
+          max-width: 100px;
+          height: 100px;
+          overflow: hidden;
         `;
       case "user":
         return `
@@ -47,4 +50,12 @@ const StyledListSquare = styled.div`
         return "";
     }
   }}
+`;
+
+export const TruncatedText = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
 `;
