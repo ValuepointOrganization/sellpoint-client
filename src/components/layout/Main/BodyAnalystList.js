@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Space from "../../common/Space";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader";
 import ScrollContainer from "../../specific/Main/ScrollContainer";
-import ListSquare, { TruncatedText } from "../../specific/Main/ListSquare";
+import ListSquare from "../../specific/Main/ListSquare";
 
 const BodyAnalystList = () => {
   const [analysts, setAnalysts] = React.useState([]);
@@ -48,10 +48,8 @@ const BodyAnalystList = () => {
       <ScrollContainer>
         {analysts.map((analyst, index) => (
           <ListSquare key={index} type="analyst">
-            <AnalystName as={AnalystName}>{analyst.ANALYST_NAME}</AnalystName>
-            <AnalystFirm as={AnalystFirm}>
-              {analyst.ANALYST_COMPANY}
-            </AnalystFirm>
+            <AnalystName>{analyst.ANALYST_NAME}</AnalystName>
+            <AnalystFirm>{analyst.ANALYST_COMPANY}</AnalystFirm>
           </ListSquare>
         ))}
       </ScrollContainer>
@@ -67,18 +65,20 @@ const AnalystListContainer = styled.div`
 
 const AnalystName = styled.div`
   color: #000;
-  font-size: 14px;
+  font-size: ${props => props.children.length > 6 ? '10px' : '14px'};
   font-style: normal;
   font-weight: 600;
   line-height: 160%;
   width: 100%;
+  text-align: center;
 `;
 
 const AnalystFirm = styled.div`
   color: #bababf;
-  font-size: 12px;
+  font-size: ${props => props.children.length > 6 ? '10px' : '12px'};
   font-style: normal;
   font-weight: 600;
   line-height: 160%;
   width: 100%;
+  text-align: center;
 `;
