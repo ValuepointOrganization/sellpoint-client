@@ -1,22 +1,39 @@
 import React from "react";
 import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
+import axios from "axios";
 import Flex from "../../common/Flex";
 import Text from "../../common/Text";
 import Space from "../../common/Space";
 import ReportOpinion from "../ReportOpinion";
 import { ReportOutside, NameSection, Logo } from "./ReportBoxStyles";
 
-const ReportBox = ({ report }) => {
+const ReportBox = ({ report, analystCompany, analystName }) => {
+  const [stockProfile, setStockProfile] = React.useState(null);
+  React.useEffect(() => {
+    const fetchStockData = async () => {
+      try {
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/${report.STOCK_ID}`
+        );
+        setStockProfile(response.data);
+      } catch (err) {}
+    };
+    if (report) {
+      fetchStockData();
+    }
+    console.log(stockProfile);
+  }, [report]);
+
   return (
     <ReportOutside>
-      <ReportOpinion isBuy={report.opinion === "Buy"}>
-        {report.opinion}
+      <ReportOpinion isBuy={report.ANALYST_OPINION === "Buy"}>
+        {report.ANALYST_OPINION}
       </ReportOpinion>
       <Flex direction="column" flex="1 0 0">
         <NameSection>
           <Logo src={NvidiaLogo} alt="NvidiaLogo" />
           <Text color="#99a0a3" fontSize="12px" fontWeight="600">
-            Nvidia
+            {stockProfile.STOCK_NAME}
           </Text>
         </NameSection>
         <Space height="6px" />
@@ -26,11 +43,11 @@ const ReportBox = ({ report }) => {
           fontWeight="600"
           lineHeight="140%"
         >
-          {report.reportTitle}
+          {report.ANALYST_REPORT_NAME}
         </Text>
         <Space height="16px" />
         <Text color="#83838a" fontSize="12px" fontWeight="500">
-          {report.analystName} | {report.firmName}
+          {analystName} | {analystCompany}
         </Text>
         <Space height="6px" />
         <Text color="#83838a" fontSize="12px" fontWeight="500">
@@ -38,7 +55,7 @@ const ReportBox = ({ report }) => {
         </Text>
         <Space height="6px" />
         <Text color="#83838a" fontSize="12px" fontWeight="500">
-          발행 날짜: {report.writtenDate}
+          발행 날짜: {report.ANALYST_UPLOAD_DATE}
         </Text>
       </Flex>
     </ReportOutside>

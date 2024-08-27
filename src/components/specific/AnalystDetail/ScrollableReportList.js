@@ -2,11 +2,16 @@ import React from "react";
 import { styled } from "styled-components";
 import ReportBox from "./ReportBox";
 
-const ScrollableReportList = ({ reports }) => {
+const ScrollableReportList = ({ reports, analystName, analystCompany }) => {
   return (
     <ScrollContainer>
       {reports.map((report, index) => (
-        <ReportBox key={index} report={report} />
+        <ReportBox
+          key={index}
+          report={report}
+          analystName={analystName}
+          analystCompany={analystCompany}
+        />
       ))}
     </ScrollContainer>
   );

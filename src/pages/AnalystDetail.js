@@ -42,7 +42,11 @@ const AnalystDetail = () => {
       <BodyWrapper>
         <ProfileWrapper analystProfile={analystProfile} />
         <Space height="80px" />
-        <ReportWrapper />
+        <ReportWrapper
+          analystId={analystProfile.ANALYST_ID}
+          analystName={analystProfile.ANALYST_NAME}
+          analystCompany={analystProfile.ANALYST_COMPANY}
+        />
       </BodyWrapper>
     </>
   );
