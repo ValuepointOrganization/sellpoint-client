@@ -11,7 +11,11 @@ const ListContainerHeader = ({
   onButtonClick,
 }) => {
   return (
-    <Flex justify="space-between" align="center" style={{ alignSelf: "stretch" }}>
+    <Flex
+      justify="space-between"
+      align="center"
+      style={{ alignSelf: "stretch" }}
+    >
       <Text fontSize="16px" fontWeight={600} lineHeight="160%">
         {title}
       </Text>

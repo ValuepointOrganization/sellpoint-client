@@ -3,7 +3,6 @@ import styled from "styled-components";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader";
 import Space from "../../common/Space";
 import ReportItem from "../../specific/Main/ReportItem";
-import { DummyReport } from "../../../assets/dummy";
 import axios from "axios";
 
 const BodyReportList = () => {

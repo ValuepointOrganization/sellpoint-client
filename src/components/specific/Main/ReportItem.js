@@ -2,10 +2,16 @@ import React from "react";
 import axios from "axios";
 import { Flex, Text } from "../../common/Index";
 import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
+import { useNavigate } from "react-router-dom";
 
 const ReportItem = ({ report }) => {
   const [analystData, setAnalystData] = React.useState(null);
   const [stockData, setStockData] = React.useState(null);
+
+  const navigate = useNavigate();
+  const handleReportTitleClick = () => {
+    navigate(`/analyst-report/${report.ANALYST_REPORT_ID}`);
+  };
 
   React.useEffect(() => {
     const fetchAnalyst = async () => {
@@ -61,18 +67,33 @@ const ReportItem = ({ report }) => {
           align="flex-start"
           style={{ flexGrow: 1, width: "calc(100% - 110px)" }}
         >
-          <Text color="#83838A" fontSize="12px" fontWeight={600} style={{ width: "100%" }}>
+          <Text
+            color="#83838A"
+            fontSize="12px"
+            fontWeight={600}
+            style={{ width: "100%" }}
+          >
             {analystData?.ANALYST_NAME} | {analystData?.ANALYST_COMPANY}
           </Text>
           <Text
             color="#2C2C2C"
             fontSize="14px"
             fontWeight={600}
-            style={{ width: "100%", wordBreak: "break-word" }}
+            style={{
+              width: "100%",
+              wordBreak: "break-word",
+              cursor: "pointer",
+            }}
+            onClick={() => handleReportTitleClick()}
           >
             {report.ANALYST_REPORT_NAME}
           </Text>
-          <Text color="#BABABF" fontSize="12px" fontWeight={500} style={{ width: "100%" }}>
+          <Text
+            color="#BABABF"
+            fontSize="12px"
+            fontWeight={500}
+            style={{ width: "100%" }}
+          >
             {stockData?.STOCK_NAME}
           </Text>
         </Flex>
