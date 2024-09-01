@@ -33,7 +33,7 @@ const BodyReportList = () => {
         buttonHeight={22}
       />
       <Space height="20px" />
-      {reportData.map((report, index) => {
+      {reportData.slice(0, 3).map((report, index) => {
         return <ReportItem report={report} key={index} />;
       })}
     </ReportListContainer>
