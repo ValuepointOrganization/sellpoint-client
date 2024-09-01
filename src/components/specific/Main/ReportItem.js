@@ -1,9 +1,39 @@
 import React from "react";
+import axios from "axios";
 import { Flex, Text } from "../../common/Index";
-import StyledSVG from "../../common/StyledSVG";
 import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
 
 const ReportItem = ({ report }) => {
+  const [analystData, setAnalystData] = React.useState(null);
+  const [stockData, setStockData] = React.useState(null);
+
+  React.useEffect(() => {
+    const fetchAnalyst = async () => {
+      try {
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/analyst/${report.ANALYST_ID}`
+        );
+        setAnalystData(response.data);
+      } catch (err) {}
+    };
+    fetchAnalyst();
+  }, [report]);
+
+  React.useEffect(() => {
+    const fetchStock = async () => {
+      try {
+        const response = await axios.get(
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/${report.STOCK_ID}`
+        );
+        setStockData(response.data);
+      } catch (err) {}
+    };
+    fetchStock();
+  }, [report]);
+
+  console.log(stockData);
+  console.log(analystData);
+
   return (
     <Flex
       style={{
@@ -23,9 +53,7 @@ const ReportItem = ({ report }) => {
           gap: "20px",
         }}
       >
-        <StyledSVG width="50" height="34" viewBox="0 0 26 18">
-          <NvidiaLogo />
-        </StyledSVG>
+        <NvidiaLogo width="50" height="34" viewBox="0 0 26 18" />
         <Flex
           direction="column"
           gap="6px"
@@ -33,7 +61,7 @@ const ReportItem = ({ report }) => {
           style={{ flexGrow: 1 }}
         >
           <Text color="#83838A" fontSize="12px" fontWeight={600}>
-            {report.analystName} | {report.firmName}
+            {analystData.ANALYST_NAME} | {analystData.ANALYST_COMPANY}
           </Text>
           <Text
             color="#2C2C2C"
@@ -41,10 +69,10 @@ const ReportItem = ({ report }) => {
             fontWeight={600}
             style={{ width: "100%" }}
           >
-            {report.reportTitle}
+            {report.ANALYST_REPORT_NAME}
           </Text>
           <Text color="#BABABF" fontSize="12px" fontWeight={500}>
-            {report.companyName}
+            {stockData.STOCK_NAME}
           </Text>
         </Flex>
         <Flex
@@ -59,7 +87,7 @@ const ReportItem = ({ report }) => {
           }}
         >
           <Text color="#FF3B30" fontSize="12px" fontWeight={600}>
-            {report.opinion}
+            {report.ANALYST_OPINION}
           </Text>
         </Flex>
       </Flex>
