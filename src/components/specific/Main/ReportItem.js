@@ -39,11 +39,11 @@ const ReportItem = ({ report }) => {
       style={{
         display: "flex",
         padding: "12px",
-        direction: "column",
+        flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "stretch",
         gap: "16px",
-        alignSelf: "stretch",
+        width: "100%",
       }}
     >
       <Flex
@@ -51,6 +51,7 @@ const ReportItem = ({ report }) => {
           display: "flex",
           alignItems: "center",
           gap: "20px",
+          width: "100%",
         }}
       >
         <NvidiaLogo width="50" height="34" viewBox="0 0 26 18" />
@@ -58,21 +59,21 @@ const ReportItem = ({ report }) => {
           direction="column"
           gap="6px"
           align="flex-start"
-          style={{ flexGrow: 1 }}
+          style={{ flexGrow: 1, width: "calc(100% - 110px)" }}
         >
-          <Text color="#83838A" fontSize="12px" fontWeight={600}>
-            {analystData.ANALYST_NAME} | {analystData.ANALYST_COMPANY}
+          <Text color="#83838A" fontSize="12px" fontWeight={600} style={{ width: "100%" }}>
+            {analystData?.ANALYST_NAME} | {analystData?.ANALYST_COMPANY}
           </Text>
           <Text
             color="#2C2C2C"
             fontSize="14px"
             fontWeight={600}
-            style={{ width: "100%" }}
+            style={{ width: "100%", wordBreak: "break-word" }}
           >
             {report.ANALYST_REPORT_NAME}
           </Text>
-          <Text color="#BABABF" fontSize="12px" fontWeight={500}>
-            {stockData.STOCK_NAME}
+          <Text color="#BABABF" fontSize="12px" fontWeight={500} style={{ width: "100%" }}>
+            {stockData?.STOCK_NAME}
           </Text>
         </Flex>
         <Flex
