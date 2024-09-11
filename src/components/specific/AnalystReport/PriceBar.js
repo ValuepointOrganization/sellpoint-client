@@ -24,7 +24,6 @@ const PriceBar = ({
       <Flex
         align="center"
         gap="10px"
-        padding="8px 12px"
         style={{
           color: textColor || "#FFF",
           textAlign: "center",
@@ -32,7 +31,7 @@ const PriceBar = ({
           fontStyle: "normal",
           fontWeight: "500",
           lineHeight: "140%",
-          width: fillWidth,
+          width: "100%",
           height: "100%",
           position: "relative",
           zIndex: "2",
@@ -54,6 +53,7 @@ const PriceBarFill = styled.div`
   background: ${(props) => props.fillColor || "rgba(49, 130, 246, 1)"};
   border-radius: 12px;
   z-index: 1;
+  transition: width 0.3s ease-in-out;
 `;
 
 export default PriceBar;
