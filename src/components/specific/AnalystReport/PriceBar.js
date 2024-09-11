@@ -32,7 +32,7 @@ const PriceBar = ({
           fontStyle: "normal",
           fontWeight: "500",
           lineHeight: "140%",
-          width: { fillWidth },
+          width: fillWidth,
           height: "100%",
           position: "relative",
           zIndex: "2",
