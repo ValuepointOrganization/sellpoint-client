@@ -26,7 +26,7 @@ const TargetHitSection = () => {
           alt="InformationCircle"
         />
       </Flex>
-      <Text>82일</Text>
+      <Text>-</Text>
     </Flex>
   );
 };

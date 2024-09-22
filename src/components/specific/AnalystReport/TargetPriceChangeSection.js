@@ -5,7 +5,8 @@ import RightArrow from "../../../assets/image/RightArrow.svg";
 
 import { Text, Image, Flex, Space } from "../../common/Index";
 
-const TargetPriceChange = () => {
+const TargetPriceChange = ({ targetPrice, previousTargetPrice }) => {
+  previousTargetPrice = previousTargetPrice ? previousTargetPrice : "  -  ";
   return (
     <Flex
       justify="space-between"
@@ -27,9 +28,9 @@ const TargetPriceChange = () => {
         />
       </Flex>
       <Flex align="center" gap="12px">
-        <Text>$840.35</Text>
+        <Text>{previousTargetPrice}</Text>
         <Image width="50px" src={RightArrow} alt="RightArrow" />
-        <Text>$900</Text>
+        <Text>₩{targetPrice}</Text>
       </Flex>
     </Flex>
   );

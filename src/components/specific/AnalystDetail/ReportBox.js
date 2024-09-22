@@ -6,24 +6,40 @@ import Text from "../../common/Text";
 import Space from "../../common/Space";
 import ReportOpinion from "../ReportOpinion";
 import { ReportOutside, NameSection, Logo } from "./ReportBoxStyles";
-
+import { useNavigate } from "react-router-dom";
 const ReportBox = ({ report, analystCompany, analystName }) => {
   const [stockProfile, setStockProfile] = React.useState(null);
+  const [analystProfile, setAnalystProfile] = React.useState(null);
+
+  const navigate = useNavigate();
+  const handleTitleClick = () => {
+    navigate(`/analyst-report/${report.ANALYST_REPORT_ID}`);
+  };
+  const fetchStockData = async () => {
+    try {
+      const response = await axios.get(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/${report.STOCK_ID}`
+      );
+      setStockProfile(response.data);
+    } catch (err) {}
+  };
+  const fetchAnalystData = async () => {
+    try {
+      const response = await axios.get(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/analyst/${report.ANALYST_ID}`
+      );
+      setAnalystProfile(response.data);
+    } catch (err) {}
+  };
   React.useEffect(() => {
-    const fetchStockData = async () => {
-      try {
-        const response = await axios.get(
-          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/${report.STOCK_ID}`
-        );
-        setStockProfile(response.data);
-      } catch (err) {}
-    };
     if (report) {
       fetchStockData();
+      fetchAnalystData();
     }
-    console.log(stockProfile);
+    if (analystProfile) console.log(analystProfile);
   }, [report]);
-  if (!stockProfile) {
+
+  if (!stockProfile || !analystProfile) {
     return (
       <ReportOutside>
         <Text color="#83838a" fontSize="12px" fontWeight="500">
@@ -40,7 +56,8 @@ const ReportBox = ({ report, analystCompany, analystName }) => {
       </ReportOpinion>
       <Flex direction="column" flex="1 0 0">
         <NameSection>
-          <Logo src={NvidiaLogo} alt="NvidiaLogo" />
+          {/* Logo Deprecated */}
+          {/* <Logo src={NvidiaLogo} alt="NvidiaLogo" /> */}
           <Text color="#99a0a3" fontSize="12px" fontWeight="600">
             {stockProfile.STOCK_NAME}
           </Text>
@@ -51,12 +68,14 @@ const ReportBox = ({ report, analystCompany, analystName }) => {
           fontSize="14px"
           fontWeight="600"
           lineHeight="140%"
+          cursor="pointer"
+          onClick={handleTitleClick}
         >
           {report.ANALYST_REPORT_NAME}
         </Text>
         <Space height="16px" />
         <Text color="#83838a" fontSize="12px" fontWeight="500">
-          {analystName} | {analystCompany}
+          {analystProfile.ANALYST_NAME} | {analystProfile.ANALYST_COMPANY}
         </Text>
         <Space height="6px" />
         <Text color="#83838a" fontSize="12px" fontWeight="500">

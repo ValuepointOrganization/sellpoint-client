@@ -3,29 +3,26 @@ import React from "react";
 import { Flex, Text } from "../../common/Index";
 import Comment from "../../specific/AnalystReport/Comment";
 import Divider from "../../specific/Divider";
+import axios from "axios";
 
-const dummy = [
-  {
-    userName: "Jake",
-    content:
-      "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
-    dateTime: "04/28/2024 20:27",
-  },
-  {
-    userName: "Jake",
-    content:
-      "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
-    dateTime: "04/28/2024 20:27",
-  },
-  {
-    userName: "Jake",
-    content:
-      "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다.",
-    dateTime: "04/28/2024 20:27",
-  },
-];
-
-const AnalystReportBodyComment = () => {
+const AnalystReportBodyComment = ({ analystReportId }) => {
+  const [comments, setComments] = React.useState(null);
+  const fetchComments = async ({ analystReportId }) => {
+    try {
+      const response = await axios.get(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/comment?REPORT_ID=${analystReportId}`
+      );
+      const data = response.data;
+      setComments(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  React.useEffect(() => {
+    fetchComments({ analystReportId });
+    console.log(comments);
+  }, [analystReportId]);
+  if (!comments) return null;
   return (
     <Flex
       direction="column"
@@ -44,13 +41,13 @@ const AnalystReportBodyComment = () => {
           이 리포트에 대한 댓글&nbsp;
         </Text>
         <Text color="#8c8c8c" fontSize="16px" lineHeight="22px">
-          24
+          {comments.length}
         </Text>
       </Flex>
-      {dummy.map((comment, index) => (
+      {comments.map((comment, index) => (
         <React.Fragment key={index}>
           <Comment {...comment} />
-          {index < dummy.length - 1 && <Divider />}
+          {index < comment.length - 1 && <Divider />}
         </React.Fragment>
       ))}
     </Flex>

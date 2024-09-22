@@ -30,7 +30,7 @@ const StockListWrapper = () => {
   if (loading) return <Text>Loading...</Text>;
 
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" style={{ padding: "20px" }}>
       {stockListData.map((stock, index) => (
         <StockItemContainer key={index} stock={stock} />
       ))}

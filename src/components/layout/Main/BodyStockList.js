@@ -6,8 +6,6 @@ import Space from "../../common/Space.js";
 import Text from "../../common/Text.js";
 import ListContainerHeader from "../../specific/Main/ListContainerHeader.js";
 import ListSquare from "../../specific/Main/ListSquare.js";
-import StyledSVG from "../../common/StyledSVG.js";
-
 import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
 
 const baseUrl = process.env.BASE_URL;
@@ -20,6 +18,10 @@ const BodyStockList = () => {
 
   const handleStockClick = (stockId) => {
     navigate(`/stock/${stockId}`);
+  };
+
+  const handleMoreClick = () => {
+    navigate("/stock-list");
   };
 
   useEffect(() => {
@@ -50,6 +52,7 @@ const BodyStockList = () => {
         buttonText="종목 더보기"
         buttonWidth={82}
         buttonHeight={22}
+        onButtonClick={handleMoreClick}
       />
       <Space height="20px" />
       {stocks.map((stock, index) => (
@@ -63,7 +66,7 @@ const BodyStockList = () => {
             gap="12px"
             style={{ width: "auto", fontSize: "14px" }}
           >
-            <Flex
+            {/* <Flex
               justify="center"
               align="center"
               style={{ width: "30px", height: "30px" }}
@@ -71,7 +74,7 @@ const BodyStockList = () => {
               <StyledSVG width="26" height="18" viewBox="0 0 26 18">
                 <NvidiaLogo />
               </StyledSVG>
-            </Flex>
+            </Flex> */}
             <Text
               fontSize="14px"
               fontWeight="500"

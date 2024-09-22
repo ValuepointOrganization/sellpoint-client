@@ -6,7 +6,6 @@ import Header from "../components/layout/Header";
 import ProfileWrapper from "../components/layout/AnalystDetail/ProfileWrapper";
 import ReportWrapper from "../components/layout/AnalystDetail/ReportWrapper";
 import Space from "../components/common/Space";
-import { DummyAnalystProfile } from "../assets/dummy";
 
 const AnalystDetail = () => {
   const { analystId } = useParams();

@@ -36,10 +36,6 @@ const ReportItem = ({ report }) => {
     };
     fetchStock();
   }, [report]);
-
-  console.log(stockData);
-  console.log(analystData);
-
   return (
     <Flex
       style={{

@@ -20,7 +20,7 @@ const ScrollableReportList = ({ reports, analystName, analystCompany }) => {
 export default ScrollableReportList;
 
 const ScrollContainer = styled.div`
-  max-height: 400px; // Adjust this value as needed
+  max-height: 400px;
   overflow-y: auto;
   width: 100%;
 `;

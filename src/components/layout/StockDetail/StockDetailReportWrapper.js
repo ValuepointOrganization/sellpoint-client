@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Flex } from "../../common/Index";
-
+import axios from "axios";
+import { useParams } from "react-router-dom";
 import StockDetailReportSelect from "../../specific/StockDetail/StockDetailReportSelect";
 import StockDetailReportBrief from "../../specific/StockDetail/StockDetailReportBrief";
 import ReportSearchBar from "../../specific/ReportSearchBar";
@@ -9,37 +10,23 @@ import ScrollableReportList from "../../specific/AnalystDetail/ScrollableReportL
 const StockDetailReportWrapper = () => {
   const [reportType, setReportType] = useState("analyst");
 
-  // Dummy data for ScrollableReportList
-  const dummyReports = [
-    {
-      opinion: "Buy",
-      reportTitle: "Strong Growth Potential in AI Sector",
-      analystName: "John Doe",
-      firmName: "Tech Insights",
-      halfYear: "$400",
-      oneYear: "$450",
-      writtenDate: "2023-08-05",
-    },
-    {
-      opinion: "Hold",
-      reportTitle: "Steady Performance Expected",
-      analystName: "Jane Smith",
-      firmName: "Market Analysts",
-      halfYear: "$380",
-      oneYear: "$410",
-      writtenDate: "2023-08-03",
-    },
-    {
-      opinion: "Sell",
-      reportTitle: "Challenges Ahead in Competitive Market",
-      analystName: "Bob Johnson",
-      firmName: "Financial Experts",
-      halfYear: "$350",
-      oneYear: "$320",
-      writtenDate: "2023-08-01",
-    },
-  ];
+  const { stockId } = useParams();
+  const [reportList, setReportList] = useState(null);
+  const fetchReportList = async ({ stockId }) => {
+    try {
+      const response = await axios.get(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/report/analyst?STOCK_ID=${stockId}`
+      );
+      setReportList(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  React.useEffect(() => {
+    fetchReportList({ stockId });
+  }, [stockId]);
 
+  if (!reportList) return null;
   return (
     <React.Fragment>
       <Flex
@@ -61,12 +48,15 @@ const StockDetailReportWrapper = () => {
           background: "#FAFAFA;",
         }}
       >
-        <StockDetailReportBrief reportType={reportType} />
+        <StockDetailReportBrief
+          reportType={reportType}
+          reportNum={reportList.length}
+        />
         <ReportSearchBar
           placeholder="애널리스트를 검색하세요."
           style={{ border: "1px #E6E9ED" }}
         />
-        <ScrollableReportList reports={dummyReports} />
+        <ScrollableReportList reports={reportList} />
       </Flex>
     </React.Fragment>
   );

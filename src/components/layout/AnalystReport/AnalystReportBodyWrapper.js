@@ -5,14 +5,17 @@ import { Flex } from "../../common/Index";
 import AnalystReportBodyReportContent from "./AnalystReportBodyReportContent";
 import AnalystReportBodyAgree from "./AnalystReportBodyAgree";
 import AnalystReportBodyComment from "./AnalystReportBodyComment";
-import AnalystReportCommentInput from "./AnalytReportCommentInput";
 
-const AnalystReportBodyWrapper = () => {
+const AnalystReportBodyWrapper = ({ analystReportData }) => {
+  console.log(analystReportData);
+  if (!analystReportData) return null;
   return (
-    <StyledWrapper>
-      <AnalystReportBodyReportContent />
+    <StyledWrapper analystReportData={analystReportData}>
+      <AnalystReportBodyReportContent analystReportData={analystReportData} />
       <AnalystReportBodyAgree />
-      <AnalystReportBodyComment />
+      <AnalystReportBodyComment
+        analystReportId={analystReportData.ANALYST_REPORT_ID}
+      />
     </StyledWrapper>
   );
 };

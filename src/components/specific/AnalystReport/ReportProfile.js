@@ -1,9 +1,16 @@
 import React from "react";
 import { styled } from "styled-components";
-import NvidiaLogo from "../../../assets/image/NvidiaSmaller.svg";
+import axios from "axios";
+import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaSmaller.svg";
+
 import { Flex, Text } from "../../common/Index";
 
-const ReportProfile = () => {
+const ReportProfile = ({
+  analystReportTitle,
+  stockName,
+  analystName,
+  analystCompany,
+}) => {
   return (
     <Flex
       direction="column"
@@ -13,42 +20,46 @@ const ReportProfile = () => {
       style={{ alignSelf: "stretch" }}
     >
       <Flex>
-        <Logo src={NvidiaLogo} alt={`NvidiaLogo`} />
-        <CompanyText>Nvidia</CompanyText>
+        <LogoWrapper>
+          <NvidiaLogo />
+        </LogoWrapper>
+        <CompanyText>{stockName}</CompanyText>
       </Flex>
-      <TitleText>혁신의 선두주자, AI와 게이밍 시장을 장악하다</TitleText>
-      <OtherText>한유진 | 한국증권</OtherText>
+      <TitleText>{analystReportTitle}</TitleText>
+      <OtherText>
+        {analystName} | {analystCompany}
+      </OtherText>
     </Flex>
   );
 };
 
 export default ReportProfile;
 
-const Logo = styled.img`
+const LogoWrapper = styled.div`
   margin-right: 8px;
+  width: 24px;
+  height: 24px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-const CompanyText = styled.p`
+const CompanyText = styled(Text)`
   color: #99a0a3;
+  font-weight: 600;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 `;
 
-const TitleText = styled.span`
+const TitleText = styled(Text)`
   color: #2c2c2c;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 140%; /* 19.6px */
+  font-size: 24px;
 `;
 
-const OtherText = styled.span`
+const OtherText = styled(Text)`
   color: #83838a;
   font-size: 12px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 `;
