@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Flex, Text } from "../../common/Index";
+import StockItemContainer from "../../specific/StockList/StockItemContainer";
 
 const StockListWrapper = () => {
   const [stockListData, setStockListData] = React.useState([]);
@@ -24,12 +25,17 @@ const StockListWrapper = () => {
 
   React.useEffect(() => {
     fetchStockListData();
-    console.log(stockListData);
   }, []);
 
   if (loading) return <Text>Loading...</Text>;
 
-  return;
+  return (
+    <Flex flexDirection="column">
+      {stockListData.map((stock, index) => (
+        <StockItemContainer key={index} stock={stock} />
+      ))}
+    </Flex>
+  );
 };
 
 export default StockListWrapper;
