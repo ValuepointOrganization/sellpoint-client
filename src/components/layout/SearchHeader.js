@@ -4,13 +4,24 @@ import SearchBar from "../specific/SearchBar";
 import ChevronBack from "../../assets/image/ChevronBack.svg";
 import FilterIcon from "../../assets/image/FilterIcon.svg";
 
-const SearchHeader = ({ onBackClick }) => {
+const SearchHeader = ({ onBackClick, type }) => {
+  let placeholderText = "";
+  switch (type) {
+    case "analyst":
+      placeholderText = "애널리스트";
+      break;
+    case "stock":
+      placeholderText = "종목";
+      break;
+    default:
+      placeholderText = "검색어를 입력하세요";
+  }
   return (
     <SearchHeaderContainer>
       <IconButton onClick={onBackClick}>
         <img src={ChevronBack} alt="BackBtn" />
       </IconButton>
-      <SearchBar width="275px" height="50px" placeholder="애널리스트" />
+      <SearchBar width="275px" height="50px" placeholder={placeholderText} />
       <IconButton
         onClick={() => {
           /* Add your filter functionality here */

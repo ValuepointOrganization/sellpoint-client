@@ -11,7 +11,7 @@ const StockList = () => {
 
   return (
     <>
-      <SearchHeader onBackClick={handleBackClick} />
+      <SearchHeader onBackClick={handleBackClick} type="stock" />
       <StockListWrapper />
     </>
   );

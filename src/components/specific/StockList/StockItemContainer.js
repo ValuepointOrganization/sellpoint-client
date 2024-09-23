@@ -1,22 +1,66 @@
 import React from "react";
 
 import { Flex, Text } from "../../common/Index";
+import { ReactComponent as PriceDownArrow } from "../../../assets/image/PriceDownArrow.svg";
+import { ReactComponent as PriceUpArrow } from "../../../assets/image/PriceUpArrow.svg";
+import { styled } from "styled-components";
+import { formatNumberString } from "../../../utils/stringUtils";
 
 const StockItemContainer = ({ stock }) => {
   console.log(stock);
+  const isPriceUp = stock.FLUC_RATE >= 0;
+  const PriceChangeIcon = isPriceUp ? PriceUpArrow : PriceDownArrow;
+  const priceColor = isPriceUp ? "#FF3B30" : "#3182F6";
+  const priceText = formatNumberString(stock.PRICE);
+  console.log(priceText);
+  const flucText = isPriceUp
+    ? stock.FLUC_RATE
+    : stock.FLUC_RATE.replace(/-/g, "");
   return (
     <Flex
       justifyContent="space-between"
-      width="353px"
-      height="377px"
       direction="row"
-      style={{ padding: "12px 0px", width: "100%", height: "377px" }}
+      style={{ padding: "12px 0px", width: "100%", height: "46px" }}
     >
-      <Flex direction="column" gap="4px">
+      <Flex direction="column" gap="4px" style={{ width: "100%" }}>
         <Text color="#000" fontSize="16px" fontWeight="500" lineHeight="140%">
           {stock.STOCK_NAME}
         </Text>
-        <Text></Text>
+        <Text
+          color="#5F676F"
+          fontSize="12px"
+          fontWeight="400"
+          lineHeight="140%"
+        >
+          {stock.CODE}
+        </Text>
+      </Flex>
+      <Flex
+        direction="column"
+        alignItems="flex-end"
+        gap="4px"
+        style={{ width: "60px" }}
+      >
+        <Text
+          color="#000"
+          fontSize="16px"
+          fontWeight="500"
+          lineHeight="140%"
+          style={{ letterSpacing: "0.32px" }}
+        >
+          ₩{priceText}
+        </Text>
+        <Flex alignItems="center">
+          <PriceChangeIcon />
+          <Text
+            fontSize="12px"
+            fontWeight="500"
+            lineHeight="140%"
+            color={priceColor}
+          >
+            {flucText}
+          </Text>
+        </Flex>
       </Flex>
     </Flex>
   );

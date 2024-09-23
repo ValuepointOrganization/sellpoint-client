@@ -30,12 +30,23 @@ const StockListWrapper = () => {
   if (loading) return <Text>Loading...</Text>;
 
   return (
-    <Flex flexDirection="column" style={{ padding: "20px" }}>
+    <Flex direction="column" style={{ padding: "20px" }}>
       {stockListData.map((stock, index) => (
-        <StockItemContainer key={index} stock={stock} />
+        <React.Fragment>
+          <StockItemContainer key={index} stock={stock} />
+          <Divider />
+        </React.Fragment>
       ))}
     </Flex>
   );
 };
 
 export default StockListWrapper;
+
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background: #f5f6f7;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
