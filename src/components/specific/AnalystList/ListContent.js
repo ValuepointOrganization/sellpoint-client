@@ -9,14 +9,16 @@ const ListContent = ({ analyst, index, onClick }) => {
         <RankNum>{index}</RankNum>
         <Space width="12px" />
         <NameFirm>
-          <NameText onClick={() => onClick(index)}>{analyst.name}</NameText>
-          <FirmText>{analyst.firm}</FirmText>
+          <NameText onClick={() => onClick(index)}>
+            {analyst.ANALYST_NAME}
+          </NameText>
+          <FirmText>{analyst.ANLAYST_COMPANY}</FirmText>
         </NameFirm>
       </RankArea>
       <StatArea>
         <ListText>{analyst.RMSE}</ListText>
-        <ListText>{analyst.hitRate}</ListText>
-        <ListText>{analyst.reportNum}</ListText>
+        <ListText>-</ListText>
+        <ListText>{analyst.ANALYST_REPORT_NUM}</ListText>
       </StatArea>
     </ListContentWrapper>
   );
