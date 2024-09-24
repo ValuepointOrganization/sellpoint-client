@@ -39,8 +39,8 @@ const BodyWrapper = () => {
         <BodyStockList />
         <Space height="64px" />
         <BodyAnalystList />
-        <Space height="64px" />
-        <BodyUserList />
+        {/* <Space height="64px" />
+        <BodyUserList /> */}
         <Space height="64px" />
         <BodyReportList />
       </BodyContainer>
