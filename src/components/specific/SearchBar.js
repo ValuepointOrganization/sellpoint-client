@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as SearchIconSvg } from "../../assets/image/search.svg";
 import { ReactComponent as CloseIconSvg } from "../../assets/image/close.svg";
@@ -8,44 +8,54 @@ const SearchBar = ({
   width = "100%",
   height = "50px",
   placeholder = "종목 또는 애널리스트를 검색하세요.",
-  onClick,
+  onSubmit,
 }) => {
-  const [searchData, setSearchData] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
-  const fetchSearchData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/`
-      );
-      const data = await response.json();
-      setSearchData(data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit) {
+      onSubmit(searchTerm);
     }
   };
 
-  const handleClick = (e) => {
-    console.log("SearchBar clicked");
-    if (onClick) {
-      onClick(e);
-    }
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleClear = () => {
+    setSearchTerm("");
   };
 
   return (
-    <SearchBarContainer width={width} height={height} onClick={handleClick}>
-      <Flex align="center" gap="12px" style={{ height: "100%" }}>
-        <SearchIconSvg width="18" height="18" />
-        <SearchInput placeholder={placeholder} />
-        <CloseIconSvg width="18" height="18" style={{ cursor: "pointer" }} />
-      </Flex>
-    </SearchBarContainer>
+    <SearchForm onSubmit={handleSubmit}>
+      <SearchBarContainer width={width} height={height}>
+        <Flex align="center" gap="12px" style={{ height: "100%" }}>
+          <SearchIconSvg width="18" height="18" />
+          <SearchInput
+            placeholder={placeholder}
+            value={searchTerm}
+            onChange={handleChange}
+          />
+          {searchTerm && (
+            <CloseIconSvg
+              width="18"
+              height="18"
+              style={{ cursor: "pointer" }}
+              onClick={handleClear}
+            />
+          )}
+        </Flex>
+      </SearchBarContainer>
+    </SearchForm>
   );
 };
 
 export default SearchBar;
+
+const SearchForm = styled.form`
+  width: 100%;
+`;
 
 const SearchBarContainer = styled.div`
   padding: 12px;

@@ -22,7 +22,15 @@ const SearchHeader = ({ onBackClick, type }) => {
       <IconButton onClick={onBackClick}>
         <img src={ChevronBack} alt="BackBtn" />
       </IconButton>
-      <SearchBar width="275px" height="50px" placeholder={placeholderText} />
+      <SearchBar
+        width="275px"
+        height="50px"
+        placeholder={placeholderText}
+        onSubmit={(searchTerm) => {
+          console.log("Search submitted:", searchTerm);
+          // 여기에 검색 로직을 구현하세요
+        }}
+      />
       <IconButton
         onClick={() => {
           /* Add your filter functionality here */
