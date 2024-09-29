@@ -6,6 +6,7 @@ import FilterIcon from "../../assets/image/FilterIcon.svg";
 
 const SearchHeader = ({ onBackClick, type }) => {
   let placeholderText = "";
+
   switch (type) {
     case "analyst":
       placeholderText = "애널리스트";

@@ -10,10 +10,22 @@ const SearchBar = ({
   placeholder = "종목 또는 애널리스트를 검색하세요.",
   onClick,
 }) => {
-  React.useEffect(() => {
-    console.log("SearchBar mounted");
-    return () => console.log("SearchBar unmounted");
-  }, []);
+  const [searchData, setSearchData] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const fetchSearchData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/stock/profile/`
+      );
+      const data = await response.json();
+      setSearchData(data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  };
 
   const handleClick = (e) => {
     console.log("SearchBar clicked");
