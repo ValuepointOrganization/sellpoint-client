@@ -18,7 +18,6 @@ const StockDetailStockHeader = ({ stockName, stockCode }) => {
 
 const StockInfo = ({ stockName, stockCode }) => (
   <Flex gap="16px" align="center">
-    <MicrosoftLogo width="30" height="30" />
     <StockText stockName={stockName} stockCode={stockCode} />
   </Flex>
 );

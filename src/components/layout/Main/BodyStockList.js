@@ -55,7 +55,7 @@ const BodyStockList = () => {
         onButtonClick={handleMoreClick}
       />
       <Space height="20px" />
-      {stocks.map((stock, index) => (
+      {stocks.slice(0, 3).map((stock, index) => (
         <ListSquare
           key={index}
           type="stock"

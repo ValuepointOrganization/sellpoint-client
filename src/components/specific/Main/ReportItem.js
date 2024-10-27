@@ -56,7 +56,6 @@ const ReportItem = ({ report }) => {
           width: "100%",
         }}
       >
-        <NvidiaLogo width="50" height="34" viewBox="0 0 26 18" />
         <Flex
           direction="column"
           gap="6px"

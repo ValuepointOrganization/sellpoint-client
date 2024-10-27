@@ -1,7 +1,10 @@
 import React from "react";
 import { styled } from "styled-components";
 import BackIcon from "../../../assets/image/ChevronBack.svg";
+import { useNavigate } from "react-router-dom";
 const ReportHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <IconButton>

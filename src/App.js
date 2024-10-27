@@ -7,6 +7,7 @@ import AnalystDetail from "./pages/AnalystDetail";
 import AnalystReport from "./pages/AnalystReport";
 import StockDetail from "./pages/StockDetail";
 import StockList from "./pages/StockList";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/analyst-list" element={<AnalystList />} />
           <Route path="/analyst/:analystId" element={<AnalystDetail />} />
           <Route

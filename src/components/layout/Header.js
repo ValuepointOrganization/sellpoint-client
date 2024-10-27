@@ -3,17 +3,38 @@ import styled from "styled-components";
 import sellPointLogo from "../../assets/image/SellpointLogo.svg";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ type }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleLogoClick = () => {
     navigate("/");
     return;
   };
+
+  const handleLoginClick = () => {
+    navigate("/login");
+    return;
+  };
+  switch (type) {
+    case "login":
+      return (
+        <HeaderContainer>
+          <Logo src={sellPointLogo} alt="SellPoint" onClick={handleLogoClick} />
+        </HeaderContainer>
+      );
+    case "register":
+      return (
+        <HeaderContainer>
+          <Logo src={sellPointLogo} alt="SellPoint" onClick={handleLogoClick} />
+        </HeaderContainer>
+      );
+    default:
+      break;
+  }
   return (
     <HeaderContainer>
-      <Logo src={sellPointLogo} alt="SellPoint" onClick={handleClick} />
-      <LoginButton>로그인</LoginButton>
+      <Logo src={sellPointLogo} alt="SellPoint" onClick={handleLogoClick} />
+      <LoginButton onClick={() => handleLoginClick()}>로그인</LoginButton>
     </HeaderContainer>
   );
 };
