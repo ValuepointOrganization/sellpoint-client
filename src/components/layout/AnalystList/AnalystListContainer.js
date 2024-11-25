@@ -6,11 +6,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AnalystListContainer = () => {
-  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [analystProfile, setAnalystProfile] = React.useState([]);
   const fetchAnalystProfile = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/api/analyst`);
+      const response = await axios.get(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/analyst`
+      );
       const data = response.data;
       console.log(data);
       setAnalystProfile(data);
