@@ -39,14 +39,15 @@ const AnalystListContainer = () => {
           <span style={{ width: "70px" }}>리포트 수</span>
         </StatHeaderArea>
       </ListHeader>
-      {analystProfile.map((analyst, index) => (
-        <ListContent
-          key={index}
-          analyst={analyst}
-          index={index + 1}
-          onClick={() => handleAnalystClick(analyst.ANALYST_ID)}
-        />
-      ))}
+      {Array.isArray(analystProfile) &&
+        analystProfile.map((analyst, index) => (
+          <ListContent
+            key={index}
+            analyst={analyst}
+            index={index + 1}
+            onClick={() => handleAnalystClick(analyst.ANALYST_ID)}
+          />
+        ))}
     </ListContainer>
   );
 };
