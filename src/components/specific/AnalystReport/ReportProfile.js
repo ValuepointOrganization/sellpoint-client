@@ -20,9 +20,6 @@ const ReportProfile = ({
       style={{ alignSelf: "stretch" }}
     >
       <Flex>
-        <LogoWrapper>
-          <NvidiaLogo />
-        </LogoWrapper>
         <CompanyText>{stockName}</CompanyText>
       </Flex>
       <TitleText>{analystReportTitle}</TitleText>
