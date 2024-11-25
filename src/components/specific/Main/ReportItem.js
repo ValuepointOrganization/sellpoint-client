@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Flex, Text } from "../../common/Index";
-import { ReactComponent as NvidiaLogo } from "../../../assets/image/NvidiaLogo.svg";
 import { useNavigate } from "react-router-dom";
 
 const ReportItem = ({ report }) => {

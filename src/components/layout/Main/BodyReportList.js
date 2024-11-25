@@ -4,8 +4,10 @@ import ListContainerHeader from "../../specific/Main/ListContainerHeader";
 import Space from "../../common/Space";
 import ReportItem from "../../specific/Main/ReportItem";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const BodyReportList = () => {
+  const navigate = useNavigate();
   const [reportData, setReportData] = React.useState([]);
   const [error, setError] = React.useState(null);
   React.useEffect(() => {
@@ -30,6 +32,9 @@ const BodyReportList = () => {
         buttonText="리포트 더보기"
         buttonWidth={94}
         buttonHeight={22}
+        onButtonClick={() => {
+          navigate(`/analyst-report-list`);
+        }}
       />
       <Space height="20px" />
       {reportData.slice(0, 3).map((report, index) => {
