@@ -6,44 +6,53 @@ import BodyStockList from "./BodyStockList";
 import BodyAnalystList from "./BodyAnalystList";
 import BodyUserList from "./BodyUserList";
 import BodyReportList from "./BodyReportList";
-
+import SearchResults from "./SearchResults";
 import Space from "../../common/Space";
+import axios from "axios";
 
 const BodyWrapper = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState(null);
 
   // Dummy data for testing
   const dummyResults = [
     {
       type: "애널리스트",
       name: "김투자",
-      description: "삼성증권 수석애널리스트"
+      description: "삼성증권 수석애널리스트",
     },
     {
       type: "종목",
       name: "삼성전자",
-      description: "전자제품 제조 및 판매"
+      description: "전자제품 제조 및 판매",
     },
     {
       type: "리포트",
       name: "2024년 반도체 전망",
-      description: "반도체 시장 분석 및 전망"
-    }
+      description: "반도체 시장 분석 및 전망",
+    },
   ];
 
-  useEffect(() => {
-    if (searchTerm) {
-      // 실제 API 호출 대신 더미 데이터 사용
-      setSearchResults(dummyResults.filter(item => 
-        item.name.includes(searchTerm) || 
-        item.description.includes(searchTerm)
-      ));
-    } else {
-      setSearchResults([]);
+  const fetchSearch = async (searchTerm) => {
+    try {
+      const response = await axios.get(
+        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/search/main?query=${searchTerm}`
+      );
+      setSearchResults(response.data);
+    } catch (err) {
+      setError("Failed to fetch report data");
+      console.log(error);
     }
-  }, [searchTerm]);
+  };
+
+  useEffect(
+    (searchTerm) => {
+      fetchSearch(searchTerm);
+    },
+    [searchTerm]
+  );
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -60,10 +69,7 @@ const BodyWrapper = () => {
   return (
     <>
       {isSearchActive ? (
-        <SearchHeader 
-          onBackClick={handleBackClick}
-          onSearch={handleSearch}
-        />
+        <SearchHeader onBackClick={handleBackClick} onSearch={handleSearch} />
       ) : (
         <SearchBarWrapper>
           <SearchBar onClick={handleSearchClick} />
