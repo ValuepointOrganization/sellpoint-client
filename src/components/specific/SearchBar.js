@@ -33,8 +33,8 @@ const SearchBar = ({
           <SearchIconSvg width="18" height="18" />
           <SearchInput
             placeholder={placeholder}
-            value={searchTerm}
-            onChange={handleInputChange}
+            value={value || ""}
+            onChange={(e) => onChange && onChange(e.target.value)}
           />
           {searchTerm && (
             <CloseIconSvg
