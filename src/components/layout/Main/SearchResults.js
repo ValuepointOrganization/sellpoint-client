@@ -19,7 +19,7 @@ const SearchResults = ({ results }) => {
           ))}
         </ResultSection>
       )}
-      
+
       {results.a && results.a.length > 0 && (
         <ResultSection>
           <SectionTitle>애널리스트</SectionTitle>
@@ -62,7 +62,7 @@ const ResultItem = styled.div`
   background: #f5f6f7;
   border-radius: 8px;
   cursor: pointer;
-  
+
   &:hover {
     background: #e9eaeb;
   }
