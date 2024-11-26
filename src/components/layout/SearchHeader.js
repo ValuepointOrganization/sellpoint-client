@@ -4,7 +4,7 @@ import SearchBar from "../specific/SearchBar";
 import ChevronBack from "../../assets/image/ChevronBack.svg";
 import FilterIcon from "../../assets/image/FilterIcon.svg";
 
-const SearchHeader = ({ onBackClick, type }) => {
+const SearchHeader = ({ onBackClick, type, onSearch }) => {
   let placeholderText = "";
 
   switch (type) {
@@ -28,7 +28,9 @@ const SearchHeader = ({ onBackClick, type }) => {
         placeholder={placeholderText}
         onSubmit={(searchTerm) => {
           console.log("Search submitted:", searchTerm);
-          // 여기에 검색 로직을 구현하세요
+          if (onSearch) {
+            onSearch(searchTerm);
+          }
         }}
       />
       <IconButton

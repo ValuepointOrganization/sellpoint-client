@@ -68,7 +68,10 @@ const SearchBar = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Search submitted:", searchTerm);
-    fetchFunction();
+    if (onClick) {
+      onClick(searchTerm);
+    }
+    fetchFunction && fetchFunction();
   };
 
   const handleInputChange = (e) => {
