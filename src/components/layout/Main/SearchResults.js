@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const SearchResults = ({ results }) => {
+const SearchResults = ({ results, searchTerm }) => {
+  if (!searchTerm.trim()) {
+    return (
+      <ResultsContainer>
+        <NoResults>검색어를 입력해주세요.</NoResults>
+      </ResultsContainer>
+    );
+  }
+
   if (!results) {
     return <></>;
   }

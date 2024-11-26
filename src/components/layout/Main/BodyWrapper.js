@@ -79,7 +79,7 @@ const BodyWrapper = () => {
           </>
         ) : (
           <SearchResultContainer>
-            <SearchResults results={searchResults} />
+            <SearchResults results={searchResults} searchTerm={searchTerm} />
           </SearchResultContainer>
         )}
       </BodyContainer>
