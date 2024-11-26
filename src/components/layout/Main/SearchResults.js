@@ -26,25 +26,15 @@ const SearchResults = ({ results }) => {
         <SectionTitle>애널리스트</SectionTitle>
         {results.a && results.a.length > 0 ? (
           results.a.map((item, index) => (
-            <ResultItem key={`d-${index}`}>
-              <ResultName>{item.STOCK_NAME}</ResultName>
-              <ResultDescription>{item.STOCK_CODE}</ResultDescription>
-            </ResultItem>
-          ))}
-        </ResultSection>
-      )}
-
-      {results.a && results.a.length > 0 && (
-        <ResultSection>
-          <SectionTitle>애널리스트</SectionTitle>
-          {results.a.map((item, index) => (
             <ResultItem key={`a-${index}`}>
               <ResultName>{item.ANALYST_NAME}</ResultName>
               <ResultDescription>{item.COMPANY_NAME}</ResultDescription>
             </ResultItem>
-          ))}
-        </ResultSection>
-      )}
+          ))
+        ) : (
+          <NoResultsSection>애널리스트 검색 결과가 없습니다.</NoResultsSection>
+        )}
+      </ResultSection>
     </ResultsContainer>
   );
 };
