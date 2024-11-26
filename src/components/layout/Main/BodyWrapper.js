@@ -33,8 +33,13 @@ const BodyWrapper = () => {
     fetchSearch(searchTerm);
   }, [searchTerm]);
 
-  const handleSearch = (term) => {
+  const handleSearchChange = (term) => {
     setSearchTerm(term);
+  };
+
+  const handleSearchSubmit = (term) => {
+    setSearchTerm(term);
+    fetchSearch(term);
   };
 
   const handleSearchClick = () => {
@@ -43,12 +48,19 @@ const BodyWrapper = () => {
 
   const handleBackClick = useCallback(() => {
     setIsSearchActive(false);
+    setSearchTerm("");
+    setSearchResults([]);
   }, []);
 
   return (
     <>
       {isSearchActive ? (
-        <SearchHeader onBackClick={handleBackClick} onSearch={handleSearch} />
+        <SearchHeader 
+          onBackClick={handleBackClick}
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+          onSearchSubmit={handleSearchSubmit}
+        />
       ) : (
         <SearchBarWrapper>
           <SearchBar onClick={handleSearchClick} />

@@ -9,77 +9,21 @@ const SearchBar = ({
   height = "50px",
   placeholder = "종목 또는 애널리스트를 검색하세요.",
   onClick,
-  type,
+  value,
+  onChange,
+  onSubmit,
 }) => {
-  const [searchData, setSearchData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const fetchSearchData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/search/main?query=${searchTerm}`
-      );
-      const data = await response.json();
-      setSearchData(data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
-  };
-
-  const fetchReportData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/report/analyst/query/${searchTerm}`
-      );
-      const data = await response.json();
-      setSearchData(data);
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
-  };
-
-  let fetchFunction;
-
-  switch (type) {
-    case "analyst":
-      fetchFunction = fetchReportData;
-      break;
-    case "stock":
-      placeholder = "종목";
-      break;
-    default:
-      fetchFunction = fetchSearchData;
-  }
-
   const handleClick = (e) => {
-    console.log("SearchBar clicked");
-    if (onClick) {
-      onClick(e);
-    }
+    if (onClick) onClick(e);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Search submitted:", searchTerm);
-    if (onClick) {
-      onClick(searchTerm);
-    }
-    fetchFunction && fetchFunction();
-  };
-
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    if (onSubmit) onSubmit(value);
   };
 
   const handleClear = () => {
-    setSearchTerm("");
+    if (onChange) onChange("");
   };
 
   return (

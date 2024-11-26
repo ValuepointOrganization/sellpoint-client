@@ -4,7 +4,7 @@ import SearchBar from "../specific/SearchBar";
 import ChevronBack from "../../assets/image/ChevronBack.svg";
 import FilterIcon from "../../assets/image/FilterIcon.svg";
 
-const SearchHeader = ({ onBackClick, type, onSearch }) => {
+const SearchHeader = ({ onBackClick, type, searchTerm, onSearchChange, onSearchSubmit }) => {
   let placeholderText = "";
 
   switch (type) {
@@ -26,12 +26,9 @@ const SearchHeader = ({ onBackClick, type, onSearch }) => {
         width="275px"
         height="50px"
         placeholder={placeholderText}
-        onSubmit={(searchTerm) => {
-          console.log("Search submitted:", searchTerm);
-          if (onSearch) {
-            onSearch(searchTerm);
-          }
-        }}
+        value={searchTerm}
+        onChange={onSearchChange}
+        onSubmit={onSearchSubmit}
       />
       <IconButton
         onClick={() => {
