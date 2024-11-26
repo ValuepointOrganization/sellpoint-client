@@ -16,24 +16,6 @@ const BodyWrapper = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
 
-  // Dummy data for testing
-  const dummyResults = [
-    {
-      type: "애널리스트",
-      name: "김투자",
-      description: "삼성증권 수석애널리스트",
-    },
-    {
-      type: "종목",
-      name: "삼성전자",
-      description: "전자제품 제조 및 판매",
-    },
-    {
-      type: "리포트",
-      name: "2024년 반도체 전망",
-      description: "반도체 시장 분석 및 전망",
-    },
-  ];
 
   const fetchSearch = async (searchTerm) => {
     try {

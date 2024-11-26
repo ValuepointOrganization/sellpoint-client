@@ -2,19 +2,35 @@ import React from "react";
 import styled from "styled-components";
 
 const SearchResults = ({ results }) => {
-  if (!results || results.length === 0) {
+  if (!results || (!results.d && !results.a)) {
     return <NoResults>검색 결과가 없습니다.</NoResults>;
   }
 
   return (
     <ResultsContainer>
-      {results.map((result, index) => (
-        <ResultItem key={index}>
-          <ResultType>{result.type}</ResultType>
-          <ResultName>{result.name}</ResultName>
-          <ResultDescription>{result.description}</ResultDescription>
-        </ResultItem>
-      ))}
+      {results.d && results.d.length > 0 && (
+        <ResultSection>
+          <SectionTitle>종목</SectionTitle>
+          {results.d.map((item, index) => (
+            <ResultItem key={`d-${index}`}>
+              <ResultName>{item.STOCK_NAME}</ResultName>
+              <ResultDescription>{item.STOCK_CODE}</ResultDescription>
+            </ResultItem>
+          ))}
+        </ResultSection>
+      )}
+      
+      {results.a && results.a.length > 0 && (
+        <ResultSection>
+          <SectionTitle>애널리스트</SectionTitle>
+          {results.a.map((item, index) => (
+            <ResultItem key={`a-${index}`}>
+              <ResultName>{item.ANALYST_NAME}</ResultName>
+              <ResultDescription>{item.COMPANY_NAME}</ResultDescription>
+            </ResultItem>
+          ))}
+        </ResultSection>
+      )}
     </ResultsContainer>
   );
 };
@@ -24,8 +40,21 @@ export default SearchResults;
 const ResultsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   padding: 16px 0;
+`;
+
+const ResultSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+const SectionTitle = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  padding: 0 4px;
 `;
 
 const ResultItem = styled.div`
@@ -39,12 +68,6 @@ const ResultItem = styled.div`
   }
 `;
 
-const ResultType = styled.div`
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 4px;
-`;
-
 const ResultName = styled.div`
   font-size: 16px;
   font-weight: 600;
@@ -53,7 +76,7 @@ const ResultName = styled.div`
 
 const ResultDescription = styled.div`
   font-size: 14px;
-  color: #444;
+  color: #666;
 `;
 
 const NoResults = styled.div`
