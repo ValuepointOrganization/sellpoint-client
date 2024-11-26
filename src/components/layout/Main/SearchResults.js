@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 const SearchResults = ({ results }) => {
   if (!results) {
-    return <NoResults>검색 결과가 없습니다.</NoResults>;
+    return <></>;
   }
 
   return (
     <ResultsContainer>
       <ResultSection>
         <SectionTitle>종목</SectionTitle>
-        {results.d && results.d.length > 0 ? (
-          results.d.map((item, index) => (
+        {results.STOCK_PROFILE && results.STOCK_PROFILE.length > 0 ? (
+          results.STOCK_PROFILE.map((item, index) => (
             <ResultItem key={`d-${index}`}>
               <ResultName>{item.STOCK_NAME}</ResultName>
               <ResultDescription>{item.STOCK_CODE}</ResultDescription>
@@ -24,8 +24,8 @@ const SearchResults = ({ results }) => {
 
       <ResultSection>
         <SectionTitle>애널리스트</SectionTitle>
-        {results.a && results.a.length > 0 ? (
-          results.a.map((item, index) => (
+        {results.ANALYST_PROFILE && results.ANALYST_PROFILE.length > 0 ? (
+          results.ANALYST_PROFILE.map((item, index) => (
             <ResultItem key={`a-${index}`}>
               <ResultName>{item.ANALYST_NAME}</ResultName>
               <ResultDescription>{item.COMPANY_NAME}</ResultDescription>

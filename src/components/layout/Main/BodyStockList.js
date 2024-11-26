@@ -40,7 +40,7 @@ const BodyStockList = () => {
 
     fetchStocks();
   }, []);
-  console.log(stocks);
+  // console.log(stocks);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;

@@ -24,7 +24,7 @@ const BodyReportList = () => {
     };
     fetchReport();
   }, []);
-  console.log(reportData);
+  // console.log(reportData);
   return (
     <ReportListContainer>
       <ListContainerHeader

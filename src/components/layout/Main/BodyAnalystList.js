@@ -39,7 +39,7 @@ const BodyAnalystList = () => {
     fetchAnalysts();
   }, [baseUrl]);
 
-  console.log(analysts);
+  // console.log(analysts);
   return (
     <AnalystListContainer>
       <ListContainerHeader
