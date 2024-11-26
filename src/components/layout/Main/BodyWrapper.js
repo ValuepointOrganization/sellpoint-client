@@ -16,25 +16,22 @@ const BodyWrapper = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
 
-
   const fetchSearch = async (searchTerm) => {
     try {
       const response = await axios.get(
         `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/search/main?query=${searchTerm}`
       );
       setSearchResults(response.data);
+      console.log(response.data);
     } catch (err) {
       setError("Failed to fetch report data");
       console.log(error);
     }
   };
 
-  useEffect(
-    (searchTerm) => {
-      fetchSearch(searchTerm);
-    },
-    [searchTerm]
-  );
+  useEffect(() => {
+    fetchSearch(searchTerm);
+  }, [searchTerm]);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
