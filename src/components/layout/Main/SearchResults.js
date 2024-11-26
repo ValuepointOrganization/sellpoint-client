@@ -2,16 +2,30 @@ import React from "react";
 import styled from "styled-components";
 
 const SearchResults = ({ results }) => {
-  if (!results || (!results.d && !results.a)) {
+  if (!results) {
     return <NoResults>검색 결과가 없습니다.</NoResults>;
   }
 
   return (
     <ResultsContainer>
-      {results.d && results.d.length > 0 && (
-        <ResultSection>
-          <SectionTitle>종목</SectionTitle>
-          {results.d.map((item, index) => (
+      <ResultSection>
+        <SectionTitle>종목</SectionTitle>
+        {results.d && results.d.length > 0 ? (
+          results.d.map((item, index) => (
+            <ResultItem key={`d-${index}`}>
+              <ResultName>{item.STOCK_NAME}</ResultName>
+              <ResultDescription>{item.STOCK_CODE}</ResultDescription>
+            </ResultItem>
+          ))
+        ) : (
+          <NoResultsSection>종목 검색 결과가 없습니다.</NoResultsSection>
+        )}
+      </ResultSection>
+
+      <ResultSection>
+        <SectionTitle>애널리스트</SectionTitle>
+        {results.a && results.a.length > 0 ? (
+          results.a.map((item, index) => (
             <ResultItem key={`d-${index}`}>
               <ResultName>{item.STOCK_NAME}</ResultName>
               <ResultDescription>{item.STOCK_CODE}</ResultDescription>
@@ -83,4 +97,12 @@ const NoResults = styled.div`
   text-align: center;
   padding: 32px;
   color: #666;
+`;
+
+const NoResultsSection = styled.div`
+  text-align: center;
+  padding: 16px;
+  color: #666;
+  background: #f5f6f7;
+  border-radius: 8px;
 `;
