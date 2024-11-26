@@ -36,7 +36,7 @@ const SearchBar = ({
             value={value || ""}
             onChange={(e) => onChange && onChange(e.target.value)}
           />
-          {searchTerm && (
+          {value && (
             <CloseIconSvg
               width="18"
               height="18"
