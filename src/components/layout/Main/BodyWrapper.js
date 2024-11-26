@@ -30,19 +30,21 @@ const BodyWrapper = () => {
         </SearchBarWrapper>
       )}
       <BodyContainer isSearchActive={isSearchActive}>
-        {!isSearchActive && (
+        {!isSearchActive ? (
           <>
             <MainLine>숨겨진 매도 의견을{"\n"}확인해보세요.</MainLine>
+            <Space height="128px" />
+            <BodyStockList />
+            <Space height="64px" />
+            <BodyAnalystList />
+            <Space height="64px" />
+            <BodyReportList />
           </>
+        ) : (
+          <SearchResultContainer>
+            {/* Search results will go here */}
+          </SearchResultContainer>
         )}
-        <Space height={isSearchActive ? "7px" : "128px"} />
-        <BodyStockList />
-        <Space height="64px" />
-        <BodyAnalystList />
-        {/* <Space height="64px" />
-        <BodyUserList /> */}
-        <Space height="64px" />
-        <BodyReportList />
       </BodyContainer>
     </>
   );
@@ -67,4 +69,10 @@ const MainLine = styled.p`
   font-weight: 800;
   line-height: 160%;
   white-space: pre-line;
+`;
+
+const SearchResultContainer = styled.div`
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  background: white;
 `;
