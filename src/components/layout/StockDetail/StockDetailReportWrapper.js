@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex } from "../../common/Index";
+import { Flex, Text } from "../../common/Index";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import StockDetailReportSelect from "../../specific/StockDetail/StockDetailReportSelect";
@@ -39,25 +39,40 @@ const StockDetailReportWrapper = () => {
           setReportType={setReportType}
         />
       </Flex>
-      <Flex
-        align="flex-start"
-        gap="20px"
-        direction="column"
-        style={{
-          padding: "0px 20px 100px 20px",
-          background: "#FAFAFA;",
-        }}
-      >
-        <StockDetailReportBrief
-          reportType={reportType}
-          reportNum={reportList.length}
-        />
-        <ReportSearchBar
-          placeholder="애널리스트를 검색하세요."
-          style={{ border: "1px #E6E9ED" }}
-        />
-        <ScrollableReportList reports={reportList} />
-      </Flex>
+      {reportType === "analyst" ? (
+        <Flex
+          align="flex-start"
+          gap="20px"
+          direction="column"
+          style={{
+            padding: "0px 20px 100px 20px",
+            background: "#FAFAFA;",
+          }}
+        >
+          <StockDetailReportBrief
+            reportType={reportType}
+            reportNum={reportList.length}
+          />
+          <ReportSearchBar
+            placeholder="애널리스트를 검색하세요."
+            style={{ border: "1px #E6E9ED" }}
+          />
+          <ScrollableReportList reports={reportList} />
+        </Flex>
+      ) : (
+        <Flex
+          justify="center"
+          align="center"
+          style={{
+            padding: "100px 20px",
+            background: "#FAFAFA",
+          }}
+        >
+          <Text fontSize="16px" color="#666">
+            준비 중입니다
+          </Text>
+        </Flex>
+      )}
     </React.Fragment>
   );
 };
