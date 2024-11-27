@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SearchResults = ({ results, searchTerm }) => {
+  const navigate = useNavigate();
+
   if (!searchTerm.trim()) {
     return (
       <ResultsContainer>
@@ -22,7 +25,7 @@ const SearchResults = ({ results, searchTerm }) => {
           results.STOCK_PROFILE.map((item, index) => (
             <ResultItem key={`d-${index}`}>
               <ResultName>{item.STOCK_NAME}</ResultName>
-              <ResultDescription>{item.STOCK_CODE}</ResultDescription>
+              <ResultDescription>{item.CODE}</ResultDescription>
             </ResultItem>
           ))
         ) : (
@@ -36,7 +39,7 @@ const SearchResults = ({ results, searchTerm }) => {
           results.ANALYST_PROFILE.map((item, index) => (
             <ResultItem key={`a-${index}`}>
               <ResultName>{item.ANALYST_NAME}</ResultName>
-              <ResultDescription>{item.COMPANY_NAME}</ResultDescription>
+              <ResultDescription>{item.ANALYST_COMPANY}</ResultDescription>
             </ResultItem>
           ))
         ) : (

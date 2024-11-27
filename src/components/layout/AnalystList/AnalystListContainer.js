@@ -13,7 +13,7 @@ const AnalystListContainer = () => {
         `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/analyst`
       );
       const data = response.data;
-      console.log(data);
+      // console.log(data);
       setAnalystProfile(data);
     } catch (err) {
       console.error(err);
