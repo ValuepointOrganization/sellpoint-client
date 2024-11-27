@@ -23,7 +23,12 @@ const SearchResults = ({ results, searchTerm }) => {
         <SectionTitle>종목</SectionTitle>
         {results.STOCK_PROFILE && results.STOCK_PROFILE.length > 0 ? (
           results.STOCK_PROFILE.map((item, index) => (
-            <ResultItem key={`d-${index}`}>
+            <ResultItem
+              key={`d-${index}`}
+              onClick={() => {
+                navigate(`/stock/${item.STOCK_ID}`);
+              }}
+            >
               <ResultName>{item.STOCK_NAME}</ResultName>
               <ResultDescription>{item.CODE}</ResultDescription>
             </ResultItem>
@@ -37,7 +42,12 @@ const SearchResults = ({ results, searchTerm }) => {
         <SectionTitle>애널리스트</SectionTitle>
         {results.ANALYST_PROFILE && results.ANALYST_PROFILE.length > 0 ? (
           results.ANALYST_PROFILE.map((item, index) => (
-            <ResultItem key={`a-${index}`}>
+            <ResultItem
+              key={`a-${index}`}
+              onClick={() => {
+                navigate(`/analyst/${item.ANALYST_ID}`);
+              }}
+            >
               <ResultName>{item.ANALYST_NAME}</ResultName>
               <ResultDescription>{item.ANALYST_COMPANY}</ResultDescription>
             </ResultItem>
