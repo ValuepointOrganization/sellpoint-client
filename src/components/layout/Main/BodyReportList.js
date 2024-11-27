@@ -14,7 +14,7 @@ const BodyReportList = () => {
     const fetchReport = async () => {
       try {
         const response = await axios.get(
-          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/report/analyst?`
+          `https://port-0-server-lzz7360l6d1cd162.sel4.cloudtype.app/api/report/analyst/top5`
         );
         setReportData(response.data);
       } catch (err) {
