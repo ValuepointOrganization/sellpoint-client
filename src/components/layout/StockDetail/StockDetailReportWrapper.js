@@ -45,14 +45,14 @@ const StockDetailReportWrapper = () => {
           gap="20px"
           direction="column"
           style={{
-            padding: "0px 20px 100px 20px",
+            padding: "20px 20px 100px 20px",
             background: "#FAFAFA;",
           }}
         >
-          <StockDetailReportBrief
+          {/* <StockDetailReportBrief
             reportType={reportType}
             reportNum={reportList.length}
-          />
+          /> */}
           <ReportSearchBar
             placeholder="애널리스트를 검색하세요."
             style={{ border: "1px #E6E9ED" }}
@@ -66,6 +66,7 @@ const StockDetailReportWrapper = () => {
           style={{
             padding: "100px 20px",
             background: "#FAFAFA",
+            height: "100%",
           }}
         >
           <Text fontSize="16px" color="#666">
